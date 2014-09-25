@@ -1,4 +1,22 @@
 # -*- coding: utf-8 -*-
+# --------------------------------
+# Copyright (c) 2014 "Capensis" [http://www.capensis.com]
+#
+# This file is part of Canopsis.
+#
+# Canopsis is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Canopsis is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with Canopsis.  If not, see <http://www.gnu.org/licenses/>.
+# ---------------------------------
 
 from os import chdir, makedirs, remove, rename
 from os.path import isdir, isfile, exists, basename
@@ -23,6 +41,9 @@ class DocBuilder:
     """Contains imperative style methods to build documentation"""
 
     def __init__(self):
+        # Loads conf
+        JsonConfigurationLoader()
+
         # Remove previous log in case of rebuilding
         if isfile(LOG_FILE):
             remove(LOG_FILE)
@@ -30,7 +51,7 @@ class DocBuilder:
         # Make sure we do not overwrite something
         if exists('doc'):
             self.log(
-                'A directory named \'doc\' already exists : aborting procedure')
+                'A directory named \'doc\' exists : aborting procedure')
             quit()
         else:
             self.log('Creating directory \'doc\'')
@@ -44,7 +65,7 @@ class DocBuilder:
             SPHINX_INDEX['dir'],
             SPHINX_INDEX['branch'],
             SPHINX_INDEX['repo']
-            )
+        )
         self.mvrm(SPHINX_INDEX['dir'], '.')
         remove('doc_builder.py')
         remove('doc_builder.json')
@@ -63,14 +84,12 @@ class DocBuilder:
                             new_index.write(HTML_INDEX_TITLE.format(
                                 version_name,
                                 version_name.capitalize()
-                                )
-                            )
+                            ))
                         if CONNECTORS:
                             new_index.write(HTML_INDEX_TITLE.format(
                                 'connectors',
                                 'Connectors'
-                                )
-                            )
+                                ))
         rename('new_index.html', 'index.html')
 
     def autodoc(self):
@@ -88,15 +107,14 @@ class DocBuilder:
                 auto_lib['sources'],
                 auto_lib['branch'],
                 auto_lib['repo']
-                )
+            )
 
             for project in glob(auto_lib['packages']):
                 if isdir(project):  # ignore isolated files
-                    print project
                     self.sphinx_apidoc(
                         project,
                         '{0}_AUTODOC'.format(auto_lib['version'])
-                        )
+                    )
             # we don't need sources anymore
             rmtree(auto_lib['sources'].split('/')[-1])
 
@@ -109,8 +127,7 @@ class DocBuilder:
                           '===\n\n'
                           '.. toctree::\n'
                           '   :maxdepth: 1\n'
-                          '   :titlesonly:\n\n'
-                          )
+                          '   :titlesonly:\n\n')
 
             for rst in glob('*.rst'):  # rst files are in subdirectories
                 # modules.rst and canopsis.rst are heavy to read
@@ -130,7 +147,7 @@ class DocBuilder:
                 version['dir'],
                 version['branch'],
                 version['repo']
-                )
+            )
 
             final_directory = version['dir'].split('/')[-1]
             autodoc_tmp_dir = final_directory + '_AUTODOC'
@@ -160,7 +177,7 @@ class DocBuilder:
                 connector['dir'],
                 connector['branch'],
                 connector['repo']
-                )
+            )
 
             for rst in glob('doc/*.rst'):
                 index_entry = rst[4:-4]  # doc/connector.rst --> connector
@@ -231,7 +248,7 @@ class DocBuilder:
             directory,
             branch,
             repo
-            )
+        )
         self.log(message)
 
         # Sparse checkout `directory` will checkout `directory`/subtree
@@ -270,30 +287,30 @@ class DocBuilder:
         return self.cmd('sphinx-apidoc', '-o', doc_path, source_path)
 
 
-def load_conf():
+class JsonConfigurationLoader():
     """Loads configuration from CONF_FILE (json)"""
 
-    with open(CONF_FILE) as conf_file:
-        conf = load(conf_file)
+    def __init__(self):
+        with open(CONF_FILE) as conf_file:
+            conf = load(conf_file)
 
-    global SPHINX_INDEX
-    SPHINX_INDEX = conf['sphinx_index']
-    global HTML_INDEX_TITLE
-    HTML_INDEX_TITLE = conf['html_index_titles']
-    global VERSIONS
-    VERSIONS = conf['versions']
-    global AUTO_LIBS
-    AUTO_LIBS = conf['auto_libs']
-    global AUTODOC_DIRECTORY
-    AUTODOC_DIRECTORY = conf['autodoc_directory']
-    global CONNECTORS
-    CONNECTORS = conf['connectors']
-    global LOG_FILE
-    LOG_FILE = conf['log_file']
+        global SPHINX_INDEX
+        SPHINX_INDEX = conf['sphinx_index']
+        global HTML_INDEX_TITLE
+        HTML_INDEX_TITLE = conf['html_index_titles']
+        global VERSIONS
+        VERSIONS = conf['versions']
+        global AUTO_LIBS
+        AUTO_LIBS = conf['auto_libs']
+        global AUTODOC_DIRECTORY
+        AUTODOC_DIRECTORY = conf['autodoc_directory']
+        global CONNECTORS
+        CONNECTORS = conf['connectors']
+        global LOG_FILE
+        LOG_FILE = conf['log_file']
 
 
 if __name__ == '__main__':
-    load_conf()
     doc_builder = DocBuilder()
 
     doc_builder.sphinx_index()
@@ -307,3 +324,4 @@ if __name__ == '__main__':
     else:
         rmtree('connectors')
     doc_builder.finish()
+
