@@ -25,7 +25,7 @@ from glob import glob
 from subprocess import Popen, PIPE
 from shutil import rmtree, move, copy
 
-CONF_FILE = '/opt/canopsis/doc_builder.json'
+CONF_FILE = 'doc_builder.json'
 
 # constants are json-parsed from CONF_FILE
 SPHINX_INDEX = {}

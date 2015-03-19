@@ -33,7 +33,7 @@
       "version": "sakura"
     }
   ],
-  "autodoc_directory": "/developer-guide/others/API",
+  "autodoc_directory": "/developer-guide/frontend",
   "connectors": [
     {
       "repo": "mod-canopsis",
