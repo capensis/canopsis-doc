@@ -71,11 +71,11 @@ directory. Be sure to have python package Sphinx installed.
 If you want a global documentation, you must be in a canopsis environnement:
  - Copy ``doc_builder.json`` and ``doc_builder.py`` in the Canopsis install folder (/opt/canopsis)
  - Go to Canopsis install folder
- - Edit doc_builder.json accordingly to include what you want. .. documentation needed here
+ - Edit doc_builder.json accordingly to include what you want (information below).
  - Run ``python doc_builder.py`` to start doc building. This will fetch and build documentation in a ``/opt/canopsis/doc`` folder
 
-3.a doc_builder.json
---------------------
+3.a global documentation configuration: doc_builder.json
+--------------------------------------------------------
   - sphinx_index : core documentation to link subparts.
   - html_index_titles : HTML tags in the root index for main parts.
   - versions : ficus/sakura and their doc folder.
