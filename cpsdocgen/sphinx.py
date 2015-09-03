@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from cpsdocgen import Settings
+from redbaron import RedBaron
 import subprocess
 import os
 
@@ -35,6 +37,50 @@ class SphinxGenerator(object):
             subprocess.check_call(self.preparecmd, stdout=null, stderr=null)
 
     def __exit__(self, *args, **kwargs):
-        print('-- Update Sphinx configuration (not yet implemented)')
+        print('-- Update Sphinx configuration')
         path = os.path.join(self.docdir, 'conf.py')
 
+        with open(path) as f:
+            red = RedBaron(f.read())
+
+        self.add_path(red, 'html_theme_path', '_themes')
+        self.add_path(red, 'html_static_path', '_static')
+
+        themenode = red.find(
+            'assignment',
+            target=lambda node: node.value == 'html_theme'
+        )
+
+        themenode.value.replace('"{0}"'.format(self.settings.sphinx_theme))
+
+        with open(path, 'w') as f:
+            f.write(red.dumps())
+
+    def add_path(self, red, var, basepath):
+        pathlistnode = red.find(
+            'assignment',
+            target=lambda node: node.value == var
+        )
+
+        if pathlistnode is None:
+            red.append('{0} = []'.format(var))
+
+            pathlistnode = red.find(
+                'assignment',
+                target=lambda node: node.value == var
+            )
+
+        for namespace in self.settings.namespaces():
+            for repository in self.settings.repositories(namespace):
+                path = os.path.join(
+                    namespace, repository[Settings.fields.repo],
+                    basepath
+                )
+
+                indocpath = os.path.join(self.settings.target, 'doc', path)
+
+                if os.path.exists(indocpath):
+                    newval = "'{0}'".format(path)
+
+                    if pathlistnode.value.find('string', value=newval) is None:
+                        pathlistnode.value.append(newval)

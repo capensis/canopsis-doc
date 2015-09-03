@@ -13,6 +13,7 @@ class Settings(object):
         global_index = 'index.global'
         namespace_index = 'index.namespace'
 
+        sphinx_theme = 'sphinx.theme'
         sphinx_project = 'sphinx.project'
         sphinx_author = 'sphinx.author'
         sphinx_version = 'sphinx.version'
@@ -27,6 +28,8 @@ class Settings(object):
         giturl = 'https://github.com/'
 
         target = 'public'
+
+        sphinx_theme = 'sphinx_rtd_theme'
 
         branch = 'master'
         docdir = 'doc'
@@ -80,6 +83,10 @@ class Settings(object):
     @property
     def namespace_index(self):
         return self._get_field(Settings.fields.namespace_index)
+
+    @property
+    def sphinx_theme(self):
+        return self._get_field(Settings.fields.sphinx_theme)
 
     @property
     def sphinx_project(self):

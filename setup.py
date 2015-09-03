@@ -11,7 +11,7 @@ DL_URL = '{0}/repository/archive.tar.gz?ref=v0.1a'.format(BASE_URL)
 setup(
     name='cpsdocgen',
     version='0.1a',
-    license='MIT',
+    license='AGPL',
 
     author='Capensis',
     author_email='contact@capensis.fr',
@@ -26,7 +26,8 @@ setup(
     install_requires=[
         'argparse>=1.2.1',
         'jinja2>=2.7.3',
-        'pygit2>=0.22.1',
-        'Sphinx>=1.3.1'
+        'pygit2==0.22.1',
+        'Sphinx>=1.3.1',
+        'redbaron>=0.5'
     ]
 )

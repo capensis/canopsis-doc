@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-'
 
-from cpsdocgen.settings import Settings
+from cpsdocgen import Settings
 from shutil import copyfile
 import os
 
