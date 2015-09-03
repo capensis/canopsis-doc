@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from cpsdocgen import Application
+import traceback
+import pdb
+import sys
+import os
+
+
+if __name__ == '__main__':
+    try:
+        app = Application(sys.argv[1:])
+        sys.exit(app())
+
+    except Exception as err:
+        if os.getenv('DEBUG') == '1':
+            _, _, tb = sys.exc_info()
+            traceback.print_exc()
+            pdb.post_mortem(tb)
+
+        else:
+            raise err
