@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Canopsis documentation build configuration file, created by
-# sphinx-quickstart on Fri Sep  4 10:20:38 2015.
+# sphinx-quickstart on Fri Sep  4 16:14:31 2015.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
