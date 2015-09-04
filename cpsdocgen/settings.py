@@ -9,13 +9,18 @@ class Settings(object):
         gituser = 'git.user'
         gitpass = 'git.pass'
 
-        target = 'target'
+        target_folder = 'target.folder'
+        target_git = 'target.git'
+        target_branch = 'target.branch'
+        target_push = 'target.push'
+
         global_index = 'index.global'
         namespace_index = 'index.namespace'
 
         sphinx_theme = 'sphinx.theme'
         sphinx_project = 'sphinx.project'
         sphinx_author = 'sphinx.author'
+        sphinx_email = 'sphinx.email'
         sphinx_version = 'sphinx.version'
         sphinx_release = 'sphinx.release'
 
@@ -27,7 +32,9 @@ class Settings(object):
     class defaults:
         giturl = 'https://github.com/'
 
-        target = 'public'
+        target_folder = 'public'
+        target_branch = 'master'
+        target_push = False
 
         sphinx_theme = 'sphinx_rtd_theme'
 
@@ -73,8 +80,20 @@ class Settings(object):
         return self._get_field(Settings.fields.gitpass)
 
     @property
-    def target(self):
-        return self._get_field(Settings.fields.target)
+    def target_folder(self):
+        return self._get_field(Settings.fields.target_folder)
+
+    @property
+    def target_git(self):
+        return self._get_field(Settings.fields.target_git)
+
+    @property
+    def target_branch(self):
+        return self._get_field(Settings.fields.target_branch)
+
+    @property
+    def target_push(self):
+        return self._get_field(Settings.fields.target_push)
 
     @property
     def global_index(self):
@@ -95,6 +114,10 @@ class Settings(object):
     @property
     def sphinx_author(self):
         return self._get_field(Settings.fields.sphinx_author)
+
+    @property
+    def sphinx_email(self):
+        return self._get_field(Settings.fields.sphinx_email)
 
     @property
     def sphinx_version(self):

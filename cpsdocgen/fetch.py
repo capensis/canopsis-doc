@@ -27,8 +27,7 @@ class Fetch(object):
     @property
     def repodest(self):
         return os.path.join(
-            os.getcwd(),
-            self.settings.target,
+            self.settings.target_folder,
             'git',
             self.namespace,
             self.repo[Settings.fields.repo]
@@ -49,15 +48,25 @@ class Fetch(object):
             # Create and init repository
             os.makedirs(self.repodest)
 
+            # git init
             repo = pygit2.init_repository(
                 self.repodest
             )
 
+            # git remote add origin <self.repourl>
             remote = repo.create_remote('origin', self.repourl)
 
+            print('---- Fetch from remote')
+            remote.credentials = pygit2.UserPass(
+                self.settings.gituser,
+                self.settings.gitpass
+            )
+            remote.fetch()
+
+            # git branch master --set-upstream=origin/master
             repo.create_reference(
                 'refs/heads/master',
-                'refs/remotes/origin/master'
+                repo.lookup_reference('refs/remotes/origin/master').target
             )
 
             # edit .git/config to avoid cloning the whole data
@@ -94,15 +103,14 @@ class Fetch(object):
 
             remote = repo.remotes[0]
 
-        # Fetch data from remote
-        print('---- Fetch from remote')
+            print('---- Fetch from remote')
+            remote.credentials = pygit2.UserPass(
+                self.settings.gituser,
+                self.settings.gitpass
+            )
+            remote.fetch()
 
-        remote.credentials = pygit2.UserPass(
-            self.settings.gituser,
-            self.settings.gitpass
-        )
-        remote.fetch()
-
+        # prepare merge
         rrefname = 'refs/remotes/origin/{0}'.format(self.branch)
         rref = repo.lookup_reference(rrefname)
         trefname = 'refs/heads/{0}'.format(self.branch)
@@ -111,11 +119,14 @@ class Fetch(object):
             repo.lookup_reference(trefname)
 
         except KeyError:
-            repo.create_reference(trefname, rrefname)
+            repo.create_reference(
+                trefname,
+                repo.lookup_reference(rrefname).target
+            )
 
         repo.head.set_target(rref.target)
 
-        # Checkout working directory
+        # git checkout HEAD
         repo.checkout_head()
 
         return repo.workdir

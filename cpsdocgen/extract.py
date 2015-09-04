@@ -32,8 +32,7 @@ class Extractor(object):
     @property
     def targetdir(self):
         return os.path.join(
-            os.getcwd(),
-            self.settings.target,
+            self.settings.target_folder,
             'doc'
         )
 

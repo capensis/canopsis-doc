@@ -13,8 +13,7 @@ class SphinxGenerator(object):
         self.settings = settings
 
         self.docdir = os.path.join(
-            os.getcwd(),
-            self.settings.target,
+            self.settings.target_folder,
             'doc'
         )
 
@@ -56,6 +55,12 @@ class SphinxGenerator(object):
         with open(path, 'w') as f:
             f.write(red.dumps())
 
+        print(
+            'Sphinx project is now buildable with ``make html`` in {0}'.format(
+                self.docdir
+            )
+        )
+
     def add_path(self, red, var, basepath):
         pathlistnode = red.find(
             'assignment',
@@ -77,7 +82,11 @@ class SphinxGenerator(object):
                     basepath
                 )
 
-                indocpath = os.path.join(self.settings.target, 'doc', path)
+                indocpath = os.path.join(
+                    self.settings.target_folder,
+                    'doc',
+                    path
+                )
 
                 if os.path.exists(indocpath):
                     newval = "'{0}'".format(path)

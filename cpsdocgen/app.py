@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from cpsdocgen import Settings, Extractor, Fetch, Templater, SphinxGenerator
+from cpsdocgen import Settings
+from cpsdocgen import Extractor, Fetch, Push
+from cpsdocgen import Templater, SphinxGenerator
 from argparse import ArgumentParser
 
 import os
@@ -62,3 +64,9 @@ class Application(object):
             paths = self.iter_repos()
             self.iter_paths(paths)
             self.render_templates()
+
+        if self.settings.target_push:
+            push = Push(self.settings)
+            repo = push.init_repo()
+            commit = push.init_commit(repo)
+            push.push_commit(repo, commit)

@@ -27,7 +27,7 @@ class Templater(object):
     def genindex(self):
         print('-- Generate template index')
 
-        path = os.path.join(self.settings.target, 'doc', 'index.rst')
+        path = os.path.join(self.settings.target_folder, 'doc', 'index.rst')
         context = {
             'namespaces': list(self.settings.namespaces())
         }
@@ -41,7 +41,7 @@ class Templater(object):
             print('-- Generate template {0}/index'.format(namespace))
 
             path = os.path.join(
-                self.settings.target,
+                self.settings.target_folder,
                 'doc', namespace,
                 'index.rst'
             )
