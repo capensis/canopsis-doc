@@ -8,3 +8,5 @@ canopsis-ui-bricks Documentation
 
 
    brick-simpletile/index
+
+   brick-piechart/index
