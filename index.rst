@@ -12,3 +12,5 @@ Canopsis Documentation
    canopsis-connectors/index
 
    canopsis-ui-bricks/index
+
+   cat/index
