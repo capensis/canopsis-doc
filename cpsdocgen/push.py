@@ -2,6 +2,7 @@
 
 from datetime import datetime
 from shutil import copyfile
+import subprocess
 import pygit2
 import os
 
@@ -54,36 +55,42 @@ class Push(object):
             remote = repo.create_remote('origin', self.repourl)
             remote.add_push('+refs/heads/*:refs/remotes/origin/*')
 
-            # git fetch
-            remote.credentials = pygit2.UserPass(
-                self.settings.gituser,
-                self.settings.gitpass
-            )
+        else:
+            repo = pygit2.init_repository(self.workdir)
+            remote = repo.remotes[0]
+            remote.add_push('+refs/heads/*:refs/remotes/origin/*')
 
-            remote.fetch()
+        # git fetch
+        remote.credentials = self.settings.get_git_creds()
 
-            for branch in ['master', self.settings.target_branch]:
-                # git branch <branch> --set-upstream=origin/<branch>
+        remote.fetch()
+
+        for branch in ['master', self.settings.target_branch]:
+            # git branch <branch> --set-upstream=origin/<branch>
+            refname = 'refs/heads/{0}'.format(branch)
+
+            try:
+                repo.lookup_reference(refname)
+
+            except KeyError:
                 repo.create_reference(
-                    'refs/heads/{0}'.format(branch),
+                    refname,
                     repo.lookup_reference(
                         'refs/remotes/origin/{0}'.format(branch)
                     ).target
                 )
 
-            # git merge / git checkout HEAD
-            rrefname = 'refs/remotes/origin/{0}'.format(
-                self.settings.target_branch
-            )
-            rref = repo.lookup_reference(rrefname)
+        # git merge / git checkout HEAD
+        rrefname = 'refs/remotes/origin/{0}'.format(
+            self.settings.target_branch
+        )
+        rref = repo.lookup_reference(rrefname)
+        trefname = 'refs/heads/{0}'.format(self.settings.target_branch)
+        tref = repo.lookup_reference(trefname)
 
-            repo.head.set_target(rref.target)
-            repo.checkout_head()
-
-        else:
-            repo = pygit2.init_repository(self.workdir)
-            remote = repo.remotes[0]
-            remote.add_push('+refs/heads/*:refs/remotes/origin/*')
+        repo.set_head(tref.target)
+        repo.head.set_target(rref.target)
+        repo.checkout_head()
 
         return repo
 
@@ -156,12 +163,17 @@ class Push(object):
         return repo[commit]
 
     def push_commit(self, repo, commit):
-        remote = repo.remotes[0]
-        remote.credentials = pygit2.UserPass(
-            self.settings.gituser,
-            self.settings.gitpass
-        )
+        #remote = repo.remotes[0]
+        #remote.credentials = self.settings.get_git_creds()
+        #
+        #remote.push_url = self.repourl
+        #remote.push([
+        #    'refs/heads/{0}'.format(
+        #        self.settings.target_branch
+        #    )
+        #])
 
-        remote.push([
-            'refs/heads/{0}'.format(self.settings.target_branch)
-        ])
+        oldroot = os.getcwd()
+        os.chdir(self.workdir)
+        subprocess.call(['git', 'push', 'origin', self.settings.target_branch])
+        os.chdir(oldroot)

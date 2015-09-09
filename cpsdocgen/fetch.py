@@ -57,10 +57,7 @@ class Fetch(object):
             remote = repo.create_remote('origin', self.repourl)
 
             print('---- Fetch from remote')
-            remote.credentials = pygit2.UserPass(
-                self.settings.gituser,
-                self.settings.gitpass
-            )
+            remote.credentials = self.settings.get_git_creds()
             remote.fetch()
 
             # git branch master --set-upstream=origin/master
@@ -116,14 +113,15 @@ class Fetch(object):
         trefname = 'refs/heads/{0}'.format(self.branch)
 
         try:
-            repo.lookup_reference(trefname)
+            tref = repo.lookup_reference(trefname)
 
         except KeyError:
-            repo.create_reference(
+            tref = repo.create_reference(
                 trefname,
                 repo.lookup_reference(rrefname).target
             )
 
+        repo.set_head(tref.target)
         repo.head.set_target(rref.target)
 
         # git checkout HEAD

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from urlparse import urlparse
+import pygit2
 import json
 
 
@@ -138,3 +140,17 @@ class Settings(object):
 
         for repo in self._get_field(repofield).get(namespace):
             yield repo
+
+    def get_git_creds(self):
+        url = urlparse(self.giturl)
+
+        if url.scheme in ['http', 'https']:
+            creds = pygit2.UserPass(
+                self.gituser,
+                self.gitpass
+            )
+
+        else:
+            creds = pygit2.KeypairFromAgent(self.gituser)
+
+        return creds
