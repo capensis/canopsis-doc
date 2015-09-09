@@ -1,9 +1,9 @@
-canopsis-connectors Documentation
-===========================
+Canopsis Connectors
+==========================================
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
    :titlesonly:
 
 

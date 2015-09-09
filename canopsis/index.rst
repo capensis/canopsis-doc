@@ -1,9 +1,9 @@
-canopsis Documentation
-===========================
+Canopsis
+==========================================
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
    :titlesonly:
 
 

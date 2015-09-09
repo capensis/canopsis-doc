@@ -1,10 +1,12 @@
-canopsis-ui-bricks Documentation
-===========================
+Canopsis Ui Bricks
+==========================================
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
    :titlesonly:
 
 
    brick-simpletile/index
+
+   brick-piechart/index
