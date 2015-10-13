@@ -1,5 +1,5 @@
-{{namespace}} Documentation
-===========================
+{{namespace|title|replace("-", " ")}}
+==========================================
 
 
 .. toctree::
