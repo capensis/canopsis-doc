@@ -10,7 +10,7 @@ Requirements
 You need to install the following packages before :
 
  - python-dev
- - libgit2-dev 0.22.1
+ - libgit2-dev 0.23.3
 
 Installation
 ------------
@@ -32,3 +32,51 @@ See config example in ``etc/cpsdocgen.conf``.
 Then just call :
 
     $ cpsdocgen -c etc/cpsdocgen.conf
+
+
+Supported clone/fetch methods:
+
+- HTTPS
+- HTTP
+- SSH
+
+
+Example with HTTP/HTTPS:
+
+```json
+{
+    "git": {
+        "url": "https://host",
+        "user": "gitlab_user",
+        "pass": "user_password"
+    }
+}
+```
+
+Example with SSH, with agent:
+
+```json
+{
+    "git": {
+        "url": "ssh://git@host:port",
+        "ssh_pub": null,
+        "ssh_priv": null,
+        "ssh_passphrase": ""
+    }
+}
+```
+
+Example with SSH, without agent:
+
+```json
+{
+    "git": {
+        "url": "ssh://git@host:port",
+        "ssh_pub": "/home/user/.ssh/id_rsa.pub",
+        "ssh_priv": "/home/user/.ssh/id_rsa",
+        "ssh_passphrase": "passphrase"
+    }
+}
+```
+
+If no passphrase is required, give an **empty string**, not `null`.
