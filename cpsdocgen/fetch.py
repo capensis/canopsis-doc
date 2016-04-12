@@ -4,9 +4,10 @@ from cpsdocgen import Settings
 
 from ConfigParser import ConfigParser
 from StringIO import StringIO
-import pygit2
+
 import os
 
+import pygit2
 
 class Fetch(object):
     def __init__(self, settings, namespace, repository, *args, **kwargs):
@@ -42,6 +43,9 @@ class Fetch(object):
 
     def init_repo(self):
         # initialize repository
+        credentials = self.settings.get_git_creds()
+        callbacks = pygit2.RemoteCallbacks(credentials=credentials)
+
         if not os.path.exists(self.repodest):
             print('---- Clone repository')
 
@@ -57,8 +61,7 @@ class Fetch(object):
             remote = repo.create_remote('origin', self.repourl)
 
             print('---- Fetch from remote')
-            remote.credentials = self.settings.get_git_creds()
-            remote.fetch()
+            remote.fetch(callbacks=callbacks)
 
             # git branch master --set-upstream=origin/master
             repo.create_reference(
@@ -101,11 +104,7 @@ class Fetch(object):
             remote = repo.remotes[0]
 
             print('---- Fetch from remote')
-            remote.credentials = pygit2.UserPass(
-                self.settings.gituser,
-                self.settings.gitpass
-            )
-            remote.fetch()
+            remote.fetch(callbacks=callbacks)
 
         # prepare merge
         rrefname = 'refs/remotes/origin/{0}'.format(self.branch)

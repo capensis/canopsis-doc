@@ -6,10 +6,16 @@ import json
 
 
 class Settings(object):
+
+
     class fields:
         giturl = 'git.url'
         gituser = 'git.user'
         gitpass = 'git.pass'
+
+        gitkeypub = 'git.ssh_pub'
+        gitkeypriv = 'git.ssh_priv'
+        gitkeypassphrase = 'git.ssh_passphrase'
 
         target_folder = 'target.folder'
         target_git = 'target.git'
@@ -82,6 +88,18 @@ class Settings(object):
         return self._get_field(Settings.fields.gitpass)
 
     @property
+    def gitkeypub(self):
+        return self._get_field(Settings.fields.gitkeypub)
+
+    @property
+    def gitkeypriv(self):
+        return self._get_field(Settings.fields.gitkeypriv)
+
+    @property
+    def gitkeypassphrase(self):
+        return self._get_field(Settings.fields.gitkeypassphrase)
+
+    @property
     def target_folder(self):
         return self._get_field(Settings.fields.target_folder)
 
@@ -150,7 +168,9 @@ class Settings(object):
                 self.gitpass
             )
 
+        elif self.gitkeypub is None or self.gitkeypriv is None:
+            creds = pygit2.KeypairFromAgent(url.username)
         else:
-            creds = pygit2.KeypairFromAgent(self.gituser)
+            creds = pygit2.Keypair(url.username, self.gitkeypub, self.gitkeypriv, self.gitkeypassphrase)
 
         return creds

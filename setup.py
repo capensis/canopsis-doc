@@ -26,7 +26,7 @@ setup(
     install_requires=[
         'argparse>=1.2.1',
         'jinja2>=2.7.3',
-        'pygit2==0.22.1',
+        'pygit2==0.23.3',
         'Sphinx>=1.3.1',
         'redbaron>=0.5'
     ]
