@@ -48,22 +48,17 @@ class Push(object):
 
             os.makedirs(self.workdir)
 
-            # git init
-            repo = pygit2.init_repository(self.workdir)
-
-            # git remote add origin <self.repourl>
-            remote = repo.create_remote('origin', self.repourl)
-            remote.add_push('+refs/heads/*:refs/remotes/origin/*')
-
-        else:
-            repo = pygit2.init_repository(self.workdir)
-            remote = repo.remotes[0]
-            remote.add_push('+refs/heads/*:refs/remotes/origin/*')
+        repo = pygit2.init_repository(self.workdir)
+        try:
+            remote = repo.remotes['origin']
+        except KeyError:
+            remote = repo.remotes.create('origin', self.repourl)
+            repo.remotes.add_push('origin', 'refs/heads/master:refs/remotes/origin/{0}'.format(self.settings.target_branch))
 
         # git fetch
-        remote.credentials = self.settings.get_git_creds()
-
-        remote.fetch()
+        credentials = self.settings.get_git_creds()
+        callbacks = pygit2.RemoteCallbacks(credentials=credentials)
+        remote.fetch(callbacks=callbacks)
 
         for branch in ['master', self.settings.target_branch]:
             # git branch <branch> --set-upstream=origin/<branch>
