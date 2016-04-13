@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CaLink &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Canopsis CAT" href="index.html"/>
+        <link rel="next" title="Event Feeder" href="feeder.html"/>
+        <link rel="prev" title="Canopsis Backup Utility" href="backup.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis/index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cat</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Canopsis CAT</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="connectors/index.html">Connectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snmp/index.html">SNMP Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup.html">Canopsis Backup Utility</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CaLink</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="feeder.html">Event Feeder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supervision.html">Canopsis Supervision</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Cat</a> &raquo;</li>
+      
+          <li><a href="index.html">Canopsis CAT</a> &raquo;</li>
+      
+    <li>CaLink</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/cat/canopsis-cat/calink.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="calink">
+<h1>CaLink<a class="headerlink" href="#calink" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="table-of-contents">
+<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><a class="reference internal" href="#what">What</a></li>
+<li><a class="reference internal" href="#how">How</a><ol class="arabic">
+<li><a class="reference internal" href="#configuration">Configuration</a><ol class="arabic">
+<li><a class="reference internal" href="#info">info</a></li>
+<li><a class="reference internal" href="#files">files</a></li>
+<li><a class="reference internal" href="#commands">commands</a></li>
+<li><a class="reference internal" href="#output">output</a></li>
+</ol>
+</li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ol>
+</li>
+<li><a class="reference internal" href="#library">Library</a><ol class="arabic">
+<li>Adding <a class="reference internal" href="#informations">Informations</a></li>
+<li><a class="reference internal" href="#use">Use</a></li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="what">
+<span id="id1"></span><h2>What<a class="headerlink" href="#what" title="Permalink to this headline">¶</a></h2>
+<p>CaLink is a tool destined to provide a user with a way to gather all informations of their system.</p>
+<p>These informations includes system information, any logs they may have, and output of commands.</p>
+<p>The informations are then added to a an archive for an easy sharing.</p>
+<p>Everything is configurable.</p>
+</div>
+<div class="section" id="how">
+<span id="id2"></span><h2>How<a class="headerlink" href="#how" title="Permalink to this headline">¶</a></h2>
+<p>Simply run <code class="docutils literal"><span class="pre">calink</span></code></p>
+<div class="section" id="configuration">
+<span id="id3"></span><h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>Four sections are supported</p>
+<p>Sections are composed of variables which values should be separated with commas</p>
+<div class="section" id="info">
+<span id="id4"></span><h4>info<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h4>
+<p>Here are specified the informations to gather</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">info</span><span class="p">]</span>
+<span class="n">system</span><span class="o">=</span><span class="n">host</span><span class="p">,</span><span class="n">os</span><span class="p">,</span><span class="n">version</span>
+<span class="n">resources</span><span class="o">=</span><span class="n">loadavg</span>
+</pre></div>
+</div>
+<p>The variable names will define the key of the JSON document containing the informations:</p>
+<p>The informations supported at the moment are :</p>
+<ul>
+<li><dl class="first docutils">
+<dt>uptime</dt>
+<dd><p class="first last">How long the system has been running</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>loadavg</dt>
+<dd><p class="first">Load average over 1, 5, and 15mn</p>
+<p>Currently executing kernels scheduling entities</p>
+<p>Number of kernel scheduling entities existing on the system</p>
+<p class="last">PID of the latest created process</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>disk</dt>
+<dd><p class="first last">List of the information of all the partition on the local machine</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>ps</dt>
+<dd><p class="first last">List of all the running processes (with their pid) on the local machine</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>cpu</dt>
+<dd><p class="first last">CPU average, minimum, and maximum</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>vmem</dt>
+<dd><p class="first last">Virtual memory average, minimum, and maximum</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>smem</dt>
+<dd><p class="first last">SWAP memory average, minimum, and maximum</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>iostat</dt>
+<dd><p class="first last">I/O stat average, minimum, and maximum</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>host</dt>
+<dd><p class="first last">Hostname</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>os</dt>
+<dd><p class="first last">OS Name and distribution version</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>version</dt>
+<dd><p class="first last">Version of system</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="files">
+<h4>files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h4>
+<p>This sections is used to retrieve the list of files to add to the archive</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">files</span><span class="p">]</span>
+<span class="n">var_log_dirs</span><span class="o">=</span><span class="n">engines</span><span class="p">,</span><span class="o">.</span>
+<span class="n">etc_dirs</span><span class="o">=</span><span class="n">bar</span>
+<span class="n">etc_files</span><span class="o">=</span><span class="n">foo</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
+</div>
+<p>The variable names are used to determine if whole directories or only specific files should be added to the archive and to also determine the path.</p>
+<p>The names follow this template</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span>$PATH.replace(&#39;/&#39;, &#39;_&#39;)_[dirs|files]=...
+</pre></div>
+</div>
+<p>A single dot as a value means that the directory specified in the variable name should be retrieved</p>
+</div>
+<div class="section" id="commands">
+<span id="id5"></span><h4>commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h4>
+<p>Commands that must be run and added to the archive are listed here</p>
+<p>The name of each variable is the label that will be used in the log file</p>
+<p>The command should then be written without any delimiter</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">commands</span><span class="p">]</span>
+<span class="n">list_root_directory</span><span class="o">=</span><span class="n">ls</span> <span class="o">-</span><span class="n">lha</span> <span class="o">./</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output">
+<span id="id6"></span><h4>output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h4>
+<p>The names of the archive, commands log, and json files should be specified here</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">output</span><span class="p">]</span>
+<span class="n">json</span><span class="o">=</span><span class="n">CaLink</span><span class="o">-</span><span class="n">JSON</span>
+<span class="n">commands</span><span class="o">=</span><span class="n">CaLink</span><span class="o">-</span><span class="n">commands</span><span class="o">-</span><span class="n">log</span>
+</pre></div>
+</div>
+<p>If nothing is specified, they will have the following format</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span>CaLink-$WORKSTATION-$TIMESTAMP[.targ.gz|.json|-commands.log]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example">
+<span id="id7"></span><h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Here is an example with the configuration above</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ calink
+2014-10-28 22:29:10,591 [MainThread  ] [INFO ]          + Getting host informations
+2014-10-28 22:29:10,636 [MainThread  ] [INFO ]   + Retrieving informations..
+2014-10-28 22:29:10,636 [MainThread  ] [INFO ]          + Getting host informations
+2014-10-28 22:29:10,636 [MainThread  ] [INFO ]          + Getting OS informations
+2014-10-28 22:29:10,647 [MainThread  ] [INFO ]          + Getting version informations
+2014-10-28 22:29:10,647 [MainThread  ] [INFO ]          + Getting I/O stat informations
+2014-10-28 22:29:10,647 [MainThread  ] [INFO ]          + Getting swap memory informations
+2014-10-28 22:29:10,648 [MainThread  ] [INFO ]          + Getting virtual memory informations
+2014-10-28 22:29:10,648 [MainThread  ] [INFO ]          + Getting process informations
+2014-10-28 22:29:10,660 [MainThread  ] [INFO ]          + Getting CPU informations
+2014-10-28 22:29:10,660 [MainThread  ] [INFO ]          + Getting disk informations
+2014-10-28 22:29:10,661 [MainThread  ] [INFO ]          + Getting load average informations
+2014-10-28 22:29:10,662 [MainThread  ] [INFO ]          + Getting uptime informations
+2014-10-28 22:29:10,662 [MainThread  ] [INFO ]   + Creating json file CaLink-workstation-zdibe-1414531750.json
+2014-10-28 22:29:10,702 [MainThread  ] [INFO ]   + Creating commands file CaLink-workstation-zdibe-1414531750-commands.log
+2014-10-28 22:29:10,702 [MainThread  ] [INFO ]          + Executing command ls -lha
+2014-10-28 22:29:10,705 [MainThread  ] [INFO ]   + Getting filepaths
+2014-10-28 22:29:10,705 [MainThread  ] [INFO ]          - get_files: Directory /usr/etc/bar/ not found
+2014-10-28 22:29:10,730 [MainThread  ] [INFO ]          - get_files: File /usr/etc/foo.log not found
+2014-10-28 22:29:10,730 [MainThread  ] [INFO ]   + Creating archive file CaLink-workstation-zdibe-1414531750.tar.gz
+2014-10-28 22:29:10,740 [MainThread  ] [INFO ]          + Adding file /usr/var/log/engines/cleaner.log to the archive
+2014-10-28 22:29:10,741 [MainThread  ] [INFO ]          + Adding file /usr/var/log/engines/filter.log to the archive
+2014-10-28 22:29:10,742 [MainThread  ] [INFO ]          + Adding file /usr/var/log/engines/archiver.log to the archive
+2014-10-28 22:29:10,742 [MainThread  ] [INFO ]          + Adding file /usr/var/log/engines/eventstore.log to the archive
+2014-10-28 22:29:10,742 [MainThread  ] [INFO ]          + Adding file /usr/var/log/calink.log to the archive
+2014-10-28 22:29:10,760 [MainThread  ] [INFO ]          + Adding file /usr/var/log/bar.log to the archive
+2014-10-28 22:29:10,761 [MainThread  ] [INFO ]          + Adding file /usr/var/log/foo.log to the archive
+$ cat CaLink-commands-log-commands.log
+
+list current directory: ls -lha ./:
+total 40K
+drwxr-xr-x 5 zdibe zdibe 4.0K Oct 24 17:05 .
+drwxr-xr-x 6 zdibe zdibe 4.0K Oct 10 14:28 ..
+-rw-r--r-- 1 zdibe zdibe   37 Oct 24 17:07 CaLink-commands-log-commands.log
+-rw-r--r-- 1 zdibe zdibe  305 Oct 24 17:07 CaLink-JSON.json
+-rw-r--r-- 1 zdibe zdibe  715 Oct 24 17:05 CaLink-workstation-zdibe-1414163113.tar.gz
+drwxr-xr-x 3 zdibe zdibe 4.0K Oct 21 16:01 canopsis
+drwxr-xr-x 2 zdibe zdibe 4.0K Oct 24 17:04 etc
+drwxr-xr-x 2 zdibe zdibe 4.0K Oct 21 16:58 scripts
+-rw-r--r-- 1 zdibe zdibe  270 Oct 21 14:54 setup.py
+$ cat CaLink-JSON.json
+{&#39;resources&#39;: {&#39;loadavg&#39;: {&#39;average&#39;: {&#39;1&#39;: 0.3, &#39;15&#39;: 0.49, &#39;5&#39;: 0.46},
+                                       &#39;entities&#39;: {&#39;current&#39;: 1, &#39;total&#39;: 390},
+                                        &#39;last_pid&#39;: 8912}},
+ &#39;system&#39;: {&#39;host&#39;: &#39;workstation-zdibe&#39;,
+            &#39;os&#39;: &#39;debian-jessie/sid-&#39;,
+            &#39;version&#39;: &#39;Linux-3.13-1-amd64-x86_64-with-debian-jessie-sid&#39;},
+ &#39;timestamp&#39;: &#39;17:05:13 24-10-2014&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="library">
+<span id="id8"></span><h2>Library<a class="headerlink" href="#library" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="adding-informations">
+<span id="informations"></span><h3>Adding informations<a class="headerlink" href="#adding-informations" title="Permalink to this headline">¶</a></h3>
+<p>To support new informations, simply add a function following this template to the CaLink library:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_NAME_info</span><span class="p">():</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ...</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">return</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>The type of the returned data should be JSON compliant</p>
+</div>
+<div class="section" id="using-the-library">
+<span id="use"></span><h3>Using the library<a class="headerlink" href="#using-the-library" title="Permalink to this headline">¶</a></h3>
+<p>Each informations have the template seen above and can be called outside of the <code class="docutils literal"><span class="pre">calink</span></code> script like so:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">canopsis.calink</span> <span class="k">import</span> <span class="n">calink</span>
+
+<span class="nb">print</span> <span class="n">calink</span><span class="o">.</span><span class="n">get_host_info</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Or use it to call the <code class="docutils literal"><span class="pre">calink</span></code> utils from elsewhere, in an engine after an event is triggered for example:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">canopsis.calink</span> <span class="k">import</span> <span class="n">calink</span>
+
+<span class="kn">import</span> <span class="nn">ConfigParser</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">calink</span><span class="o">.</span><span class="n">get_from_section</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="n">calink</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">prefix</span><span class="p">,</span> <span class="s1">&#39;etc&#39;</span><span class="p">,</span> <span class="s1">&#39;calink-config.ini&#39;</span><span class="p">)),</span>
+       <span class="n">json_file</span><span class="o">=</span><span class="n">output</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;json&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+       <span class="n">archive_file</span><span class="o">=</span><span class="n">output</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;archive&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+       <span class="n">cmd_file</span><span class="o">=</span><span class="n">output</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;commands&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="feeder.html" class="btn btn-neutral float-right" title="Event Feeder" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="backup.html" class="btn btn-neutral" title="Canopsis Backup Utility" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Canopsis Web Server &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Backend" href="index.html"/>
+        <link rel="next" title="Data Storage" href="data-storage/index.html"/>
+        <link rel="prev" title="Canopsis Python Project" href="project.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../frontend/index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="index.html">Backend</a> &raquo;</li>
+      
+    <li>Canopsis Web Server</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/canopsis/canopsis/developer-guide/backend/webserver.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="canopsis-web-server">
+<span id="dev-backend-webserver"></span><h1>Canopsis Web Server<a class="headerlink" href="#canopsis-web-server" title="Permalink to this headline">¶</a></h1>
+<p>The Canopsis web server is a simple <strong>WSGI</strong> application.</p>
+<div class="section" id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<p>The webserver is launched with <em>gunicorn</em>, a simple HTTP server for <em>WSGI</em> applications.
+It is started on port 8082, and it is recommended to use a front-end webserver like <em>apache2</em>.</p>
+<p>The <em>WSGI</em> application is provided by the module <code class="docutils literal"><span class="pre">canopsis.webcore.wsgi</span></code> and gets
+its configuration from <code class="docutils literal"><span class="pre">etc/webserver.conf</span></code>.</p>
+<p>The package <code class="docutils literal"><span class="pre">canopsis.webcore</span></code> is built upon the <strong>Bottle</strong> micro-web-framework.</p>
+</div>
+<div class="section" id="web-service">
+<h2>Web service<a class="headerlink" href="#web-service" title="Permalink to this headline">¶</a></h2>
+<p>A <em>web service</em> is a set of algorithms and routes to provide them via HTTP.
+It will be loaded by the web server before running the <em>WSGI</em> application.</p>
+<p>They are provided through the package <code class="docutils literal"><span class="pre">canopsis.webcore.services</span></code> :</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">canopsis.common.ws</span> <span class="kn">import</span> <span class="n">route</span>
+<span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">HTTPError</span>
+
+
+<span class="k">def</span> <span class="nf">fetch_items_from_db</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">collection</span><span class="p">,</span> <span class="n">conditions</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">conditions</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">db</span><span class="p">[</span><span class="n">collection</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPError</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="s1">&#39;No items found&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">exports</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This will generate the following route for POST requests :</span>
+
+<span class="sd">         /find-items/:collection</span>
+
+<span class="sd">    And will except a POST parameter : conditions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@route</span><span class="p">(</span><span class="n">ws</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">post</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;conditions&#39;</span><span class="p">])</span>
+    <span class="k">def</span> <span class="nf">find_items</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">conditions</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">fetch_items_from_db</span><span class="p">(</span><span class="n">ws</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="n">collection</span><span class="p">,</span> <span class="n">conditions</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When the web service will be loaded, the <code class="docutils literal"><span class="pre">exports()</span></code> function will be called with
+the web server instance as parameter.</p>
+<p>See the API documentation for the package <code class="docutils literal"><span class="pre">canopsis.common.ws</span></code> for more informations
+about the <code class="docutils literal"><span class="pre">route</span></code> decorator.</p>
+</div>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>Authenticating the user against the web server is a 3 stages process :</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">submit credentials to <code class="docutils literal"><span class="pre">/auth</span></code></p>
+</li>
+<li><dl class="first docutils">
+<dt>check if the submitted credentials :</dt>
+<dd><ul class="first last simple">
+<li>exists ;</li>
+<li>are not referencing an external account ;</li>
+<li>are valid.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">if the submitted credentials are not existent, or the account is external, redirect to <code class="docutils literal"><span class="pre">/auth/external</span></code></p>
+</li>
+</ol>
+</div></blockquote>
+<p>The route <code class="docutils literal"><span class="pre">/auth/external</span></code> is never executed. The authentication back-ends act
+before the route is called, and will try to log in the user using an alternative
+authentication method :</p>
+<blockquote>
+<div><ul class="simple">
+<li>using the user&#8217;s <em>authkey</em> ;</li>
+<li>or via an LDAP directory ;</li>
+<li>or via a CAS server...</li>
+</ul>
+</div></blockquote>
+<p>Authentication back-ends are provided through the package <code class="docutils literal"><span class="pre">canopsis.auth</span></code>.
+Here is the skeleton of a simple authentication plugin :</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">canopsis.auth.base</span> <span class="kn">import</span> <span class="n">BaseBackend</span>
+<span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">request</span><span class="p">,</span> <span class="n">HTTPError</span>
+
+
+<span class="k">class</span> <span class="nc">MyBackend</span><span class="p">(</span><span class="n">BaseBackend</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;MyBackend&#39;</span>
+    <span class="n">handle_logout</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MyBackend</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">setup_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="c1"># Content of ``wsgi_params`` option from the ``route`` decorator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">context</span><span class="p">[</span><span class="s1">&#39;config&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup_config</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">decorated</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auth_on&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">):</span>
+                <span class="n">username</span><span class="p">,</span> <span class="n">userrecord</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_auth</span><span class="p">()</span>
+
+                <span class="c1"># Create session</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_account</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">userrecord</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">HTTPError</span><span class="p">(</span><span class="mi">403</span><span class="p">,</span> <span class="s1">&#39;Forbidden&#39;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">callback</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">decorated</span>
+
+    <span class="k">def</span> <span class="nf">do_auth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+
+        <span class="n">userrecord</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ws</span><span class="o">.</span><span class="n">db</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">})</span>
+
+        <span class="k">if</span> <span class="n">password</span> <span class="o">==</span> <span class="n">userrecord</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">username</span><span class="p">,</span> <span class="n">userrecord</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">None</span>
+
+<span class="k">def</span> <span class="nf">get_backend</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">MyBackend</span><span class="p">(</span><span class="n">ws</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The plugin <strong>must</strong> inherits from <code class="docutils literal"><span class="pre">BaseBackend</span></code> directly or indirectly.
+The <code class="docutils literal"><span class="pre">apply()</span></code> method will apply the decorator to the route handler.</p>
+<p>The <code class="docutils literal"><span class="pre">install_account()</span></code> method will create the session for the user, if he have
+enough permissions.</p>
+<p>The plugin must be named, it is a standard for <em>Bottle</em> plugins, here we set the
+plugin&#8217;s name to <code class="docutils literal"><span class="pre">MyBackend</span></code>.</p>
+<p>If your plugin handles logout (like the CAS plugin for example), you must set the
+property <code class="docutils literal"><span class="pre">handle_logout</span></code> to <code class="docutils literal"><span class="pre">True</span></code>.</p>
+<p>Then, in the <code class="docutils literal"><span class="pre">apply()</span></code> decorator, you <strong>must</strong> treat the route <code class="docutils literal"><span class="pre">/logout</span></code> :</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">setup_config</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">decorated</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span> <span class="o">==</span> <span class="s1">&#39;/logout&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">undo_auth</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auth_on&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">):</span>
+            <span class="n">username</span><span class="p">,</span> <span class="n">userrecord</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_auth</span><span class="p">()</span>
+
+            <span class="c1"># Create session</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">install_account</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">userrecord</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">HTTPError</span><span class="p">(</span><span class="mi">403</span><span class="p">,</span> <span class="s1">&#39;Forbidden&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">callback</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">decorated</span>
+</pre></div>
+</div>
+<p>Finally, the <code class="docutils literal"><span class="pre">get_backend()</span></code> function will be called just after the module has
+been loaded by the web server, to instantiate the plugin and apply it to the <em>WSGI</em>
+application. Its first argument is the web server instance, needed by the authentication
+back-end.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s see the default configuration file, and explain what it means :</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[server]</span>
+<span class="na">debug</span><span class="o">=</span><span class="s">False</span>
+<span class="na">enable_crossdomain_send_events</span><span class="o">=</span><span class="s">True</span>
+<span class="na">root_directory</span><span class="o">=</span><span class="s">~/var/www/</span>
+
+<span class="k">[auth]</span>
+
+<span class="c1">#providers=authkey,ldap,cas</span>
+<span class="na">providers</span><span class="o">=</span><span class="s">authkey</span>
+
+<span class="k">[session]</span>
+<span class="na">cookie_expires</span><span class="o">=</span><span class="s">300</span>
+<span class="na">secret</span><span class="o">=</span><span class="s">canopsis</span>
+<span class="na">data_dir</span><span class="o">=</span><span class="s">~/tmp/webcore_cache</span>
+
+<span class="k">[webservices]</span>
+
+<span class="na">auth</span><span class="o">=</span><span class="s">1</span>
+<span class="na">calendar</span><span class="o">=</span><span class="s">1</span>
+<span class="na">context</span><span class="o">=</span><span class="s">1</span>
+<span class="na">entities</span><span class="o">=</span><span class="s">1</span>
+<span class="na">event</span><span class="o">=</span><span class="s">1</span>
+<span class="na">gui</span><span class="o">=</span><span class="s">1</span>
+<span class="na">i18n</span><span class="o">=</span><span class="s">1</span>
+<span class="na">perfdata</span><span class="o">=</span><span class="s">1</span>
+<span class="na">rest</span><span class="o">=</span><span class="s">1</span>
+<span class="na">rights</span><span class="o">=</span><span class="s">1</span>
+<span class="na">session</span><span class="o">=</span><span class="s">1</span>
+<span class="na">topology</span><span class="o">=</span><span class="s">1</span>
+</pre></div>
+</div>
+<div class="section" id="section-server">
+<h3>Section: server<a class="headerlink" href="#section-server" title="Permalink to this headline">¶</a></h3>
+<p>Here is the list of accepted options :</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">debug</span></code> : a boolean value, if True, all logs will be open with a debug level</li>
+<li><code class="docutils literal"><span class="pre">enable_crossdomain_send_events</span></code> : if enabled, will allow the <code class="docutils literal"><span class="pre">/event</span></code> route to act as an event relay to another Canopsis</li>
+<li><code class="docutils literal"><span class="pre">root_directory</span></code> : is the absolute path to static files</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="section-auth">
+<h3>Section: auth<a class="headerlink" href="#section-auth" title="Permalink to this headline">¶</a></h3>
+<p>This section is intended for authentication back-ends loading, you will list the
+Python modules from <code class="docutils literal"><span class="pre">canopsis.auth</span></code> to load.</p>
+</div>
+<div class="section" id="section-session">
+<h3>Section: session<a class="headerlink" href="#section-session" title="Permalink to this headline">¶</a></h3>
+<p>This section will configure how <code class="docutils literal"><span class="pre">beaker</span></code> (the <em>Bottle</em> middleware for session
+handling) works :</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">cookie_expires</span></code> : duration in seconds of a user&#8217;s session</li>
+<li><code class="docutils literal"><span class="pre">secret</span></code> : key used to encrypt the session</li>
+<li><code class="docutils literal"><span class="pre">data_dir</span></code> : folder containing locks for <code class="docutils literal"><span class="pre">mongodb_beaker</span></code></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="section-webservices">
+<h3>Section: webservices<a class="headerlink" href="#section-webservices" title="Permalink to this headline">¶</a></h3>
+<p>Every options of this section is considered as a boolean. If it evaluates to <code class="docutils literal"><span class="pre">True</span></code>,
+then the Python module named after the key, will be loaded from <code class="docutils literal"><span class="pre">canopsis.webcore.services</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data-storage/index.html" class="btn btn-neutral float-right" title="Data Storage" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="project.html" class="btn btn-neutral" title="Canopsis Python Project" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

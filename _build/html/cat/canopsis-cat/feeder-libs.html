@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Feeder API &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis/index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Feeder API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/cat/canopsis-cat/feeder-libs.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feeder-api">
+<h1>Feeder API<a class="headerlink" href="#feeder-api" title="Permalink to this headline">¶</a></h1>
+<p>This document describe globally every part of the feeder feeder. After reading
+it, you should be able to use feeder as a libraries to send events to Canopsis.</p>
+<p>Keep in mind that it is a global description. For more detail, docstrings and
+commentaries should answer your questions.</p>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<p>The feeder projet is composed of :</p>
+<blockquote>
+<div><ul class="simple">
+<li>scripts</li>
+<li>json configuration</li>
+<li>python &#8216;configuration&#8217; (scenario)</li>
+<li>modules</li>
+</ul>
+</div></blockquote>
+<div class="section" id="scripts">
+<h3>Scripts<a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h3>
+<p>split_conf.py splits etc/feeder_monolithic.json into little json files.</p>
+<p>feed.py instanciates a Scheduler (module scheduler) and pilotes it. The
+Scheduler instanciates an AlarmProcessor, a DeterministProcessor, a
+ScenarioProcessor (if a scenario name has been supplied) and pilote them.</p>
+<p>scenario.py instanciates a ScenarioProcessor and pilotes it. Though feed.py
+allows to process scenario, this is more convenient to have a dedicated script
+for this task, because in a lot of cases you just need to send a scenario.</p>
+</div>
+<div class="section" id="json-configuration">
+<h3>JSON configuration<a class="headerlink" href="#json-configuration" title="Permalink to this headline">¶</a></h3>
+<p>JSON configuration can be found in etc/feeder_monolithic.json. Once split by
+split_conf.py, six more files a created : etc/amqp.json,
+etc/custom_fields.json, etc/feeder/determinists.json, etc/feeder/workflow.json,
+etc/feeder/check.json, etc/feeder/eue.json.</p>
+<p>Files in etc/feeder are useful only in the feeder context. Other json files can
+be used both by feed.py and scenario.py.</p>
+</div>
+<div class="section" id="python-configuration-scenario">
+<h3>Python configuration (scenario)<a class="headerlink" href="#python-configuration-scenario" title="Permalink to this headline">¶</a></h3>
+<p>Those files describe scenario. They will be imported by the ScenarioProcessor
+and processed by it. What those &#8216;configuration&#8217; files achieve is only to
+describe the steps to the processor.</p>
+<p>Scenario can be found in etc/scenario. You can also find those files in
+/usr/share/canopsis/scenario if you have installed the feeder like bellow :</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">source</span><span class="o">/</span><span class="n">install</span><span class="o">.</span><span class="n">d</span>
+<span class="n">make</span> <span class="n">feeder</span><span class="o">.</span><span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>An example with a lot of commentaries on how a scenario can (and must) be built
+can be found in etc/scenario/example.py.</p>
+</div>
+<div class="section" id="modules">
+<h3>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h3>
+<p>All feeder modules are in canopsis/feeder/canopsis. Once you have installed the
+feeder (which is _not_ installed by the CAT installer), you can import those
+modules :</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">canopsis.feeder.module</span>
+</pre></div>
+</div>
+<p>Most of them are tested in a unitary way.</p>
+</div>
+</div>
+<div class="section" id="functionnal-description">
+<h2>Functionnal description<a class="headerlink" href="#functionnal-description" title="Permalink to this headline">¶</a></h2>
+<p>Each module will be explained briefly.</p>
+<div class="section" id="amqp-py">
+<h3>amqp.py<a class="headerlink" href="#amqp-py" title="Permalink to this headline">¶</a></h3>
+<p>Handles amqp connection with a singleton pattern. A unique method allows you to
+send events without ref_rk.</p>
+<p>If you want to send events forged by your own, you can use it. Else, you can
+ignore it.</p>
+</div>
+<div class="section" id="configurationconverter-py">
+<h3>ConfigurationConverter.py<a class="headerlink" href="#configurationconverter-py" title="Permalink to this headline">¶</a></h3>
+<p>Converts JSON configuration pieces to python dictionnaries. Some fields are
+added, other dropped.</p>
+<p>Instead of reading this module to understand parameters format, you can also
+check unit tests.</p>
+</div>
+<div class="section" id="deterministprocessor-py-alarmprocessor-py-scenarioprocessor-py">
+<h3>DeterministProcessor.py, AlarmProcessor.py, ScenarioProcessor.py<a class="headerlink" href="#deterministprocessor-py-alarmprocessor-py-scenarioprocessor-py" title="Permalink to this headline">¶</a></h3>
+<p>They are very similar. Each one of them has a class which calculates and sends
+events.</p>
+<p>Their constructor build an initial situation from given parameters. An event
+flow is sent each time the process method is called. The flow depends on the
+processor. For instance ScenarioProcessor will send only the next step.</p>
+<p>Only the process method should be triggered from outside.</p>
+</div>
+<div class="section" id="initeue-py-initcheck-py">
+<h3>InitEue.py, InitCheck.py<a class="headerlink" href="#initeue-py-initcheck-py" title="Permalink to this headline">¶</a></h3>
+<p>Check and eue events share the same workflow, but not the same structure.
+That&#8217;s why they are initialized differently and processed in a shared module.</p>
+</div>
+<div class="section" id="scheduler-py">
+<h3>scheduler.py<a class="headerlink" href="#scheduler-py" title="Permalink to this headline">¶</a></h3>
+<p>This module allows to pilote the three processors with a single method :
+process.</p>
+</div>
+<div class="section" id="eventbuilder-py">
+<h3>EventBuilder.py<a class="headerlink" href="#eventbuilder-py" title="Permalink to this headline">¶</a></h3>
+<p>An interface which creates events easily (singleton pattern). Using this
+tool ensures your events to have all mandatory fields (if a field is not
+provided, a generic value is inserted). It can be configured to have other
+default values than generic ones.</p>
+</div>
+<div class="section" id="utils-py">
+<h3>utils.py<a class="headerlink" href="#utils-py" title="Permalink to this headline">¶</a></h3>
+<p>Provide utils that are strongly tied with inner mechanics of other modules. You
+should ignore it.</p>
+<p>The only function that can be useful is ref_rk.</p>
+</div>
+<div class="section" id="scenarioutils-py">
+<h3>ScenarioUtils.py<a class="headerlink" href="#scenarioutils-py" title="Permalink to this headline">¶</a></h3>
+<p>Defines scenario macros. It might happen you need to patch it (and
+ScenarioProcessor) to add a new macro behaviour. Read module docstring for more
+infos.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

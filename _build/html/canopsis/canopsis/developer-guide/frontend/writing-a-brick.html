@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Writing a brick &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Frontend" href="index.html"/>
+        <link rel="next" title="Managing externals dependencies and JS libs" href="managing-dependencies.html"/>
+        <link rel="prev" title="Architecture" href="architecture.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../backend/index.html">Backend</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="index.html">Frontend</a> &raquo;</li>
+      
+    <li>Writing a brick</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/canopsis/canopsis/developer-guide/frontend/writing-a-brick.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="writing-a-brick">
+<h1>Writing a brick<a class="headerlink" href="#writing-a-brick" title="Permalink to this headline">¶</a></h1>
+<p>Writing new features as Canopsis frontend addons is supported and encouraged. Developpers might want to enhance their Canopsis with widgets, adapters, templates, and so on.</p>
+<p>To reach this goal, Canopsis frontend is divided in bricks. Bricks are a way to split features in deliverable packages.</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>A brick is a folder whose purpose is to stay in the ~/var/www/canopsis directory. This folders contains :</p>
+<blockquote>
+<div><ul class="simple">
+<li>A <code class="docutils literal"><span class="pre">`bower.json`</span></code> manifest file at the root folder of the brick (mandatory)</li>
+<li>a <code class="docutils literal"><span class="pre">`init.js`</span></code> file. (mandatory)</li>
+<li>Javascript files.</li>
+<li>Javascript libraries</li>
+<li>HTMLBars templates</li>
+<li>Css files</li>
+<li>Images</li>
+<li>Basically whatever you need to fetch from the frontend code, or need as build tools, ...</li>
+</ul>
+</div></blockquote>
+<p>Thus, bricks are compartmentalised bits of the UI.
+The goal of a brick maintainer is to make the frontend work with or without its brick, whatever the sibling enabled bricks are.</p>
+<p>The developper should still take into account that there are some core bricks always activated (mostly <code class="docutils literal"><span class="pre">`core`</span></code> and <code class="docutils literal"><span class="pre">`uibase`</span></code> bricks).</p>
+</div>
+<div class="section" id="manifest-file">
+<h2>Manifest file<a class="headerlink" href="#manifest-file" title="Permalink to this headline">¶</a></h2>
+<p>The manifest file contains a JSON structure that shows up some brick meta-information, such as:</p>
+<ul class="simple">
+<li>The license of the brick</li>
+<li>Informations about the maintainer</li>
+<li>The brick dependencies</li>
+<li>The brick description</li>
+<li>The brick version number</li>
+<li>The brick Homepage</li>
+</ul>
+<p>To initialize a manifest and run a wizard, you can run the command <code class="docutils literal"><span class="pre">`bower</span> <span class="pre">init`</span></code> inside your brick.</p>
+<p>Sample brick manifest file :</p>
+<div class="code javascript highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;canopsis-rights&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Team Canopsis &lt;maintainers@canopsis.org&gt;&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Rights and permission management&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;main&quot;</span><span class="p">:</span> <span class="s2">&quot;init.js&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;license&quot;</span><span class="p">:</span> <span class="s2">&quot;GNU Affero General Public License&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;homepage&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www.canopsis.org/&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialization-file">
+<h2>Initialization file<a class="headerlink" href="#initialization-file" title="Permalink to this headline">¶</a></h2>
+<p>The initialization file is the only javacript file that is automatically loaded when loading a brick.</p>
+</div>
+<div class="section" id="including-more-files">
+<h2>Including more files<a class="headerlink" href="#including-more-files" title="Permalink to this headline">¶</a></h2>
+<p>If you want to load more files, you should require them directly from the <code class="docutils literal"><span class="pre">`init.js`</span></code> file, as the following example show :</p>
+<div class="code javascript highlight-default"><div class="highlight"><pre><span></span><span class="n">define</span><span class="p">([</span>
+    <span class="s1">&#39;canopsis/brick-name/controller/sample&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;canopsis/brick-name/widgets/sample/controller&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;link!canopsis/brick-name/widgets/sample/style.css&#39;</span>
+<span class="p">],</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="javascript-files-content">
+<h2>Javascript files content<a class="headerlink" href="#javascript-files-content" title="Permalink to this headline">¶</a></h2>
+<p>Javascript code should be wrapped into <a class="reference external" href="http://guides.emberjs.com/v1.10.0/understanding-ember/dependency-injection-and-service-lookup/#toc_dependency-injection-with-code-register-inject-code">Ember Initializers</a>.</p>
+<p>Here is an example of a file that respects the above guidelines :</p>
+<div class="code javascript highlight-default"><div class="highlight"><pre><span></span><span class="n">Ember</span><span class="o">.</span><span class="n">Application</span><span class="o">.</span><span class="n">initializer</span><span class="p">({</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;UiactionbuttonWidget&#39;</span><span class="p">,</span>
+    <span class="n">after</span><span class="p">:</span> <span class="s1">&#39;WidgetFactory&#39;</span><span class="p">,</span>
+    <span class="n">initialize</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">application</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">var</span> <span class="n">WidgetFactory</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">lookupFactory</span><span class="p">(</span><span class="s1">&#39;factory:widget&#39;</span><span class="p">);</span>
+        <span class="n">var</span> <span class="n">widget</span> <span class="o">=</span> <span class="n">WidgetFactory</span><span class="p">(</span><span class="s1">&#39;uiactionbutton&#39;</span><span class="p">,{</span>
+            <span class="n">tagName</span><span class="p">:</span> <span class="s1">&#39;span&#39;</span><span class="p">,</span>
+            <span class="n">actions</span><span class="p">:</span> <span class="p">{</span>
+                <span class="n">do</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">params</span> <span class="o">===</span> <span class="n">undefined</span> <span class="o">||</span> <span class="n">params</span> <span class="o">===</span> <span class="n">null</span><span class="p">){</span>
+                        <span class="n">params</span> <span class="o">=</span> <span class="p">[];</span>
+                    <span class="p">}</span>
+
+                    <span class="n">this</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">params</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="n">application</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;widget:uiactionbutton&#39;</span><span class="p">,</span> <span class="n">widget</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="additionnal-content">
+<h2>Additionnal content<a class="headerlink" href="#additionnal-content" title="Permalink to this headline">¶</a></h2>
+<p>Bricks usually contains inside their repository :</p>
+<ul class="simple">
+<li>A readme</li>
+<li>Docstrings (JSDoc format) inside js code</li>
+<li>A user guide</li>
+</ul>
+</div>
+<div class="section" id="tooling">
+<h2>Tooling<a class="headerlink" href="#tooling" title="Permalink to this headline">¶</a></h2>
+<p>To help people respecting convention and producing good quality code, some tooling is available. It is currently a work in progess, and it will become more and more advised to use it, as the tool will grow.</p>
+<p>See <a class="reference external" href="https://git.canopsis.net/gpluchon/canopsis-ui-toolbelt">Canopsis-ui-toolbelt npm module</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="managing-dependencies.html" class="btn btn-neutral float-right" title="Managing externals dependencies and JS libs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="architecture.html" class="btn btn-neutral" title="Architecture" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

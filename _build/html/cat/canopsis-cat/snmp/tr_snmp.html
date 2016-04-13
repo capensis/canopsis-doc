@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Snmp &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis/index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Snmp</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/cat/canopsis-cat/snmp/tr_snmp.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="snmp">
+<span id="tr-snmp"></span><h1><a class="toc-backref" href="#id3">Snmp</a><a class="headerlink" href="#snmp" title="Permalink to this headline">¶</a></h1>
+<p>This guide gives information about how to setup the snmp system within canopsis.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#snmp" id="id3">Snmp</a><ul>
+<li><a class="reference internal" href="#references" id="id4">References</a></li>
+<li><a class="reference internal" href="#updates" id="id5">Updates</a></li>
+<li><a class="reference internal" href="#id1" id="id6">Contents</a><ul>
+<li><a class="reference internal" href="#snmp-engine-admin" id="id7">SNMP Engine Admin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id4">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><span class="xref std std-ref">FR::Snmp functional requirements</span></li>
+<li><span class="xref std std-ref">ED::Snmp exploitation document</span></li>
+</ul>
+</div>
+<div class="section" id="updates">
+<h2><a class="toc-backref" href="#id5">Updates</a><a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Author(s)</th>
+<th class="head">Date</th>
+<th class="head">Version</th>
+<th class="head">Summary</th>
+<th class="head">Accepted by</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Eric Régnier</td>
+<td>2015/11/23</td>
+<td>0.1</td>
+<td>Document uses template</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id6">Contents</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="snmp-engine-admin">
+<h3><a class="toc-backref" href="#id7">SNMP Engine Admin</a><a class="headerlink" href="#snmp-engine-admin" title="Permalink to this headline">¶</a></h3>
+<p><cite>Canopsis Administration Tools</cite> comes with an engine designed to translate SNMP Traps generated by  <a class="reference external" href="https://git.canopsis.net/cat/connector-snmp2canopsis">snmp2canopsis connector</a></p>
+<p>In order to use that engine, you <strong>NEED</strong> to setup snmp2canopsis connector the right way.</p>
+<div class="section" id="setup">
+<h4>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h4>
+<p>As the SNMP Engine is a Canopsis engine, it requires some configuration in Canopsis.</p>
+<p>For debian installation it is necessary to add <cite>contrib</cite> and <cite>non-free</cite> repositories to your <cite>/etc/apt/sources.list</cite> files in order to allow the build install process to properly install smitools package</p>
+<div class="section" id="supervisord-configuration">
+<h5>Supervisord configuration<a class="headerlink" href="#supervisord-configuration" title="Permalink to this headline">¶</a></h5>
+<p>First, you need to declare it in <cite>supervisord</cite> daemons.</p>
+<p>Ensure that etc/engines/snmp.ini exists with</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>program:engine-snmp<span class="o">]</span>
+
+<span class="nv">autostart</span><span class="o">=</span><span class="nb">false</span>
+
+<span class="nv">directory</span><span class="o">=</span>%<span class="o">(</span>ENV_HOME<span class="o">)</span>s
+<span class="nv">numprocs</span><span class="o">=</span>1
+<span class="nv">process_name</span><span class="o">=</span>%<span class="o">(</span>program_name<span class="o">)</span>s-%<span class="o">(</span>process_num<span class="o">)</span>d
+
+<span class="nv">command</span><span class="o">=</span>engine-launcher -e snmp -n snmp -w %<span class="o">(</span>process_num<span class="o">)</span>d -l info
+</pre></div>
+</div>
+<p>Then, add snmp engine in <cite>etc/supervisord.d/amqp2engines.conf</cite></p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="o">[</span>group:amqp2engines<span class="o">]</span>
+
+<span class="nv">autostart</span><span class="o">=</span><span class="nb">false</span>
+
+<span class="nv">programs</span><span class="o">=</span>engine-cleaner-events,engine-event-filter,engine-downtime,engine-acknowledgement,engine-cancel,engine-ticket,engine-tag,engine-eventstore,engine-cleaner-alerts,engine-selector,engine-collectdgw,engine-crecord-dispatcher,engine-scheduler,taskhandler-mail,engine-perfdata,engine-context,engine-stats,engine-topology,engine-linklist, **engine-snmp,** taskhandler-linklist,taskhandler-dataclean
+</pre></div>
+</div>
+</div>
+<div class="section" id="rabbitmq-vhost">
+<h5>RabbitMQ Vhost<a class="headerlink" href="#rabbitmq-vhost" title="Permalink to this headline">¶</a></h5>
+<p>Next, you have to setup configure the snmp engine rabbitmq vhost</p>
+<p>Edit <cite>etc/amqp2engines.conf</cite> and add at the beginning of the file :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># SNMP</span>
+
+<span class="o">[</span>engine:snmp<span class="o">]</span>
+
+<span class="nv">routing_keys</span><span class="o">=</span><span class="c1">#</span>
+<span class="nv">exchange_name</span><span class="o">=</span>canopsis.snmp
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Don&#8217;t forget that <cite>exchange name</cite> must be the same with <a class="reference external" href="https://git.canopsis.net/cat/connector-snmp2canopsis">snmp2canopsis connector</a> &#8216;s conf</p>
+</div>
+</div>
+<div class="section" id="starting-engines">
+<h5>Starting engines<a class="headerlink" href="#starting-engines" title="Permalink to this headline">¶</a></h5>
+<p>To finish the setup, you just need to (re)start ̀ amqp2engines` service</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ service amqp2engines restart
+</pre></div>
+</div>
+<p>You can see if snmp engine is started</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ service amqp2engines status
+
+...
+amqp2engines:engine-snmp-0 RUNNING    pid 18632, uptime 3:07:28
+...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h4>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h4>
+<p>First of all, you must be aware of the trap event cycle</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>SNMP equipment : send snmp traps <span class="o">(</span>UDP 162<span class="o">)</span>
+    <span class="o">||</span>
+    <span class="o">||</span>
+snmp2canopsis connector : listen to traps and build messages to AMQP destination <span class="o">(</span>OID are not translated<span class="o">)</span>
+    <span class="o">||</span>
+    <span class="o">||</span>
+RabbitMQ SNMP Exchange : <span class="nb">wait</span> <span class="k">for</span> messages from snmp2canopsis connector
+    <span class="o">||</span>
+    <span class="o">||</span>
+SNMP engine : try to build event with <span class="nv">event_type</span><span class="o">=</span>check thanks to SNMP rules
+    <span class="o">||</span>
+    <span class="o">||</span>
+RabbitMQ Events Exchange : This is Canopsis !
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

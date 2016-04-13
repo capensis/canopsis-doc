@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Send Event with PHP &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Send Events" href="index.html"/>
+        <link rel="next" title="Send Event with Python" href="send-event-with-python.html"/>
+        <link rel="prev" title="Send Event With Perl" href="send-event-with-perl.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../frontend/index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="../index.html">Backend</a> &raquo;</li>
+      
+          <li><a href="index.html">Send Events</a> &raquo;</li>
+      
+    <li>Send Event with PHP</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/developer-guide/backend/events/send-event-with-php.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="send-event-with-php">
+<span id="dev-backend-event-php"></span><h1>Send Event with PHP<a class="headerlink" href="#send-event-with-php" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-requirements">
+<h2>Install requirements<a class="headerlink" href="#install-requirements" title="Permalink to this headline">¶</a></h2>
+<p>See:
+<a class="reference external" href="https://github.com/videlalvaro/php-amqplib">https://github.com/videlalvaro/php-amqplib</a></p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">require_once</span> <span class="nx">__DIR__</span><span class="o">.</span><span class="s1">&#39;/../vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">PhpAmqpLib\Connection\AMQPConnection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PhpAmqpLib\Message\AMQPMessage</span><span class="p">;</span>
+
+<span class="c1">// Configurations</span>
+<span class="nv">$host</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">;</span>
+<span class="nv">$port</span> <span class="o">=</span> <span class="mi">5672</span><span class="p">;</span>
+<span class="nv">$user</span> <span class="o">=</span> <span class="s2">&quot;guest&quot;</span><span class="p">;</span>
+<span class="nv">$pass</span> <span class="o">=</span> <span class="s2">&quot;guest&quot;</span><span class="p">;</span>
+<span class="nv">$vhost</span> <span class="o">=</span> <span class="s2">&quot;canopsis&quot;</span><span class="p">;</span>
+<span class="nv">$exchange</span> <span class="o">=</span> <span class="s2">&quot;canopsis.events&quot;</span><span class="p">;</span>
+
+<span class="c1">// Connection</span>
+<span class="nv">$conn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AMQPConnection</span><span class="p">(</span><span class="nv">$host</span><span class="p">,</span> <span class="nv">$port</span><span class="p">,</span> <span class="nv">$user</span><span class="p">,</span> <span class="nv">$pass</span><span class="p">,</span> <span class="nv">$vhost</span><span class="p">);</span>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">channel</span><span class="p">();</span>
+
+<span class="c1">// Declare exchange (if not exist)</span>
+<span class="c1">// exchange_declare($exchange, $type, $passive=false, $durable=false, $auto_delete=true, $internal=false, $nowait=false, $arguments=null, $ticket=null)</span>
+<span class="nv">$ch</span><span class="o">-&gt;</span><span class="na">exchange_declare</span><span class="p">(</span><span class="nv">$exchange</span><span class="p">,</span> <span class="s1">&#39;topic&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// Create Canopsis event, see: https://github.com/capensis/canopsis/wiki/Event-specification</span>
+<span class="nv">$msg_body</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+   <span class="s2">&quot;timestamp&quot;</span>      <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">(),</span>
+   <span class="s2">&quot;connector&quot;</span>      <span class="o">=&gt;</span> <span class="s2">&quot;cli&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;connector_name&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;MyWebAPP&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;event_type&quot;</span>     <span class="o">=&gt;</span> <span class="s2">&quot;log&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;source_type&quot;</span>    <span class="o">=&gt;</span> <span class="s2">&quot;resource&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;component&quot;</span>      <span class="o">=&gt;</span> <span class="s2">&quot;NOM_de_la_machine&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;resource&quot;</span>       <span class="o">=&gt;</span> <span class="s2">&quot;NOM_du_JOB&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;state&quot;</span>          <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="s2">&quot;state_type&quot;</span>     <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="s2">&quot;output&quot;</span>         <span class="o">=&gt;</span> <span class="s2">&quot;MESSAGE&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;display_name&quot;</span>   <span class="o">=&gt;</span><span class="s2">&quot;DISPLAY_NAME&quot;</span>
+<span class="p">);</span>
+<span class="nv">$msg_raw</span> <span class="o">=</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$msg_body</span><span class="p">);</span>
+
+<span class="c1">// Build routing key</span>
+<span class="nv">$msg_rk</span> <span class="o">=</span> <span class="nv">$msg_body</span><span class="p">[</span><span class="s1">&#39;connector&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;.&quot;</span> <span class="o">.</span> <span class="nv">$msg_body</span><span class="p">[</span><span class="s1">&#39;connector_name&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;.&quot;</span> <span class="o">.</span> <span class="nv">$msg_body</span><span class="p">[</span><span class="s1">&#39;event_type&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;.&quot;</span> <span class="o">.</span> <span class="nv">$msg_body</span><span class="p">[</span><span class="s1">&#39;source_type&#39;</span><span class="p">]</span> <span class="o">.</span> <span class="s2">&quot;.&quot;</span> <span class="o">.</span> <span class="nv">$msg_body</span><span class="p">[</span><span class="s1">&#39;component&#39;</span><span class="p">];</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$msg_body</span><span class="p">[</span><span class="s1">&#39;source_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;resource&quot;</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nv">$msg_rk</span> <span class="o">=</span> <span class="nv">$msg_rk</span> <span class="o">.</span> <span class="s2">&quot;.&quot;</span> <span class="o">.</span> <span class="nv">$msg_body</span><span class="p">[</span><span class="s1">&#39;resource&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">echo</span> <span class="s2">&quot;JSON Event:  &quot;</span> <span class="o">.</span> <span class="nv">$msg_raw</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="k">echo</span> <span class="s2">&quot;Routing-key: &quot;</span> <span class="o">.</span> <span class="nv">$msg_rk</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+
+<span class="nv">$msg</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AMQPMessage</span><span class="p">(</span><span class="nv">$msg_raw</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;content_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span> <span class="s1">&#39;delivery_mode&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">));</span>
+
+<span class="c1">// Publish Event</span>
+<span class="nv">$ch</span><span class="o">-&gt;</span><span class="na">basic_publish</span><span class="p">(</span><span class="nv">$msg</span><span class="p">,</span> <span class="nv">$exchange</span><span class="p">,</span> <span class="nv">$msg_rk</span><span class="p">);</span>
+
+<span class="c1">// Close connection</span>
+<span class="nv">$ch</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+<span class="nv">$conn</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="send-event-with-python.html" class="btn btn-neutral float-right" title="Send Event with Python" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="send-event-with-perl.html" class="btn btn-neutral" title="Send Event With Perl" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

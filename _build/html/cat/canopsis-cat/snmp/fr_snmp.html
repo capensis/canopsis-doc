@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Snmp &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis/index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Snmp</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/cat/canopsis-cat/snmp/fr_snmp.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="snmp">
+<span id="fr-snmp"></span><h1><a class="toc-backref" href="#id2">Snmp</a><a class="headerlink" href="#snmp" title="Permalink to this headline">¶</a></h1>
+<p>Snmp in canopsis allow management of snmp traps in the system and display then to the user with a nice rendering.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#snmp" id="id2">Snmp</a><ul>
+<li><a class="reference internal" href="#references" id="id3">References</a></li>
+<li><a class="reference internal" href="#updates" id="id4">Updates</a></li>
+<li><a class="reference internal" href="#id1" id="id5">Contents</a><ul>
+<li><a class="reference internal" href="#module-canopsis.snmp" id="id6">Snmp: Engine and tools to process SNMP trap</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id3">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><span class="xref std std-ref">TR::Snmp technical requirements</span></li>
+<li><span class="xref std std-ref">ED::Snmp exploitation document</span></li>
+</ul>
+</div>
+<div class="section" id="updates">
+<h2><a class="toc-backref" href="#id4">Updates</a><a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Author(s)</th>
+<th class="head">Date</th>
+<th class="head">Version</th>
+<th class="head">Summary</th>
+<th class="head">Accepted by</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Eric Régnier</td>
+<td>2015/11/23</td>
+<td>0.1</td>
+<td>Document uses template</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id5">Contents</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-canopsis.snmp">
+<span id="snmp-engine-and-tools-to-process-snmp-trap"></span><h3><a class="toc-backref" href="#id6">Snmp: Engine and tools to process SNMP trap</a><a class="headerlink" href="#module-canopsis.snmp" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="functional">
+<h4>Functional<a class="headerlink" href="#functional" title="Permalink to this headline">¶</a></h4>
+<p>The SNMP contain an engine that analyse the trap sent by <cite>snmp2canopsis</cite>,
+search a corresponding rule to the trap and generate a new canopsis compliant
+event.</p>
+</div>
+<div class="section" id="trap-definitions">
+<h4>Trap definitions<a class="headerlink" href="#trap-definitions" title="Permalink to this headline">¶</a></h4>
+<p><cite>snmp2canopsis</cite> already preprocess the snmp trap to send a semi-complete event
+that contains theses fields:</p>
+<ul class="simple">
+<li><cite>snmp_trap_oid</cite>: OID of the SNMP trap</li>
+<li><cite>snmp_version</cite>: version of SNMP used for the trap (&#8220;1&#8221; or &#8220;2c&#8221;)</li>
+<li><cite>snmp_vars</cite>: OID/values used in the trap</li>
+<li><cite>snmp_timeticks</cite> for SNMP v1</li>
+</ul>
+</div>
+<div class="section" id="rule-definitions">
+<h4>Rule definitions<a class="headerlink" href="#rule-definitions" title="Permalink to this headline">¶</a></h4>
+<p>The rules are managed by the <code class="xref py py-class docutils literal"><span class="pre">SnmpManager</span></code>.
+A rule is defined as</p>
+<ul class="simple">
+<li>a OID as an identifier</li>
+<li>a required <cite>state</cite> field</li>
+<li>a required <cite>resource</cite> field</li>
+<li>a optional <cite>component</cite> field</li>
+<li>a optional <cite>output</cite> field</li>
+</ul>
+</div>
+<div class="section" id="processing">
+<h4>Processing<a class="headerlink" href="#processing" title="Permalink to this headline">¶</a></h4>
+<p>When a trap is received, the Snmp engine will search a rule according to the
+<cite>snmp_trap_oid</cite> field.</p>
+<p>If no rule are linked to the oid:
+- the original event will have a new field named <cite>snmp_trap_match</cite> set to False</p>
+<p>If a rule is find:
+- Translated event will have a new field named <cite>snmp_trap_match</cite> set to True
+- Translating event consists in compiling rules templates for rules fields. the template compilation context is set with both mib objects oids and event snmp_vars values (see section below: mib object translation)
+- Translated event is sent to the normal canopsis event processing if translation succeeded
+During the processing on the fields, if any errors happen:
+- the original event will have a new field named <cite>snmp_trap_errors</cite>, containing a list of the errors.</p>
+</div>
+<div class="section" id="mib-object-translation">
+<h4>Mib object translation<a class="headerlink" href="#mib-object-translation" title="Permalink to this headline">¶</a></h4>
+<p>First, rule fields may contain an Mib module object reference, for instance the following template works for a Nagios module and objects definitions</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//A rule sample</span>
+<span class="p">{</span>
+   <span class="p">...</span>
+   <span class="nx">component</span><span class="o">:</span> <span class="s1">&#39;customcomponent_{{ nSvcEvent }}&#39;</span>
+   <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As the rule&#8217;s module is <code class="docutils literal"><span class="pre">NAGIOS-NOTIFY-MIB</span></code>, the UI editor shows all names availables in mib collection where <code class="docutils literal"><span class="pre">nodetype</span> <span class="pre">=</span> <span class="pre">'notification'</span></code>.
+Selecting a name for a module let the UI find all the selected mib document <strong>objects</strong>. These objects are then available to edit templates.</p>
+<p>By knowing in the rule witch module and witch name are used, it is possible to build the template compilation context. When the engine meets a rule for the current trap, it is able to get the mib information and objects related to this rule. When object list is retrieved, the engine search for object oids by building a document id like <code class="docutils literal"><span class="pre">modulename::objectname</span></code> where in database a document shoud live and be like:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//A rule sample</span>
+<span class="p">{</span>
+   <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;module_name::object_name&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;oid&#39;</span><span class="o">:</span> <span class="s1">&#39;x.y.z&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When the object <strong>oid</strong> is retrieved, the template context is set with the the following information:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Arbitrary values</span>
+<span class="n">object_name</span> <span class="o">=</span> <span class="s1">&#39;object_name&#39;</span>
+<span class="n">object_oid</span> <span class="o">=</span> <span class="s1">&#39;x.y.z&#39;</span>
+
+<span class="c1"># Template context building</span>
+<span class="n">template_context_value</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;snmp_vars&#39;</span><span class="p">][</span><span class="n">object_oid</span><span class="p">]</span>
+<span class="n">template_context</span><span class="p">[</span><span class="n">object_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">template_context_value</span>
+</pre></div>
+</div>
+<p>This way, the template context should looks like in our case</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s1">&#39;nSvcEvent&#39;</span><span class="o">:</span> <span class="s1">&#39;componentinfo&#39;</span><span class="p">,</span>
+   <span class="p">...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then the translated event will have a component value equal to <strong>customcomponent_componentinfo</strong></p>
+</div>
+<div class="section" id="mibs">
+<h4>Mibs<a class="headerlink" href="#mibs" title="Permalink to this headline">¶</a></h4>
+<p>The module <code class="xref py py-mod docutils literal"><span class="pre">mibs</span></code> goal is to store and query SNMP
+notifications and objects. It requires the <cite>smitools</cite> package on your system,
+or the binary <cite>smidump</cite>.</p>
+<p>Please note this database is NOT a complete MIBS database, it contains only the
+necessary informations for the UI.</p>
+<p>It&#8217;s all about key/value again, as notifications and objects have key.</p>
+<div class="section" id="import-new-mib">
+<h5>Import new MIB<a class="headerlink" href="#import-new-mib" title="Permalink to this headline">¶</a></h5>
+<p>You can import new MIB from your system via command line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">canopsis</span><span class="o">.</span><span class="n">snmp</span><span class="o">.</span><span class="n">mibs</span> <span class="o">-</span><span class="n">k</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">mibs</span><span class="o">/</span><span class="n">ietf</span><span class="o">/*</span>
+</pre></div>
+</div>
+<p>A long output will be printed, and the end of the output should look like
+this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Import</span> <span class="n">summary</span>
+<span class="o">-</span> <span class="mi">415</span> <span class="n">notifications</span> <span class="n">definitions</span>
+<span class="o">-</span> <span class="mi">22167</span> <span class="n">objects</span> <span class="n">definitions</span>
+<span class="o">-</span> <span class="mi">1</span> <span class="n">error</span>
+  <span class="o">-</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">mibs</span><span class="o">/</span><span class="n">ietf</span><span class="o">/</span><span class="n">ISIS</span><span class="o">-</span><span class="n">MIB</span><span class="p">:</span> <span class="n">Invalid</span> <span class="n">python</span> <span class="n">generated</span> <span class="kn">from</span> <span class="nn">smidump</span>
+</pre></div>
+</div>
+<p>Pragmatically, you can do it with the MibsManager:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">canopsis.snmp.mibs</span> <span class="k">import</span> <span class="n">MibsManager</span>
+<span class="n">manager</span> <span class="o">=</span> <span class="n">MibsManager</span><span class="p">()</span>
+<span class="n">manager</span><span class="o">.</span><span class="n">import_mibs</span><span class="p">(</span><span class="s2">&quot;yourfilename&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="query-the-mibs-database">
+<h5>Query the MIBS database<a class="headerlink" href="#query-the-mibs-database" title="Permalink to this headline">¶</a></h5>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Except for MIB, all name search if found returns a oid.</p>
+</div>
+<p>Get the description of a MIB:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m canopsis.snmp.mibs --query IF-MIB
+{u&#39;_id&#39;: u&#39;IF-MIB&#39;,
+ u&#39;contact&#39;: u&#39;   Keith McCloghrie\nCisco Systems, Inc.\n170 West Tasman Drive\nSan Jose, CA  95134-1706\nUS\n\n408-526-5260\nkzm@cisco.com&#39;,
+ u&#39;description&#39;: u&quot;The MIB module to describe generic objects for network\ninterface sub-layers.  This MIB is an updated version of\nMIB-II&#39;s ifTable, and incorporates the extensions defined in\nRFC 1229.&quot;,
+ u&#39;identity node&#39;: u&#39;ifMIB&#39;,
+ u&#39;language&#39;: u&#39;SMIv2&#39;,
+ u&#39;nodetype&#39;: u&#39;module&#39;,
+ u&#39;organization&#39;: u&#39;IETF Interfaces MIB Working Group&#39;,
+ u&#39;revisions&#39;: [{u&#39;date&#39;: u&#39;2000-06-14 00:00&#39;,
+                 u&#39;description&#39;: u&#39;Clarifications agreed upon by the Interfaces MIB WG, and\npublished as RFC 2863.&#39;},
+                {u&#39;date&#39;: u&#39;1996-02-28 21:55&#39;,
+                 u&#39;description&#39;: u&#39;Revisions made by the Interfaces MIB WG, and published in\nRFC 2233.&#39;},
+                {u&#39;date&#39;: u&#39;1993-11-08 21:55&#39;,
+                 u&#39;description&#39;: u&#39;Initial revision, published as part of RFC 1573.&#39;}]}
+</pre></div>
+</div>
+<p>Get the OID of the linkDown notification:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m canopsis.snmp.mibs --query IF-MIB::linkDown
+{u&#39;_id&#39;: u&#39;IF-MIB::linkDown&#39;, u&#39;oid&#39;: u&#39;1.3.6.1.6.3.1.1.5.3&#39;}
+</pre></div>
+</div>
+<p>Get the description of the linkDown OID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m canopsis.snmp.mibs --query 1.3.6.1.6.3.1.1.5.3
+{u&#39;_id&#39;: u&#39;1.3.6.1.6.3.1.1.5.3&#39;,
+ u&#39;description&#39;: u&#39;A linkDown trap signifies that the SNMP entity, acting in\nan agent role, has detected that the ifOperStatus object for\none of its communication links is about to enter the down\nstate from some other state (but not from the notPresent\nstate).  This other state is indicated by the included value\nof ifOperStatus.&#39;,
+ u&#39;moduleName&#39;: u&#39;IF-MIB&#39;,
+ u&#39;name&#39;: u&#39;linkDown&#39;,
+ u&#39;nodetype&#39;: u&#39;notification&#39;,
+ u&#39;objects&#39;: {u&#39;ifAdminStatus&#39;: {u&#39;module&#39;: u&#39;IF-MIB&#39;,
+                                 u&#39;nodetype&#39;: u&#39;object&#39;},
+              u&#39;ifIndex&#39;: {u&#39;module&#39;: u&#39;IF-MIB&#39;, u&#39;nodetype&#39;: u&#39;object&#39;},
+              u&#39;ifOperStatus&#39;: {u&#39;module&#39;: u&#39;IF-MIB&#39;, u&#39;nodetype&#39;: u&#39;object&#39;}},
+ u&#39;oid&#39;: u&#39;1.3.6.1.6.3.1.1.5.3&#39;,
+ u&#39;status&#39;: u&#39;current&#39;}
+</pre></div>
+</div>
+<p>From an OID, we know which MIB is associated via <cite>moduleName</cite>, the <cite>nodetype</cite>
+is a notification, so there is an additional field named <cite>name</cite>.
+To get the informations of all the vars, follow the same pattern.</p>
+<p>For example, <cite>ifAdminStatus</cite> module is <cite>IF-MIB</cite>, so we want to query for
+<cite>IF-MIB::ifAdminStatus</cite>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m canopsis.snmp.mibs --query
+{u&#39;_id&#39;: u&#39;IF-MIB::ifAdminStatus&#39;, u&#39;oid&#39;: u&#39;1.3.6.1.2.1.2.2.1.7&#39;}
+</pre></div>
+</div>
+<p>Then get the information of this OID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m canopsis.snmp.mibs --query 1.3.6.1.2.1.2.2.1.7
+{u&#39;_id&#39;: u&#39;1.3.6.1.2.1.2.2.1.7&#39;,
+ u&#39;access&#39;: u&#39;readwrite&#39;,
+ u&#39;description&#39;: u&#39;The desired state of the interface.  The testing(3) state\nindicates that no operational packets can be passed.  When a\nmanaged system initializes, all interfaces start with\nifAdminStatus in the down(2) state.  As a result of either\nexplicit management action or per configuration information\nretained by the managed system, ifAdminStatus is then\nchanged to either the up(1) or testing(3) states (or remains\nin the down(2) state).&#39;,
+ u&#39;moduleName&#39;: u&#39;IF-MIB&#39;,
+ u&#39;nodetype&#39;: u&#39;column&#39;,
+ u&#39;oid&#39;: u&#39;1.3.6.1.2.1.2.2.1.7&#39;,
+ u&#39;status&#39;: u&#39;current&#39;,
+ u&#39;syntax&#39;: {u&#39;type&#39;: {u&#39;basetype&#39;: u&#39;Enumeration&#39;,
+                       u&#39;down&#39;: {u&#39;nodetype&#39;: u&#39;namednumber&#39;,
+                                 u&#39;number&#39;: u&#39;2&#39;},
+                       u&#39;testing&#39;: {u&#39;nodetype&#39;: u&#39;namednumber&#39;,
+                                    u&#39;number&#39;: u&#39;3&#39;},
+                       u&#39;up&#39;: {u&#39;nodetype&#39;: u&#39;namednumber&#39;, u&#39;number&#39;: u&#39;1&#39;}}}}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

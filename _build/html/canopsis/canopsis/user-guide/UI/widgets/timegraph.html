@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to use TimeGraph &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Widgets" href="index.html"/>
+        <link rel="next" title="How to use Weather" href="weather.html"/>
+        <link rel="prev" title="How to use Containers" href="containers.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">User guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../quickstart/index.html">Quickstart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../reminders/index.html">Reminders</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">User Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../engines/index.html">Engines usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer-guide/index.html">Developer guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../../index.html">User guide</a> &raquo;</li>
+      
+          <li><a href="../index.html">User Interface</a> &raquo;</li>
+      
+          <li><a href="index.html">Widgets</a> &raquo;</li>
+      
+    <li>How to use TimeGraph</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/user-guide/UI/widgets/timegraph.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-use-timegraph">
+<span id="user-ui-widgets-timegraph"></span><h1>How to use TimeGraph<a class="headerlink" href="#how-to-use-timegraph" title="Permalink to this headline">¶</a></h1>
+<p>This document describes how to insert and configure a <em>TimeGraph</em> widget.</p>
+<p>The first step is to create some <a class="reference external" href="../perfdata.html">series and/or curves</a>.</p>
+<div class="section" id="configuring-the-widget">
+<h2>Configuring the widget<a class="headerlink" href="#configuring-the-widget" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-aspect">
+<h3>General aspect<a class="headerlink" href="#general-aspect" title="Permalink to this headline">¶</a></h3>
+<p>Insert a <code class="docutils literal"><span class="pre">timegraph</span></code> widget to begin with:</p>
+<img alt="../../../../../_images/form01.png" src="../../../../../_images/form01.png" />
+<p>The following form will appear:</p>
+<img alt="../../../../../_images/form11.png" src="../../../../../_images/form11.png" />
+<p>Detailed options:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Title</strong>: your widget&#8217;s title ;</li>
+<li><strong>Widget refresh interval</strong>: interval between two chart updates ;</li>
+<li><strong>Human readable values</strong>: if checked, will truncate <code class="docutils literal"><span class="pre">1000</span></code> to <code class="docutils literal"><span class="pre">1K</span></code>, etc. ;</li>
+<li><strong>Show legend</strong>: if checked, will show a legend bellow the chart ;</li>
+<li><strong>Show tooltips</strong>: if checked, will show a tooltip box when a point is hovered.</li>
+</ul>
+</div></blockquote>
+<p>This configure the general aspect of the chart.</p>
+</div>
+<div class="section" id="time-window-and-navigation">
+<h3>Time Window and Navigation<a class="headerlink" href="#time-window-and-navigation" title="Permalink to this headline">¶</a></h3>
+<p>Click on the <em>Time Window</em> tab to configure the time-window to show on your chart:</p>
+<img alt="../../../../../_images/form21.png" src="../../../../../_images/form21.png" />
+<p>Detailed options:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Time Window</strong>: display data from <code class="docutils literal"><span class="pre">now</span> <span class="pre">-</span> <span class="pre">window-duration</span></code> to <code class="docutils literal"><span class="pre">now</span></code> on chart ;</li>
+<li><strong>Time Window Offset</strong>: instead of using <code class="docutils literal"><span class="pre">now</span></code>, uses <code class="docutils literal"><span class="pre">now</span> <span class="pre">-</span> <span class="pre">offset</span></code>.</li>
+</ul>
+</div></blockquote>
+<p>Those options will be used to determine which slice of data should be displayed.
+Then, click on the <em>History</em> tab to configure the time-navigation:</p>
+<img alt="../../../../../_images/form3.png" src="../../../../../_images/form3.png" />
+<p>Detailed options:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Enable history navigation</strong>: if checked, will show a second chart ;</li>
+<li><strong>History time window</strong>: determine the wanted range of data, will be the time-window of the second chart ;</li>
+<li><strong>Step duration</strong>: when you navigate on your chart (to the past, or the future), using the action-buttons, this will shift the time-window to this duration.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="configure-data-sources">
+<h3>Configure data sources<a class="headerlink" href="#configure-data-sources" title="Permalink to this headline">¶</a></h3>
+<p>You can use two types of data source :</p>
+<blockquote>
+<div><ul class="simple">
+<li>serie: it will plot a pre-configured serie (see <a class="reference external" href="../perfdata.html">how to create a serie</a>) ;</li>
+<li>metric: it will plot a single metric.</li>
+</ul>
+</div></blockquote>
+<p>Click on the <em>Series</em> tab:</p>
+<img alt="../../../../../_images/form4.png" src="../../../../../_images/form4.png" />
+<p>Detailed options:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Add</strong>: this button add a new stylized serie to the widget ;</li>
+<li><strong>Serie</strong>: choose the serie to plot ;</li>
+<li><strong>Curves</strong>: choose the type of curve to use for plotting ;</li>
+<li><strong>Serie&#8217;s color</strong>: choose the curve&#8217;s color ;</li>
+<li><strong>X / Y</strong>: choose the axes (to use different scales on the same chart).</li>
+</ul>
+</div></blockquote>
+<p>Then, click on the <em>Metrics</em> tab:</p>
+<img alt="../../../../../_images/form5.png" src="../../../../../_images/form5.png" />
+<p>Detailed options (very similar to series):</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Add</strong>: this button add a new stylized metric to the widget ;</li>
+<li><strong>Metric</strong>: choose the metric to plot ;</li>
+<li><strong>Curve</strong>: choose the type of curve to use for plotting ;</li>
+<li><strong>Metric&#8217;s unit</strong>: if not provided by the metric, choose its unit (%, o, B, ...) ;</li>
+<li><strong>Metric&#8217;s color</strong>: choose the curve&#8217;s color ;</li>
+<li><strong>X / Y</strong>: choose the axes (to use different scales on the same chart).</li>
+</ul>
+</div></blockquote>
+<p>Now you can save changes, and see the result.</p>
+</div>
+</div>
+<div class="section" id="using-the-widget">
+<h2>Using the widget<a class="headerlink" href="#using-the-widget" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="visualization">
+<h3>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../../../_images/result.png" src="../../../../../_images/result.png" />
+<p>Here, the first chart shows data using the configured time-window, and the second
+one shows data using the configured history time-window.</p>
+<p>You can select a range on one of those two charts, it will reconfigure the
+time-window on the first chart:</p>
+<img alt="../../../../../_images/select-range.png" src="../../../../../_images/select-range.png" />
+<p>Then, you can click on a serie in the legend, to hide/unhide it:</p>
+<img alt="../../../../../_images/hide.png" src="../../../../../_images/hide.png" />
+<p>If you hover a point with the mouse, and have the tooltip option enabled, a small
+tooltip box will appears:</p>
+<img alt="../../../../../_images/tooltip.png" src="../../../../../_images/tooltip.png" />
+</div>
+<div class="section" id="actions">
+<h3>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h3>
+<p>On the right-bottom corner of the widget, you will find 3 buttons (only one if
+time navigation is disabled):</p>
+<img alt="../../../../../_images/buttons.png" src="../../../../../_images/buttons.png" />
+<p>Detailed actions:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>shift time-window of first chart to the past (use the configured <em>step duration</em>) ;</li>
+<li>shift time-window to the future ;</li>
+<li>Reset time-window to its defaults, and restart widget refreshing.</li>
+</ol>
+</div></blockquote>
+<p><strong>NB:</strong> Every action modifying the time-window (action buttons, or selection) will
+prevent the widget from refreshing, the <em>reset</em> button restarts it.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="weather.html" class="btn btn-neutral float-right" title="How to use Weather" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="containers.html" class="btn btn-neutral" title="How to use Containers" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

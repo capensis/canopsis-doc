@@ -1,0 +1,820 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Rights &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Data Manager" href="index.html"/>
+        <link rel="next" title="GRAPH: library for managing graph structure" href="graph.html"/>
+        <link rel="prev" title="Data Manager" href="index.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../frontend/index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="../index.html">Backend</a> &raquo;</li>
+      
+          <li><a href="index.html">Data Manager</a> &raquo;</li>
+      
+    <li>Rights</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/developer-guide/backend/data-manager/rights.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rights">
+<span id="dev-backend-mgr-rights"></span><h1>Rights<a class="headerlink" href="#rights" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="table-of-contents">
+<h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><a class="reference internal" href="#what">What</a><ol class="arabic">
+<li><a class="reference internal" href="#setup">SetUp</a></li>
+</ol>
+</li>
+<li><a class="reference internal" href="#how">How</a><ol class="arabic">
+<li>Rights</li>
+<li>Groups</li>
+<li>Profile</li>
+<li>Role</li>
+<li><a class="reference internal" href="#update">Update</a></li>
+</ol>
+</li>
+<li><a class="reference internal" href="#library">Library</a><ol class="arabic">
+<li>Data <a class="reference internal" href="#structures">Structures</a><ol class="arabic">
+<li>User</li>
+<li>Role</li>
+<li>Profile</li>
+<li>Group</li>
+<li>Rights</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="what">
+<span id="id1"></span><h2>What<a class="headerlink" href="#what" title="Permalink to this headline">¶</a></h2>
+<p>Rights are defined within the groups (groups) upon their creations or added unitarily in a specific profile, role, or user.</p>
+<p>The id of a right must be the id of the action it is acting upon.</p>
+<p>Each profile must belongs to at least one group (group), each role must be paired with an existing profile and each user shall have a role.</p>
+<div class="section" id="setup">
+<span id="id2"></span><h3>SetUp<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
+<p>A list of actions must be referenced in the Rights&#8217; storages in order for it to find the actions ID and let users create new rights.</p>
+<p>To reference a new action, simply use :</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">canopsis.organisation.rights</span> <span class="kn">import</span> <span class="n">Rights</span>
+
+<span class="n">right_module</span> <span class="o">=</span> <span class="n">Rights</span><span class="p">()</span>
+
+<span class="c1">#                ACTION_ID       DESCRIPTION</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;1234.ack&#39;</span><span class="p">,</span> <span class="s1">&#39;Acknowledge events&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>See the unit tests for more thorough examples.</em></p>
+</div>
+</div>
+<div class="section" id="how">
+<span id="id3"></span><h2>How<a class="headerlink" href="#how" title="Permalink to this headline">¶</a></h2>
+<p>Here will be documented the methods needed to develop a proper API to interact with the Rights module.</p>
+<div class="section" id="id4">
+<h3>Rights<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Add an action to the referenced actions list</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a_id</span><span class="p">,</span> <span class="n">a_desc</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    a_id: id of the action to reference</span>
+<span class="sd">    a_desc: description of the action to reference</span>
+<span class="sd">Returns:</span>
+<span class="sd">    A document describing the effect of the put_elements</span>
+<span class="sd">    if the action was created</span>
+<span class="sd">    ``None`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;1234.ack&#39;</span><span class="p">,</span> <span class="s1">&#39;Acknowledge events&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check if an entity has the flags for a specific right
+The entity must have a <code class="docutils literal"><span class="pre">rights</span></code> field with a Rights map within</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="n">right_id</span><span class="p">,</span> <span class="n">checksum</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    entity: entity to be checked</span>
+<span class="sd">    right_id: right to be checked</span>
+<span class="sd">    checksum: minimum flags needed</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ``True`` if the entity has enough permissions on the right</span>
+<span class="sd">    ``False`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">right_module</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;manager&#39;</span><span class="p">,</span>
+                                            <span class="s1">&#39;1234.ack&#39;</span><span class="p">,</span>
+                                            <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check if an user has the flags for a specific right
+Each of the user&#8217;s entities (Role, Profile, and Groups) will be checked
+For now, you must specify the user&#8217;s role</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_rights</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">right_id</span><span class="p">,</span> <span class="n">checksum</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    role: user&#39;s role to be checked</span>
+<span class="sd">    right_id: right to be checked</span>
+<span class="sd">    checksum: minimum flags needed</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ``True`` if the user&#39;s role has enough permissions</span>
+<span class="sd">    ``False`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">check_rights</span><span class="p">(</span><span class="n">right_module</span><span class="o">.</span><span class="n">get_role</span><span class="p">(</span><span class="s1">&#39;DirectorsManager&#39;</span><span class="p">,</span>
+                                              <span class="s1">&#39;management.5412&#39;</span><span class="p">,</span>
+                                              <span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="groups">
+<h3>Groups<a class="headerlink" href="#groups" title="Permalink to this headline">¶</a></h3>
+<p>Creation</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_group</span><span class="p">(</span><span class="n">group_name</span><span class="p">,</span> <span class="n">group_rights</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    group_name: id of the group to create</span>
+<span class="sd">    group_rights: map of rights to init the group with</span>
+<span class="sd">Returns:</span>
+<span class="sd">    The name of the group if it was created</span>
+<span class="sd">    ``None`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">rights</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;1234.ack&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;create and manage ACKs&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;checksum&#39;</span><span class="p">:</span> <span class="mi">15</span>
+            <span class="p">},</span>
+    <span class="s1">&#39;management.5412&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;manage list of directors&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;checksum&#39;</span><span class="p">:</span> <span class="s1">&#39;12&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;context&#39;</span><span class="p">:</span> <span class="s1">&#39;field&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;field&#39;</span><span class="p">:</span> <span class="s1">&#39;list_of_directors&#39;</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="n">right_module</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s1">&#39;manager&#39;</span><span class="p">,</span> <span class="n">rights</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deletion</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">e_type</span><span class="p">,</span> <span class="n">e_id</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    e_type type of the entity to delete</span>
+<span class="sd">    e_id id of the entity to delete</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ``True`` if the entity was deleted</span>
+<span class="sd">    ``False`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;manager&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="profiles">
+<h3>Profiles<a class="headerlink" href="#profiles" title="Permalink to this headline">¶</a></h3>
+<p>Create a Profile</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_profile</span><span class="p">(</span><span class="n">p_name</span><span class="p">,</span> <span class="n">p_groups</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    p_name: id of the profile to be created</span>
+<span class="sd">    p_groups: list of groups to init the Profile with</span>
+<span class="sd">Returns:</span>
+<span class="sd">    The name of the profile if it was created</span>
+<span class="sd">    ``None`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">create_profile</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;manager&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Deletion</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">e_type</span><span class="p">,</span> <span class="n">e_id</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    e_type type of the entity to delete</span>
+<span class="sd">    e_id id of the entity to delete</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ``True`` if the entity was deleted</span>
+<span class="sd">    ``False`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="s1">&#39;Manager&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="role">
+<h3>Role<a class="headerlink" href="#role" title="Permalink to this headline">¶</a></h3>
+<p>Create a Role</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_role</span><span class="p">(</span><span class="n">r_name</span><span class="p">,</span> <span class="n">r_profile</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    r_name: id of the Role to be created</span>
+<span class="sd">    r_profile: id of the Profile to init the Role with</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ``Name`` of the role if it was created</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">create_role</span><span class="p">(</span><span class="s1">&#39;DirectorsManager&#39;</span><span class="p">,</span> <span class="s1">&#39;Manager&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Delete a Role</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">e_type</span><span class="p">,</span> <span class="n">e_id</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    e_type type of the entity to delete</span>
+<span class="sd">    e_id id of the entity to delete</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ``True`` if the entity was deleted</span>
+<span class="sd">    ``False`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;DirectorsManager&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update">
+<span id="id5"></span><h3>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h4>Groups<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>Update the groups of an entity
+Every groups present in the groups list and not in the entity will be added
+Every groups present in the entity and not in the groups list will be deleted</p>
+<p>If the groups list is None, nothing will be deleted</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_comp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e_id</span><span class="p">,</span> <span class="n">e_type</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        e_id id of the entity to update</span>
+<span class="sd">        e_type type of the entity to update</span>
+<span class="sd">        groups groups to update</span>
+<span class="sd">        entity entity to be updated</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        ``True`` if the entity was thoroughly updated</span>
+<span class="sd">        ``False`` otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<span class="c1"># Example, add groups to the &#39;Manager&#39; profile</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">update_comp</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="s1">&#39;profile&#39;</span><span class="p">,</span>
+                         <span class="p">[</span><span class="s1">&#39;supervision&#39;</span><span class="p">,</span> <span class="s1">&#39;visualisation&#39;</span><span class="p">],</span>
+                         <span class="n">right_module</span><span class="o">.</span><span class="n">get_profile</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h4>Rights<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Update the rights of an entity
+Every rights present in the rights list and not in the entity will be added
+Every rights present in the entity and not in the rights list will be deleted</p>
+<p>If the rights list is None, nothing will be deleted</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_rights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e_id</span><span class="p">,</span> <span class="n">e_type</span><span class="p">,</span> <span class="n">rights</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        e_id id of the entity to update</span>
+<span class="sd">        e_type type of the entity to update</span>
+<span class="sd">        rights rights to update</span>
+<span class="sd">        entity entity to be updated</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        ``True`` if the entity was thoroughly updated</span>
+<span class="sd">        ``False`` otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<span class="c1"># Example, add rights to the &#39;Manager&#39; profile</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">update_rights</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="s1">&#39;profile&#39;</span><span class="p">,</span>
+                           <span class="p">{</span><span class="s1">&#39;eventview&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="s1">&#39;checksum&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}},</span>
+                           <span class="n">right_module</span><span class="o">.</span><span class="n">get_profile</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="general">
+<h4>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h4>
+<p>Update several fields by overriding previous values</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_fields</span><span class="p">(</span><span class="n">e_id</span><span class="p">,</span> <span class="n">e_type</span><span class="p">,</span> <span class="n">fields</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        e_id id of the entity to update</span>
+<span class="sd">        e_type type of the entity to update</span>
+<span class="sd">        fields map of the fields to update</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        A document describing the effect of the put_elements</span>
+<span class="sd">        if the entity was thoroughly updated</span>
+<span class="sd">        ``False`` otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<span class="c1"># Example, change name of user and its role</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">update_fields</span><span class="p">(</span><span class="s1">&#39;Joan Harris&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
+                           <span class="p">{</span><span class="s1">&#39;crecord_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Peggy Olson&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;role&#39;</span><span class="p">:</span> <span class="s1">&#39;CreativeDirector&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Update a single <code class="docutils literal"><span class="pre">list</span></code> or <code class="docutils literal"><span class="pre">dictionary</span></code> field by adding or deleting differences in values</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e_id</span><span class="p">,</span> <span class="n">e_type</span><span class="p">,</span> <span class="n">new_elems</span><span class="p">,</span> <span class="n">elem_type</span><span class="p">,</span> <span class="n">entity</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        e_id id of the entity to update</span>
+<span class="sd">        e_type type of the entity to update</span>
+<span class="sd">        new_elems elements to update</span>
+<span class="sd">        entity entity to be updated</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        ``True`` if the entity was thoroughly updated</span>
+<span class="sd">        ``False`` otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<span class="c1"># Example, add groups to the &#39;Manager&#39; profile</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">update_comp</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="s1">&#39;profile&#39;</span><span class="p">,</span>
+                         <span class="p">[</span><span class="s1">&#39;supervision&#39;</span><span class="p">,</span> <span class="s1">&#39;visualisation&#39;</span><span class="p">],</span>
+                         <span class="s1">&#39;group&#39;</span><span class="p">,</span>
+                         <span class="n">right_module</span><span class="o">.</span><span class="n">get_profile</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="library">
+<span id="id8"></span><h2>Library<a class="headerlink" href="#library" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-structures">
+<span id="structures"></span><h3>Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="user">
+<h4>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="s1">&#39;crecord_type&#39;</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;crecord_name&#39;</span><span class="o">:</span> <span class="p">...,</span>                 <span class="c1">// String of user&#39;s name</span>
+
+    <span class="s1">&#39;role&#39;</span><span class="o">:</span> <span class="p">...,</span>                 <span class="c1">// Role of the user that defines his profiles and groups</span>
+    <span class="s1">&#39;contact&#39;</span><span class="o">:</span> <span class="p">{</span>                 <span class="c1">// Map of contact informations</span>
+        <span class="s1">&#39;mail&#39;</span><span class="o">:</span> <span class="p">...,</span>
+        <span class="s1">&#39;phone_number&#39;</span><span class="o">:</span> <span class="p">...,</span>
+        <span class="p">...</span>
+        <span class="p">}</span>
+    <span class="s1">&#39;_id&#39;</span><span class="o">:</span> <span class="p">...</span>                   <span class="c1">// uniq id</span>
+
+    <span class="c1">// Empty by default</span>
+    <span class="s1">&#39;rights&#39;</span><span class="o">:</span> <span class="p">...,</span>               <span class="c1">// Map of type Rights, every user-specific rights goes here</span>
+    <span class="s1">&#39;groups&#39;</span><span class="o">:</span> <span class="p">...,</span>               <span class="c1">// List of group names, every user-specific groups goes here</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>When an action is triggered, the <code class="docutils literal"><span class="pre">object_id</span></code> of the target of the action is sent and we check if one of the user&#8217;s groups has the rights needed to perform the action.
+If no groups among the user&#8217;s has the right, we then check the user&#8217;s own rights if he has any.</p>
+<p>Example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="s1">&#39;crecord_type&#39;</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;crecord_name&#39;</span><span class="o">:</span> <span class="s1">&#39;Joan Harris&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;role&#39;</span><span class="o">:</span> <span class="s1">&#39;manager&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;contact&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;mail&#39;</span><span class="o">:</span> <span class="s1">&#39;jharris@scdp.com&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;phone_number&#39;</span><span class="o">:</span> <span class="s1">&#39;+33678695041&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;adress&#39;</span><span class="o">:</span> <span class="s1">&#39;1271 6th Avenue, Rockefeller Center, NYC, New York&#39;</span>
+        <span class="p">}</span>
+    <span class="s1">&#39;_id&#39;</span><span class="o">:</span> <span class="s1">&#39;1407160264.joan.harris.manager&#39;</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h4>Role<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>A Role is specific to a small number of users</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="p">{</span>
+
+    <span class="s1">&#39;crecord_type&#39;</span><span class="o">:</span> <span class="s1">&#39;role&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;crecord_name&#39;</span><span class="o">:</span>             <span class="c1">// Name of the role</span>
+
+    <span class="s1">&#39;profile&#39;</span><span class="o">:</span> <span class="p">...</span>              <span class="c1">// ID of the profile (string)</span>
+
+    <span class="c1">// Empty by default</span>
+    <span class="s1">&#39;rights&#39;</span><span class="o">:</span> <span class="p">...</span>               <span class="c1">// Map of type Rights, every role-specific rights goes here</span>
+    <span class="nx">FIELD</span><span class="o">:</span> <span class="p">...</span>                  <span class="c1">// You can add any number of fields that can be used with data-specific rules</span>
+    <span class="p">...</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Roles</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;manager&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;profile&#39;</span><span class="o">:</span> <span class="s1">&#39;DirectorsManager&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;list_of_directors&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Ted Chaough&#39;</span><span class="p">,</span> <span class="s1">&#39;Peggy Olson&#39;</span><span class="p">,</span> <span class="s1">&#39;Don Draper&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="profile">
+<h4>Profile<a class="headerlink" href="#profile" title="Permalink to this headline">¶</a></h4>
+<p>A profile is generic and global to all users</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="p">{</span>                            <span class="c1">// String of profile&#39;s name</span>
+
+    <span class="s1">&#39;crecord_type&#39;</span><span class="o">:</span> <span class="s1">&#39;profile&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;crecord_name&#39;</span><span class="o">:</span>             <span class="c1">// Name of the profile</span>
+
+    <span class="s1">&#39;groups&#39;</span><span class="o">:</span> <span class="p">...</span>                <span class="c1">// List of the groups the profile belongs to</span>
+
+    <span class="c1">// Empty by default</span>
+    <span class="s1">&#39;rights&#39;</span><span class="o">:</span> <span class="p">...</span>               <span class="c1">// Map of type Rights, every profile-specific rights goes here</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">An</span> <span class="nx">Administrator</span> <span class="nx">profile</span> <span class="nx">exists</span><span class="p">,</span> <span class="nx">it</span> <span class="nx">has</span> <span class="nx">all</span> <span class="nx">rights</span> <span class="nx">and</span> <span class="nx">belongs</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">Group</span> <span class="nx">Management</span> <span class="nx">as</span> <span class="nx">well</span> <span class="nx">as</span> <span class="nx">the</span> <span class="nx">root</span> <span class="nx">Group</span>
+<span class="nx">Profiles</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Manager&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;groups&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;managements&#39;</span><span class="p">,</span> <span class="s1">&#39;supervizion&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;crecord_type&#39;</span><span class="o">:</span> <span class="s1">&#39;profile&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;crecord_name&#39;</span><span class="o">:</span> <span class="s1">&#39;Manager&#39;</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="group-aka-groups">
+<h4>Group (aka Groups)<a class="headerlink" href="#group-aka-groups" title="Permalink to this headline">¶</a></h4>
+<p>A group is generic and global to all users</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="p">{</span>                        <span class="c1">// String of group&#39;s name</span>
+
+    <span class="s1">&#39;crecord_type&#39;</span><span class="o">:</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;crecord_name&#39;</span><span class="o">:</span>             <span class="c1">// Name of the group</span>
+
+    <span class="s1">&#39;members&#39;</span><span class="o">:</span> <span class="p">...,</span>              <span class="c1">// List of members ids</span>
+    <span class="s1">&#39;rights&#39;</span><span class="o">:</span> <span class="p">...</span>                <span class="c1">// Map of type Rights</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Groups</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;management&#39;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;members&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;1407160264.joan.harris.manager&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;rights&#39;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">userconf_view_id</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s1">&#39;checksum&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s1">&#39;desc&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Access user configuration&#39;</span><span class="p">]</span>
+                <span class="p">},</span>
+            <span class="nx">role_specific_id</span><span class="o">:</span> <span class="p">{</span>
+                <span class="s1">&#39;checksum&#39;</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
+                <span class="s1">&#39;field&#39;</span><span class="o">:</span> <span class="s1">&#39;list_of_directors&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;desc&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Access and change directors configuration&#39;</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="s1">&#39;crecord_type&#39;</span><span class="o">:</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;crecord_name&#39;</span><span class="o">:</span> <span class="s1">&#39;management&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>Rights<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">Rghts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">object_id</span><span class="p">...</span><span class="o">:</span> <span class="p">{</span>             <span class="c1">// Right on the object with the identifier id</span>
+
+        <span class="s1">&#39;checksum&#39;</span><span class="o">:</span> <span class="p">...,</span>        <span class="c1">// 1 == Read, 2 == Update, 4 == Create, 8 == Delete</span>
+
+        <span class="c1">// Additional Field</span>
+        <span class="s1">&#39;context&#39;</span><span class="o">:</span> <span class="p">...</span>          <span class="c1">// Time period</span>
+
+        <span class="s1">&#39;crecord_type&#39;</span><span class="o">:</span> <span class="s1">&#39;right&#39;</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>The keys of a map of type <code class="docutils literal"><span class="pre">Rights</span></code> are the ids of the objects accessible from the web application.
+The <code class="docutils literal"><span class="pre">right</span></code> field is a 4-bit integer that goes from 1 to 15 and that describes the available action on the object.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Rights</span><span class="p">[</span><span class="n">object_idXYZ</span><span class="p">][</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">READ</span> <span class="o">|</span> <span class="n">CREATE</span> <span class="o">|</span> <span class="n">UPDATE</span> <span class="o">|</span> <span class="n">DELETE</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">READ</span> <span class="o">|</span> <span class="n">CREATE</span> <span class="o">|</span> <span class="n">UPDATE</span> <span class="o">|</span> <span class="n">DELETE</span><span class="p">):</span>
+    <span class="c1">#the user has all rights on the object identified with object_idXYZ</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">Rights</span><span class="p">[</span><span class="n">object_idXYZ</span><span class="p">][</span><span class="s1">&#39;right&#39;</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">CREATE</span> <span class="o">|</span> <span class="n">DELETE</span><span class="p">):</span>
+    <span class="c1">#the user has none of the rights on the object identified with object_idXYZ</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h4>Rights<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>Delete the checksum of a Right from an entity</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_right</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span> <span class="n">e_type</span><span class="p">,</span> <span class="n">right_id</span><span class="p">,</span> <span class="n">checksum</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    entity: entity to delete the right from</span>
+<span class="sd">    e_type: type of the entity</span>
+<span class="sd">    right_id: right to be modified</span>
+<span class="sd">    checksum: flags to remove</span>
+<span class="sd"> Returns:</span>
+<span class="sd">    The checksum of the right if it was modified</span>
+<span class="sd">    ``0`` otherwise</span>
+<span class="sd"> &quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">delete_right</span><span class="p">(</span><span class="s1">&#39;manager&#39;</span><span class="p">,</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;1234.ack&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h4>Groups<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<p>Add a group to an existing entity (Profile or Role)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_group</span><span class="p">(</span><span class="n">e_name</span><span class="p">,</span> <span class="n">e_type</span><span class="p">,</span> <span class="n">group_name</span><span class="p">,</span> <span class="n">group_rights</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    e_name: name of the entity to be modified</span>
+<span class="sd">    e_type: type of the entity</span>
+<span class="sd">    group_name: id of the group to add to the entity</span>
+<span class="sd">    group_rights: specified if the group has to be created beforehand</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ``True`` if the group was added to the entity</span>
+<span class="sd">    ``False`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">add_group</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="s1">&#39;profile&#39;</span><span class="p">,</span> <span class="s1">&#39;manager&#39;</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">add_group</span><span class="p">(</span><span class="s1">&#39;DirectorsManager&#39;</span><span class="p">,</span> <span class="s1">&#39;role&#39;</span><span class="p">,</span> <span class="s1">&#39;manager&#39;</span><span class="p">)</span>
+
+<span class="c1"># This also works, it is merely a wrapper of add_group to make it more user-friendly</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">add_group_to_profile</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="s1">&#39;manager&#39;</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">add_group_to_role</span><span class="p">(</span><span class="s1">&#39;DirectorsManager&#39;</span><span class="p">,</span> <span class="s1">&#39;manager&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Remove a group from an existing entity (Profile or Role)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_group</span><span class="p">(</span><span class="n">e_name</span><span class="p">,</span> <span class="n">e_type</span><span class="p">,</span> <span class="n">group_name</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    e_name: name of the entity to be modified</span>
+<span class="sd">    e_type: type of the entity</span>
+<span class="sd">    group_name: id of the group to remove from the entity</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ``True`` if the group was removed from the entity</span>
+<span class="sd">    ``False`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">remove_group</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="n">profile</span><span class="s1">&#39;, &#39;</span><span class="n">manager</span><span class="s1">&#39;)</span>
+<span class="c1"># or</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">remove_group</span><span class="p">(</span><span class="s1">&#39;DirectorsManager&#39;</span><span class="p">,</span> <span class="s1">&#39;role&#39;</span><span class="p">,</span> <span class="s1">&#39;manager&#39;</span><span class="p">)</span>
+
+<span class="c1"># This also works, it is merely a wrapper of remove_Group to make it more user-friendly</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">rm_group_profile</span><span class="p">(</span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="s1">&#39;manager&#39;</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">rm_group_role</span><span class="p">(</span><span class="s1">&#39;DirectorsManager&#39;</span><span class="p">,</span> <span class="s1">&#39;manager&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h4>profiles<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>Add a Profile to an existing Role</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_profile</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">p_name</span><span class="p">,</span> <span class="n">p_groups</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    role: id of the role to add the Profile to</span>
+<span class="sd">    p_name: name of the Profile to be added</span>
+<span class="sd">    p_groups: specified if the profile has to be created beforehand</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ``True`` if the profile was created</span>
+<span class="sd">    ``False`` otherwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">add_profile</span><span class="p">(</span><span class="s1">&#39;DirectorsManager&#39;</span><span class="p">,</span> <span class="s1">&#39;manager&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Remove a Profile from an existing Role</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_profile</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">p_name</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Args:</span>
+<span class="sd">    role: id of the role to remove the Profile from</span>
+<span class="sd">    p_name: name of the Profile to be removed</span>
+<span class="sd">Returns:</span>
+<span class="sd">    ``True`` if the profile was removed from the entity</span>
+<span class="sd">    ``False`` otehrwise</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Example</span>
+<span class="n">right_module</span><span class="o">.</span><span class="n">remove_profile</span><span class="p">(</span><span class="s1">&#39;DirectorsManager&#39;</span><span class="p">,</span> <span class="s1">&#39;Manager&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="graph.html" class="btn btn-neutral float-right" title="GRAPH: library for managing graph structure" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Data Manager" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

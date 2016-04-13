@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Canopsis Statistics Generator &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Canopsis Functionnal Requirements" href="index.html"/>
+        <link rel="next" title="Canopsis Mixin system" href="fr__mixins.html"/>
+        <link rel="prev" title="Category chart" href="fr__category-chart.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html">Sakura</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#canopsis-specification">Canopsis Specification</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Canopsis Functionnal Requirements</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="fr__functionnal-tests.html">Functionnal Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__architecture.html">Canopsis Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__schema.html">Canopsis Schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__context.html">Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__event.html">Canopsis Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__metric.html">Metrology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__middleware.html">Canopsis Middleware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__storage.html">Canopsis Storages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__engine.html">Canopsis Engine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__task.html">Canopsis Task Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__output.html">Canopsis Output Media</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__graph.html">Graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__topology.html">Topology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__monitoring.html">Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__alarm.html">Alarm management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__serie.html">Serie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__category-chart.html">Category chart</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Canopsis Statistics Generator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fr__mixins.html">Canopsis Mixin system</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../TR/index.html">Canopsis Technical Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ED/index.html">Canopsis Exploitation Documents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="index.html">Canopsis Functionnal Requirements</a> &raquo;</li>
+      
+    <li>Canopsis Statistics Generator</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/canopsis/canopsis/FR/fr__statistics.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="canopsis-statistics-generator">
+<span id="fr-statistics"></span><h1><a class="toc-backref" href="#id4">Canopsis Statistics Generator</a><a class="headerlink" href="#canopsis-statistics-generator" title="Permalink to this headline">¶</a></h1>
+<p>This document describes the statistics generation process.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#canopsis-statistics-generator" id="id4">Canopsis Statistics Generator</a><ul>
+<li><a class="reference internal" href="#references" id="id5">References</a></li>
+<li><a class="reference internal" href="#updates" id="id6">Updates</a></li>
+<li><a class="reference internal" href="#id1" id="id7">Contents</a><ul>
+<li><a class="reference internal" href="#description" id="id8">Description</a></li>
+<li><a class="reference internal" href="#user-statistics" id="id9">User statistics</a></li>
+<li><a class="reference internal" href="#event-statistics" id="id10">Event statistics</a></li>
+<li><a class="reference internal" href="#configuration" id="id11">Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functional-tests" id="id12">Functional Tests</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id5">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>List of referenced functional requirements:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="fr__metric.html#fr-metric"><span class="std std-ref">FR::Metric</span></a></li>
+<li><a class="reference internal" href="fr__event.html#fr-event"><span class="std std-ref">FR::Event</span></a></li>
+<li><a class="reference internal" href="fr__serie.html#fr-serie"><span class="std std-ref">FR::Serie</span></a></li>
+<li><a class="reference internal" href="fr__schema.html#fr-schema"><span class="std std-ref">FR::Schema</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="updates">
+<h2><a class="toc-backref" href="#id6">Updates</a><a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Author(s)</th>
+<th class="head">Date</th>
+<th class="head">Version</th>
+<th class="head">Summary</th>
+<th class="head">Accepted by</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>David Delassus</td>
+<td>2015/10/15</td>
+<td>0.1</td>
+<td>Document creation</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id7">Contents</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="description">
+<span id="fr-statistics-desc"></span><h3><a class="toc-backref" href="#id8">Description</a><a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>The statistics generator allows the user to create <a class="reference internal" href="fr__metric.html#fr-metric"><span class="std std-ref">metrics</span></a>,
+generating <a class="reference internal" href="fr__metric.html#fr-metric-perfdata"><span class="std std-ref">perfomance data</span></a> about Canopsis usage,
+availability, and performance.</p>
+<p>It will provide:</p>
+<blockquote>
+<div><ul class="simple">
+<li>basic metrics, that <strong>MAY</strong> be expanded using a filter, calculated from <a class="reference internal" href="fr__event.html#fr-event"><span class="std std-ref">events</span></a></li>
+<li>complex metrics, calculated from basic metrics using an <a class="reference internal" href="fr__serie.html#fr-serie"><span class="std std-ref">aggregated serie</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="user-statistics">
+<span id="fr-statistics-user"></span><h3><a class="toc-backref" href="#id9">User statistics</a><a class="headerlink" href="#user-statistics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="metrics">
+<h4>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Component</th>
+<th class="head">Resource</th>
+<th class="head">Metric</th>
+<th class="head">Metric Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_ack</td>
+<td>total</td>
+<td>COUNTER</td>
+<td>Total number of acknowledged alarms</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_ack</td>
+<td><code class="docutils literal"><span class="pre">$filter_name</span></code></td>
+<td>COUNTER</td>
+<td>Number of acknowledged alarms matching filter</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_ack_delay</td>
+<td>last</td>
+<td>GAUGE</td>
+<td>Delay between alarm apparition and its acknowledgment</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_ack_delay</td>
+<td>average</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_ack_delay</td>
+<td>max</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_ack_delay</td>
+<td>min</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_ack_solved</td>
+<td>last</td>
+<td>GAUGE</td>
+<td>Delay between alarm resolution and its acknowledgment</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_ack_solved</td>
+<td>average</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_ack_solved</td>
+<td>max</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_ack_solved</td>
+<td>min</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_solved</td>
+<td>last</td>
+<td>GAUGE</td>
+<td>Delay between alarm apparition and its resolution</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_solved</td>
+<td>average</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_solved</td>
+<td>max</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>alarm_solved</td>
+<td>min</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>session_duration</td>
+<td>last</td>
+<td>GAUGE</td>
+<td>Delay between user&#8217;s login and logout</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>session_duration</td>
+<td>average</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>session_duration</td>
+<td>max</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">$username</span></code></td>
+<td>session_duration</td>
+<td>min</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="computation">
+<h4>Computation<a class="headerlink" href="#computation" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">alarm_ack</span></code>: will be incremented if the event matches the configured filter</li>
+<li><code class="docutils literal"><span class="pre">alarm_ack_delay</span></code>: will be the difference between the timestamps of the alarm event and its acknowledgment</li>
+<li><code class="docutils literal"><span class="pre">alarm_ack_solved</span></code>: will be the difference between the timestamps of the ack and the alarm resolution event</li>
+<li><code class="docutils literal"><span class="pre">alarm_solved</span></code>: will be the difference between the timestamps of the alarm event and its resolution event</li>
+<li><code class="docutils literal"><span class="pre">session_duration</span></code>: will be the difference between the timestamps of the first login and the last Canopsis page closed</li>
+<li><code class="docutils literal"><span class="pre">average</span></code>, <code class="docutils literal"><span class="pre">max</span></code> and <code class="docutils literal"><span class="pre">min</span></code> will be calculated from <code class="docutils literal"><span class="pre">last</span></code> using an aggregated serie</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="event-statistics">
+<span id="fr-statistics-event"></span><h3><a class="toc-backref" href="#id10">Event statistics</a><a class="headerlink" href="#event-statistics" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Metrics<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Component</th>
+<th class="head">Resource</th>
+<th class="head">Metric</th>
+<th class="head">Metric Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>canopsis</td>
+<td>alarm</td>
+<td>total</td>
+<td>COUNTER</td>
+<td>Total number of alarms</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm</td>
+<td><code class="docutils literal"><span class="pre">$filter_name</span></code></td>
+<td>COUNTER</td>
+<td>Number of alarms matching filter</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_ack</td>
+<td>total</td>
+<td>COUNTER</td>
+<td>Total number of acknowledged alarms</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm_ack</td>
+<td><code class="docutils literal"><span class="pre">$filter_name</span></code></td>
+<td>COUNTER</td>
+<td>Number of acknowledged alarms matching filter</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_ack_solved</td>
+<td>total</td>
+<td>COUNTER</td>
+<td>Total number of acknowledged resolved alarms</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm_ack_solved</td>
+<td><code class="docutils literal"><span class="pre">$filter_name</span></code></td>
+<td>COUNTER</td>
+<td>Number of acknowledged resolved alarms matching filter</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_solved</td>
+<td>total</td>
+<td>COUNTER</td>
+<td>Total number of resolved alarms</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm_solved</td>
+<td><code class="docutils literal"><span class="pre">$filter_name</span></code></td>
+<td>COUNTER</td>
+<td>Number of resolved alarms matching filter</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_ack_delay</td>
+<td>sum</td>
+<td>COUNTER</td>
+<td>Cumulative delay between alarm apparition and its acknowledgment</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm_ack_delay</td>
+<td>last</td>
+<td>GAUGE</td>
+<td>Delay between alarm apparition and its acknowledgment</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_ack_delay</td>
+<td>average</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm_ack_delay</td>
+<td>max</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_ack_delay</td>
+<td>min</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm_ack_solved</td>
+<td>sum</td>
+<td>COUNTER</td>
+<td>Cumulative delay between alarm resolution and its acknowledgment</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_ack_solved</td>
+<td>last</td>
+<td>GAUGE</td>
+<td>Delay between alarm resolution and its acknowledgment</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm_ack_solved</td>
+<td>average</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_ack_solved</td>
+<td>max</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm_ack_solved</td>
+<td>min</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_solved</td>
+<td>sum</td>
+<td>COUNTER</td>
+<td>Cumulative delay between alarm apparition and its resolution</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm_solved</td>
+<td>last</td>
+<td>GAUGE</td>
+<td>Delay between alarm apparition and its resolution</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_solved</td>
+<td>average</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>canopsis</td>
+<td>alarm_solved</td>
+<td>max</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>canopsis</td>
+<td>alarm_solved</td>
+<td>min</td>
+<td>GAUGE</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h4>Computation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">alarm</span></code>: will be incremented on each <a class="reference internal" href="fr__event.html#fr-event-check"><span class="std std-ref">check event</span></a> in a non OK state, if it matches the configured filter</li>
+<li><code class="docutils literal"><span class="pre">alarm_ack</span></code>: will be incremented for each <a class="reference internal" href="fr__event.html#fr-event-ack"><span class="std std-ref">ack event</span></a>, if it matches the configured filter</li>
+<li><code class="docutils literal"><span class="pre">alarm_ack_solved</span></code>: will be incremented for each check event (previously acknowledged) in an OK state, if it matches the configured filter</li>
+<li><code class="docutils literal"><span class="pre">alarm_solved</span></code>: will be incremented for each check event in an OK state, if it matches the configured filter</li>
+<li><code class="docutils literal"><span class="pre">alarm_ack_delay.sum</span></code>: will be incremented by the difference of timestamps between the alarm event and its acknowledgment</li>
+<li><code class="docutils literal"><span class="pre">alarm_ack_solved.sum</span></code>: will be incremented by the difference of timestamps between the acknowledgment and the alarm resolution event</li>
+<li><code class="docutils literal"><span class="pre">alarm_solved.sum</span></code>: will be incremented by the difference of timestamps between an alarm event and its resolution event</li>
+<li><code class="docutils literal"><span class="pre">*.last</span></code>: will be published with the incremental value of <code class="docutils literal"><span class="pre">*.sum</span></code></li>
+<li><code class="docutils literal"><span class="pre">average</span></code>, <code class="docutils literal"><span class="pre">max</span></code> and <code class="docutils literal"><span class="pre">min</span></code> will be calculated from <code class="docutils literal"><span class="pre">last</span></code> with an aggregated serie</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="configuration">
+<span id="fr-statistics-configuration"></span><h3><a class="toc-backref" href="#id11">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>In order to create the event filters (to produce complex metrics), we will need
+at least 5 collections of filters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">user.alarm_ack</span></code></li>
+<li><code class="docutils literal"><span class="pre">canopsis.alarm</span></code></li>
+<li><code class="docutils literal"><span class="pre">canopsis.alarm_ack</span></code></li>
+<li><code class="docutils literal"><span class="pre">canopsis.alarm_ack_solved</span></code></li>
+<li><code class="docutils literal"><span class="pre">canopsis.alarm_solved</span></code></li>
+</ul>
+</div></blockquote>
+<p>For this, we will need a <a class="reference internal" href="fr__schema.html#fr-schema-data"><span class="std std-ref">data schema</span></a> providing the following informations:</p>
+<blockquote>
+<div><ul class="simple">
+<li>a <code class="docutils literal"><span class="pre">filter_name</span></code> as a <code class="docutils literal"><span class="pre">string</span></code></li>
+<li>a <code class="docutils literal"><span class="pre">filter_type</span></code> as a <code class="docutils literal"><span class="pre">string</span></code> which represent each collection</li>
+<li>a <code class="docutils literal"><span class="pre">filter</span></code> representing the event filter to use for event matching</li>
+</ul>
+</div></blockquote>
+<p>A <strong>Statistics</strong> view will be available, providing:</p>
+<blockquote>
+<div><ul class="simple">
+<li>a configuration tab: with a listing of all filters, allowing CRUD operations</li>
+<li>a view tab: with graphs visualizing the produced metrics</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="functional-tests">
+<h2><a class="toc-backref" href="#id12">Functional Tests</a><a class="headerlink" href="#functional-tests" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><strong>TODO:</strong> listing of expected result per metric</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last"><strong>TODO:</strong> listing of expected metrics according to filters</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fr__mixins.html" class="btn btn-neutral float-right" title="Canopsis Mixin system" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fr__category-chart.html" class="btn btn-neutral" title="Category chart" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

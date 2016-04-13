@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Series and Curves &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Series and Curves</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/user-guide/UI/views/perfdata.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="series-and-curves">
+<span id="user-ui-view-perfdata"></span><h1>Series and Curves<a class="headerlink" href="#series-and-curves" title="Permalink to this headline">¶</a></h1>
+<p>This document explains how to use the <em>Performance Data</em> view.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>On this view, you can see 3 lists:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Metrics</strong>: lists the known metrics ;</li>
+<li><strong>Series</strong>: lists your series and allows you to create/edit/remove them ;</li>
+<li><strong>Curves</strong>: lists your curves and allows you to create/edit/remove them.</li>
+</ul>
+</div></blockquote>
+<p>A <strong>metric</strong> is a named value that can change over time. At the moment, Canopsis knows
+4 types of metrics:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>GAUGE</strong>: the actual value of the metric is the last incoming value ;</li>
+<li><strong>COUNTER</strong>: increment the previous metric&#8217;s value with this one ;</li>
+<li><strong>ABSOLUTE</strong>: always positive value ;</li>
+<li><strong>DERIVE</strong>: the current value corresponds to the metric&#8217;s value derived over time.</li>
+</ul>
+</div></blockquote>
+<p>A <strong>serie</strong> is an object containing :</p>
+<blockquote>
+<div><ul class="simple">
+<li>a name,</li>
+<li>multiple metrics,</li>
+<li>a formula, involving the selected metrics,</li>
+<li>an aggregation, to fetch the metrics aligned on X axis,</li>
+<li>some metadata (warn, crit, min, max, unit).</li>
+</ul>
+</div></blockquote>
+<p>Just like a metric, a serie will generate a list of points (where each point is
+a pair <code class="docutils literal"><span class="pre">(timestamp,value)</span></code>).
+Each point is the result of the formula applied to the fetched metrics.</p>
+<p>A <strong>curve</strong> describe how to plot a serie or a metric:</p>
+<blockquote>
+<div><ul class="simple">
+<li>do we want lines, areas, points, and/or bars ?</li>
+<li>do we want to plot the values with the curve ?</li>
+<li>how does look lines, areas, points, and/or bars ?</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="how-to-make-a-serie">
+<h2>How to make a serie<a class="headerlink" href="#how-to-make-a-serie" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../../../_images/listseries.png" src="../../../../../_images/listseries.png" />
+<p>First, click on the <em>Create</em> button, a new form will appears:</p>
+<img alt="../../../../../_images/serieform0.png" src="../../../../../_images/serieform0.png" />
+<p>Detailed form:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Name:</strong> serie&#8217;s name, will be used to labelize the serie on a chart ;</li>
+<li><strong>Data source:</strong> metrics that will be fetched to feed the serie.</li>
+</ul>
+</div></blockquote>
+<img alt="../../../../../_images/serieform1.png" src="../../../../../_images/serieform1.png" />
+<p>Detailed form:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>aggregation method:</strong> method used to aggregate metrics points ;</p>
+</li>
+<li><p class="first"><strong>aggregation interval:</strong> time interval between two aggregated points.</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>formula</strong>:</dt>
+<dd><ul class="first last simple">
+<li>mathematical formula that will be used to consolidate the fetched metrics in a single point ;</li>
+<li>click on a metric in the list to add it in the formula.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<img alt="../../../../../_images/serieform2.png" src="../../../../../_images/serieform2.png" />
+<p>Detailed form:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>min:</strong> defines the minimum value this serie will take ;</li>
+<li><strong>max:</strong> defines the maximum value this serie will take ;</li>
+<li><strong>warn:</strong> warning threshold ;</li>
+<li><strong>crit:</strong> critical threshold ;</li>
+<li><strong>unit:</strong> serie&#8217;s unit.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="how-to-make-a-curve">
+<h2>How to make a curve<a class="headerlink" href="#how-to-make-a-curve" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../../../_images/listcurves.png" src="../../../../../_images/listcurves.png" />
+<p>First, click on the <em>Create</em> button, a new form will appears:</p>
+<img alt="../../../../../_images/curveform0.png" src="../../../../../_images/curveform0.png" />
+<p>Detailed form:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>name:</strong> curve&#8217;s name.</li>
+</ul>
+</div></blockquote>
+<img alt="../../../../../_images/curveform1.png" src="../../../../../_images/curveform1.png" />
+<p>Detailed form:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Show line:</strong> if checked, will plot a line chart ;</li>
+<li><strong>Fill area under line:</strong> if checked, will plot an area on the chart ;</li>
+<li><strong>Show points:</strong> if checked, will plot each point on the chart ;</li>
+<li><strong>Show bars:</strong> if checked, will plot a bar chart ;</li>
+<li><strong>Show values:</strong> if checked, will display values above each point.</li>
+</ul>
+</div></blockquote>
+<img alt="../../../../../_images/curveform2.png" src="../../../../../_images/curveform2.png" />
+<p>Detailed form:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Line width:</strong> line/bar width in pixel ;</li>
+<li><strong>Bar width:</strong> bar width in X unit ;</li>
+<li><strong>Lines style:</strong> if the line is continuous, dashed, ... ;</li>
+<li><strong>Point&#8217;s shape:</strong> shape used to plot a point ;</li>
+<li><strong>Area opacity:</strong> number from 0 to 1, 0 being transparent and 1 being opaque.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

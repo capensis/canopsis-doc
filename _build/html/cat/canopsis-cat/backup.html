@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Canopsis Backup Utility &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Canopsis CAT" href="index.html"/>
+        <link rel="next" title="CaLink" href="calink.html"/>
+        <link rel="prev" title="SNMP Engine" href="snmp/index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis/index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cat</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Canopsis CAT</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="connectors/index.html">Connectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snmp/index.html">SNMP Engine</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Canopsis Backup Utility</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calink.html">CaLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feeder.html">Event Feeder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="supervision.html">Canopsis Supervision</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Cat</a> &raquo;</li>
+      
+          <li><a href="index.html">Canopsis CAT</a> &raquo;</li>
+      
+    <li>Canopsis Backup Utility</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/cat/canopsis-cat/backup.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="canopsis-backup-utility">
+<h1>Canopsis Backup Utility<a class="headerlink" href="#canopsis-backup-utility" title="Permalink to this headline">¶</a></h1>
+<p>Canopsis&#8217;s Backup utility provides a command line interface to create backup of the current node.</p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This utility is based on:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Burp</strong>: a backup utility using <em>librsync</em></li>
+<li><strong>mongodump/mongorestore</strong>: <em>MongoDB</em> tools for exporting/importing data</li>
+</ul>
+</div></blockquote>
+<p>It works in a client/server mode:</p>
+<blockquote>
+<div><ul class="simple">
+<li>the client describes what to backup and sends data to the server</li>
+<li>the server handles deduplication, compression and backup storage</li>
+</ul>
+</div></blockquote>
+<p>Because of the use of <em>librsync</em>, each backup is a diff of the previous backup. Only delta are stored.
+But each of those deltas contains all the files, hard-linked (to avoid duplicated content), and so, is virtually a full backup.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p><em>Burp</em> uses <strong>SSL</strong> to encrypt transport on port 4200.
+All certificates used are stored in <code class="docutils literal"><span class="pre">etc/ssl</span></code>.</p>
+<div class="section" id="server">
+<h3>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h3>
+<p>The server configuration is stored in <code class="docutils literal"><span class="pre">etc/backup/server.conf</span></code>:</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="na">address</span><span class="o">=</span><span class="s">0.0.0.0</span>
+<span class="na">port</span><span class="o">=</span><span class="s">4200</span>
+<span class="na">status_address</span><span class="o">=</span><span class="s">127.0.0.1</span>
+<span class="na">status_port</span><span class="o">=</span><span class="s">4201</span>
+<span class="na">keep</span><span class="o">=</span><span class="s">5</span>
+</pre></div>
+</div>
+<p><strong>*NB:*</strong> only interesting options are listed above.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">address</span></code>: address to bind to</li>
+<li><code class="docutils literal"><span class="pre">port</span></code>: port to listen on</li>
+<li><code class="docutils literal"><span class="pre">status_address</span></code>: address to bind to for status interface</li>
+<li><code class="docutils literal"><span class="pre">status_port</span></code>: port to listen on for status interface</li>
+<li><code class="docutils literal"><span class="pre">keep</span></code>: number of backup to keep per client</li>
+</ul>
+</div></blockquote>
+<p>Each client is registered have a configuration file in <code class="docutils literal"><span class="pre">etc/backup/clients</span></code> named after the client&#8217;s name.</p>
+<p>For example, in <code class="docutils literal"><span class="pre">etc/backup/clients/cpsnode</span></code> we have the following:</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="na">ssl_peer_cn</span><span class="o">=</span><span class="s">cpsnode</span>
+</pre></div>
+</div>
+<p>The only option is the expected common name in the client&#8217;s supplied certificate.</p>
+</div>
+<div class="section" id="client">
+<h3>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h3>
+<p>The client configuration is located at <code class="docutils literal"><span class="pre">etc/backup/node.conf</span></code>:</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="na">server</span><span class="o">=</span><span class="s">127.0.0.1</span>
+<span class="na">port</span><span class="o">=</span><span class="s">4200</span>
+
+<span class="na">include</span><span class="o">=</span><span class="s">/opt/canopsis/etc</span>
+<span class="na">include</span><span class="o">=</span><span class="s">/opt/canopsis/opt/mongodb/load.d/json_object</span>
+<span class="na">include</span><span class="o">=</span><span class="s">/opt/canopsis/opt/mongodb/load.d/rights</span>
+<span class="na">include</span><span class="o">=</span><span class="s">/opt/canopsis/var/cache/canopsis/mongodb</span>
+<span class="na">exclude_regex</span><span class="o">=</span><span class="s">\.bson\.(pid|lock|state)$</span>
+<span class="na">read_all_fifos</span><span class="o">=</span><span class="s">1</span>
+</pre></div>
+</div>
+<p><strong>*NB:*</strong> only interesting options are listed above.</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">server</span></code>: address to connect to</li>
+<li><code class="docutils literal"><span class="pre">port</span></code>: port to connect to</li>
+<li><code class="docutils literal"><span class="pre">include</span></code>: include folder to backup</li>
+<li><code class="docutils literal"><span class="pre">exclude_regex</span></code>: exclude a pattern from the backup</li>
+<li><code class="docutils literal"><span class="pre">read_all_fifos</span></code>: if a backed-up file is a FIFO, it will read the FIFO and backup its content</li>
+</ul>
+</div></blockquote>
+<p>The two last options are for the <em>MongoDB</em> integration with <em>Burp</em>.</p>
+</div>
+</div>
+<div class="section" id="functional-overview">
+<h2>Functional overview<a class="headerlink" href="#functional-overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exporting">
+<h3>Exporting<a class="headerlink" href="#exporting" title="Permalink to this headline">¶</a></h3>
+<p>First, a FIFO is created for each <em>MongoDB</em> collection (listed in <code class="docutils literal"><span class="pre">etc/backup/storage.conf</span></code>).
+Then, with the help of <code class="docutils literal"><span class="pre">mongodump</span></code>, each collection is dumped to its corresponding FIFO.</p>
+<p>When <em>Burp</em> is launched, it will backup the specified folders, including the previously created FIFOs.</p>
+<p>Finally, after the backup, we will check that each <code class="docutils literal"><span class="pre">mongodump</span></code> was successful (or invalidates the backup if not).</p>
+<p>No extra-space is required to perform the backup, since the database is backed-up via a FIFO.</p>
+</div>
+<div class="section" id="importing">
+<h3>Importing<a class="headerlink" href="#importing" title="Permalink to this headline">¶</a></h3>
+<p>When <em>Burp</em> performs a restore, it will write FIFOs content into a file named after the FIFO.</p>
+<p>This means that the FIFO created for <code class="docutils literal"><span class="pre">mongodump</span></code>, when exporting, will be restored as a regular file by <em>Burp</em>.</p>
+<p>This also means that you will need extra-space during the restore process.</p>
+<p>Finally, when <em>Burp</em> has finished to perform the restore, <code class="docutils literal"><span class="pre">mongorestore</span></code> will be called to re-inject the data into the database.</p>
+<p>The files used by <code class="docutils literal"><span class="pre">mongorestore</span></code> will be deleted once everything is done.</p>
+</div>
+</div>
+<div class="section" id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<p>When Canopsis is configured in HA mode, you should refer to the documentation of
+the HAC brick, in order to designate the backup server and client amongs the nodes.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="calink.html" class="btn btn-neutral float-right" title="CaLink" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="snmp/index.html" class="btn btn-neutral" title="SNMP Engine" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Manage connectors module &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Connectors" href="index.html"/>
+        <link rel="next" title="How to use connector interface" href="user-guide.html"/>
+        <link rel="prev" title="Connectors" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis/index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Cat</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Canopsis CAT</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Connectors</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Manage connectors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user-guide.html">How to use connector interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../snmp/index.html">SNMP Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../backup.html">Canopsis Backup Utility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calink.html">CaLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../feeder.html">Event Feeder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supervision.html">Canopsis Supervision</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Cat</a> &raquo;</li>
+      
+          <li><a href="../index.html">Canopsis CAT</a> &raquo;</li>
+      
+          <li><a href="index.html">Connectors</a> &raquo;</li>
+      
+    <li>Manage connectors module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/cat/canopsis-cat/connectors/admin-guide.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="manage-connectors-module">
+<h1>Manage connectors module<a class="headerlink" href="#manage-connectors-module" title="Permalink to this headline">¶</a></h1>
+<p>Connectors module enable on a canopsis install to manage remote connectors from a single view. It is built on top of canopsis tools such as list widget or crud mixin. It also provide many action button allowing remote interaction on the remote connector host. Possibles actions are described below.</p>
+<div class="section" id="general-principles-of-remote-connectors-management">
+<h2>General principles of remote connectors management<a class="headerlink" href="#general-principles-of-remote-connectors-management" title="Permalink to this headline">¶</a></h2>
+<p>Once installed in Canopsis, the connectors module enables a custom view in the web user interface called <code class="docutils literal"><span class="pre">/userview/view.connectors</span></code>. There it is possible to create records that tells Canopsis how to reach the remote connector host with infomration such as host adress and port.</p>
+<p>Many other information are available depending on the connector type.</p>
+<p>Remote connector management in Canopsis requires the canopsis host server to be able to reach a remote connector host thanks to an ssh shared key. It is possible to achieve this by registering the canopsis public key ; once logged as canopsis with command <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">su</span> <span class="pre">-</span> <span class="pre">cannopsis</span></code> copy <code class="docutils literal"><span class="pre">cat</span> <span class="pre">~/.ssh_id_dsa.pub</span></code> into the remote host file <code class="docutils literal"><span class="pre">~/.ssh/authorized_keys</span></code> for a valid unix user that is allowed to manage nagios service command (root for example).</p>
+</div>
+<div class="section" id="nagios-connectors-module-setup">
+<h2>Nagios connectors module setup<a class="headerlink" href="#nagios-connectors-module-setup" title="Permalink to this headline">¶</a></h2>
+<p>For this tutorial, the example of the Nagios will be explained. Nagios remote connector is more precisely a broker program that is integrated to nagios workflow and it allows producing canopsis events from Nagios informations that are sent to the Canopsis server.</p>
+<p>Let&#8217;s begin by setup the remote connector control script. This script is written in bash and allow interaction with the nagios system on the remote server. It allows several actions on the nagios environment that are :</p>
+<ul class="simple">
+<li>getState : retrieve the connector and the service (Nagios) state</li>
+<li>getConf : fetch the canopsis broker module configuration as json document</li>
+<li>setConf : transform a json document into a broker module configuration</li>
+<li>enable : enable the broker (uncomment if needed)</li>
+<li>disable : disable the broker (add comment if needed)</li>
+</ul>
+<p>These commands are triggered from the canopsis user interface buttons thanks to a fabric program that runs remote commands thanks to the ssh key exchange.</p>
+<p>These actions are available from the command script in the CAT package, and it&#8217;s location is the following: <code class="docutils literal"><span class="pre">[CAT_SOURCES_LOCATION]/connector-interfaces/cat-nagios</span></code> This script have to be copied where the program is in the path of the user on the remote machine <code class="docutils literal"><span class="pre">/usr/bin/cat-nagios</span> <span class="pre">for</span> <span class="pre">example</span></code>. This have to be done in order to allow a fabric remote commands to find the script and run it properly.</p>
+</div>
+<div class="section" id="connector-module-setup">
+<h2>Connector module setup<a class="headerlink" href="#connector-module-setup" title="Permalink to this headline">¶</a></h2>
+<p>Now it is time to setup the connector module itself. in the Canopsis CAT source folder run the following command : <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">./build-install.sh</span> <span class="pre">-o</span> <span class="pre">connectors</span> <span class="pre">-d</span> <span class="pre">/path_to_canopsis_sources</span></code></p>
+<p>This command will install the connectors module that installs an engine, some webservice routes, a fabfile that enable remote commands and the webcore module enabling the connector list and action management display.</p>
+<p>Once this setup done, it is necessary to add the engine to the canopsis engine configuration files. edit <code class="docutils literal"><span class="pre">/opt/canopsis/etc/amqp2engines.conf</span></code> and add the connector engine as following:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">next</span><span class="o">=</span>topology
+
+<span class="o">[</span>engine:topology<span class="o">]</span>
+<span class="nv">event_processing</span><span class="o">=</span>canopsis.topology.process.event_processing
+
+<span class="c1">#Add the following lines at the end of the last serialised engine</span>
+<span class="nv">next</span><span class="o">=</span>connectors
+
+<span class="o">[</span>engine:connectors<span class="o">]</span>
+</pre></div>
+</div>
+<p>refer to the <a class="reference external" href="../administration/amqp2engines.html">administrator guide</a> for more information about this kind of configuration.</p>
+<p>Then add the engine to the engine list in the file <code class="docutils literal"><span class="pre">/opt/canopsis/etc/supervisord.d/amqp2engines.conf</span></code> and add <code class="docutils literal"><span class="pre">engine-connectors</span></code> at the end of the programs line.</p>
+<p>At the end, just restart canopsis engines and webserver by either :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>service webserver restart
+service amqp2engines restart
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>hypcontrol restart
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="user-guide.html" class="btn btn-neutral float-right" title="How to use connector interface" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Connectors" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

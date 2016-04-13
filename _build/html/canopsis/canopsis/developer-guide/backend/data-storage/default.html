@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Default Storage &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Data Storage" href="index.html"/>
+        <link rel="next" title="Data Manager" href="../data-manager/index.html"/>
+        <link rel="prev" title="File Storage" href="file.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../frontend/index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="../index.html">Backend</a> &raquo;</li>
+      
+          <li><a href="index.html">Data Storage</a> &raquo;</li>
+      
+    <li>Default Storage</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/developer-guide/backend/data-storage/default.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="default-storage">
+<span id="dev-backend-storage-default"></span><h1>Default Storage<a class="headerlink" href="#default-storage" title="Permalink to this headline">¶</a></h1>
+<p>A default storage is used to access store and retrieve documents from a database collection.
+Searches, insertions, updates and deletions are made using the document&#8217;s ID.</p>
+<div class="section" id="how-to">
+<h2>How to<a class="headerlink" href="#how-to" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to store and retrieve data from a database collection using the default storage.
+Below is an example on how to manage data from a manager.</p>
+<p>Here is the minimal code for the manager</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Allow retrieve configuration from configuration files</span>
+<span class="kn">from</span> <span class="nn">canopsis.configuration.configurable.decorator</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">conf_paths</span><span class="p">,</span> <span class="n">add_category</span><span class="p">)</span>
+<span class="c1"># Base class allowing to manage data storage in an easy way</span>
+<span class="kn">from</span> <span class="nn">canopsis.middleware.registry</span> <span class="kn">import</span> <span class="n">MiddlewareRegistry</span>
+
+<span class="c1"># The file where the configuration is retrieved</span>
+<span class="c1"># here it is /opt/canopsis/etc/my_manager/my_manager.conf</span>
+<span class="n">CONF_PATH</span> <span class="o">=</span> <span class="s1">&#39;my_manager/my_manager.conf&#39;</span>
+
+<span class="c1">#The category from the configuration file that is read and fetched at runtime</span>
+<span class="n">CATEGORY</span> <span class="o">=</span> <span class="s1">&#39;MANAGER&#39;</span>
+
+
+<span class="c1"># Effective load of the configuration files and parameters</span>
+<span class="nd">@conf_paths</span><span class="p">(</span><span class="n">CONF_PATH</span><span class="p">)</span>
+<span class="nd">@add_category</span><span class="p">(</span><span class="n">CATEGORY</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">Mymanager</span><span class="p">(</span><span class="n">MiddlewareRegistry</span><span class="p">):</span>
+
+   <span class="c1"># The configuration key to read in the configuration file</span>
+   <span class="n">MANAGER_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;manager_storage&#39;</span>
+
+   <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+     <span class="nb">super</span><span class="p">(</span><span class="n">Mymanager</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is a the Mymanager class manager&#8217;s method to put data in a default storage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+   <span class="n">data_to_upsert</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;key0&#39;</span><span class="p">:</span> <span class="s1">&#39;value0&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span>
+   <span class="p">}</span>
+
+   <span class="n">entity_id</span> <span class="o">=</span> <span class="s1">&#39;entity_id&#39;</span>
+
+   <span class="bp">self</span><span class="p">[</span><span class="n">Connectors</span><span class="o">.</span><span class="n">MANAGER_STORAGE</span><span class="p">]</span><span class="o">.</span><span class="n">put_element</span><span class="p">(</span>
+      <span class="n">_id</span><span class="o">=</span><span class="n">entity_id</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="n">entity</span>
+   <span class="p">)</span>
+</pre></div>
+</div>
+<p>This operation will lead to an upsert. If the document does not exists with the key entity_id, it is created and if this code is called twice with some different data_to updsert, the new keys are simply added to the document.</p>
+<p>This will result in a database document (here with mongodb) looking like that:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;entity_id&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;key1&quot;</span> <span class="o">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;key0&quot;</span> <span class="o">:</span> <span class="s2">&quot;value0&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Below the code to manage data deletion from the manager:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+   <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;entity_id&#39;</span><span class="p">]</span>
+   <span class="bp">self</span><span class="p">[</span><span class="n">Connectors</span><span class="o">.</span><span class="n">MANAGER_STORAGE</span><span class="p">]</span><span class="o">.</span><span class="n">remove_elements</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="n">ids</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And in the end here is how to select data from the storage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+   <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;entity_id&#39;</span><span class="p">]</span>
+   <span class="n">state_documents</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">Connectors</span><span class="o">.</span><span class="n">MANAGER_STORAGE</span><span class="p">]</span><span class="o">.</span><span class="n">get_elements</span><span class="p">(</span>
+      <span class="n">ids</span><span class="o">=</span><span class="n">ids</span>
+   <span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">get_elements</span></code> method also accepts a query parameter that is for instance a mongodb like filter taking a form of a dict.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../data-manager/index.html" class="btn btn-neutral float-right" title="Data Manager" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="file.html" class="btn btn-neutral" title="File Storage" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

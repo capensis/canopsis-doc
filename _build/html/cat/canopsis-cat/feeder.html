@@ -1,0 +1,608 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Event Feeder &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Canopsis CAT" href="index.html"/>
+        <link rel="next" title="Canopsis Supervision" href="supervision.html"/>
+        <link rel="prev" title="CaLink" href="calink.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis/index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cat</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Canopsis CAT</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="connectors/index.html">Connectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snmp/index.html">SNMP Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup.html">Canopsis Backup Utility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calink.html">CaLink</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Event Feeder</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="supervision.html">Canopsis Supervision</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Cat</a> &raquo;</li>
+      
+          <li><a href="index.html">Canopsis CAT</a> &raquo;</li>
+      
+    <li>Event Feeder</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/cat/canopsis-cat/feeder.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="event-feeder">
+<h1>Event Feeder<a class="headerlink" href="#event-feeder" title="Permalink to this headline">¶</a></h1>
+<p>L&#8217;event feeder est un outil permettant de simuler des envois (massifs) d&#8217;events
+canopsis.</p>
+<p>Le feeder actuel remplace une première version qui ne gérait pas tous les
+types d&#8217;events et qui faisait des trop grosses approximations sur les
+probabilités. Le nouveau feeder est capable d&#8217;envoyer tous les types d&#8217;event
+<a class="footnote-reference" href="#id2" id="id1">[1]</a> et tente de simuler les interactions de manière réaliste.</p>
+<p>Il est non seulement possible d&#8217;envoyer des events déterministes, mais aussi de
+simuler le workflow des actions utilisateur (ack, ackremove, cancel, uncancel,
+changestate...) à l&#8217;aide de probabilités et de délais.</p>
+<p>Le feeder intègre aussi un outil de scenario permettant de lancer des scenario
+en parallèle du fonctionnement classique. L&#8217;outil de scenario reste utilisable
+indépendamment.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Pour l&#8217;instant, il ne permet pas l&#8217;envoi d&#8217;events calendar et
+declareticket. Ils seront rajoutés lorsqu&#8217;il aura été vérifié que Canopsis
+peut les enregistrer.</td></tr>
+</tbody>
+</table>
+<div class="section" id="composition">
+<h2>Composition<a class="headerlink" href="#composition" title="Permalink to this headline">¶</a></h2>
+<p>Le feeder est composé de plusieurs parties :</p>
+<blockquote>
+<div><ul class="simple">
+<li>scripts/canopsis-feed : Script principal du &#8216;feeder&#8217;, ordonance les events</li>
+<li>scripts/canopsis-scenario : Envoie des events en mode scenario</li>
+<li>scripts/canopsis-splitconf : Découpe la configuration au format attendu
+par les scripts</li>
+<li>etc/feeder_monolithic.json : Fichier de configuration principal. Ce n&#8217;est
+pas lui qui est lu par le feeder. Il doit être découpé en plusieurs petits
+fichiers à l&#8217;aide de scripts/canopsis-splitconf.py.</li>
+<li>etc/scenario/&lt;scenario&gt;.py : Définitions des scenario au format attendu</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="dependances">
+<h2>Dépendances<a class="headerlink" href="#dependances" title="Permalink to this headline">¶</a></h2>
+<p>Il n&#8217;y a pas besoin d&#8217;un environnement canopsis. La seule dépendance est le
+package kombu. Cette dépendance est gérée par setuptools.</p>
+<p>Par contre, cette dépendance implique d&#8217;avoir une connection internet lors de
+l&#8217;installation. Il n&#8217;y a pas de méthode préconfigurée pour une installation
+hors ligne.</p>
+</div>
+<div class="section" id="principe-de-fonctionnement">
+<h2>Principe de fonctionnement<a class="headerlink" href="#principe-de-fonctionnement" title="Permalink to this headline">¶</a></h2>
+<p>Le feeder se base sur les valeurs numériques et les probabilités renseignées
+pour simuler un site de production.</p>
+<p>Il utilise différents &#8216;processeurs&#8217; pour l&#8217;ordonnancement :</p>
+<blockquote>
+<div><ul class="simple">
+<li>DeterministProcessor : Des événements prévisibles (user, log, calendar),
+et dont l&#8217;état n&#8217;a pas besoin d&#8217;être enregistré pour d&#8217;autres envois.</li>
+<li>AlarmProcessor : Événements check/eue et leur workflow. Chaque action
+utilisateur possible est testée, puis réalisée. Les changements d&#8217;état
+se font en fonction d&#8217;une probabilité et d&#8217;un délais minimal avec la
+dernière action.</li>
+<li>ScenarioProcessor : Les événements définis dans le scenario sont envoyés
+un par un. Le scenario peut être lancé en boucle continue.</li>
+</ul>
+</div></blockquote>
+<p>Chaque seconde est ordonnancée une vague d&#8217;événements de chaque type.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Remarques générales :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Les probabilités doivent être comprises entre 0 et 1</li>
+<li>Les délais sont en seconde</li>
+<li>Certaines valeurs ne peuvent pas être inférieures à 0 ou 1</li>
+<li>Seules les probabilités sont de type float. Les autres valeurs numériques
+seront castées en int s&#8217;il le faut.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="connection-amqp">
+<h3>Connection amqp :<a class="headerlink" href="#connection-amqp" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><div class="code json highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;amqp&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;cpsrabbit&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;passwd&quot;</span><span class="p">:</span> <span class="s2">&quot;canopsis&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">5672</span><span class="p">,</span>
+    <span class="s2">&quot;vhost&quot;</span><span class="p">:</span> <span class="s2">&quot;canopsis&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="events-check">
+<h3>Events check :<a class="headerlink" href="#events-check" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>normal_check_time : Tous les events check seront envoyés à cette période.
+Dans l&#8217;exemple, on enverra (20 * 100 + 20) / 10 = 200 checks par seconde.</li>
+<li>max_KO_rate : Taux maximal d&#8217;état KO. Les checks KO sont choisis à
+l&#8217;initialisation, avant d&#8217;envoyer les premiers. Ce taux maximal est
+également le taux initial.</li>
+<li>perf_data : Des perfdatas seront attachées à certains events check.
+components * resources_per_component * publish_rate perfdatas seront
+attachées. Il y aura entre 1 et max_metric metriques pour chaque perfdata.</li>
+</ul>
+<div class="code json highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;check&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">&quot;resources_per_component&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">&quot;normal_check_time&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">&quot;max_KO_rate&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="s2">&quot;changestate_rate&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;KO_to_OK&quot;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;OK_to_KO&quot;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;changestate_delay&quot;</span><span class="p">:</span> <span class="mi">4</span>
+    <span class="s2">&quot;perf_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">&quot;publish_rate&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+       <span class="s2">&quot;max_metric&quot;</span><span class="p">:</span> <span class="mi">5</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">(20 * 100 + 20) / 10 = 200 checks par seconde. Le nombre total
+d&#8217;alarme sera arrondi à 20 * 10 = 2000, et non pas 2020. Les 20 dernières
+seront ignorées.</p>
+</div>
+</div>
+<div class="section" id="events-eue">
+<h3>Events EUE :<a class="headerlink" href="#events-eue" title="Permalink to this headline">¶</a></h3>
+<p>Les events EUE sont traités de manière similaire aux events check.</p>
+<blockquote>
+<div><div class="code json highlight-default"><div class="highlight"><pre><span></span>  <span class="s2">&quot;eue&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+       <span class="s2">&quot;scenarii_per_feature&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+       <span class="s2">&quot;steps_per_scenario&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+       <span class="s2">&quot;normal_check_time&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+       <span class="s2">&quot;max_KO_rate&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
+       <span class="s2">&quot;changestate_rate&quot;</span> <span class="p">:</span> <span class="p">[</span>
+           <span class="p">[</span><span class="s2">&quot;KO_to_OK&quot;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span>
+           <span class="p">[</span><span class="s2">&quot;OK_to_KO&quot;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]</span>
+       <span class="p">],</span>
+       <span class="s2">&quot;changestate_delay&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+       <span class="s2">&quot;perf_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;publish_rate&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+          <span class="s2">&quot;max_metric&quot;</span><span class="p">:</span> <span class="mi">5</span>
+       <span class="p">},</span>
+       <span class="s2">&quot;cntxt_localization&quot;</span><span class="p">:</span> <span class="p">[</span>
+           <span class="s2">&quot;loc1&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;loc2&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;loc3&quot;</span>
+       <span class="p">],</span>
+       <span class="s2">&quot;cntxt_os&quot;</span><span class="p">:</span> <span class="p">[</span>
+           <span class="s2">&quot;windows&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;linux&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mac&quot;</span>
+       <span class="p">],</span>
+       <span class="s2">&quot;cntxt_browser&quot;</span><span class="p">:</span> <span class="p">[</span>
+           <span class="s2">&quot;firefox&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;chrome&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;ie&quot;</span>
+       <span class="p">],</span>
+       <span class="s2">&quot;cntxt_env&quot;</span><span class="p">:</span> <span class="p">[</span>
+           <span class="s2">&quot;PROD&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;PREPROD&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;TEST&quot;</span>
+       <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="alarmes">
+<h3>Alarmes :<a class="headerlink" href="#alarmes" title="Permalink to this headline">¶</a></h3>
+<p>On appelera alarme un event qui peut potentiellement être KO, c&#8217;est à dire s&#8217;il
+est de type check ou EUE.</p>
+<p>Sur l&#8217;UI, plusieurs actions sont possibles en fonction de l&#8217;état de ce KO
+(default, ack, cancel). Ces états sont appelés nodes, nodes du workflow des
+alarmes.</p>
+<p>À chaque node il y a une liste d&#8217;actions possibles, dont on peut configurer
+probabilité et délai minimum.</p>
+<blockquote>
+<div><div class="code json highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;alarm_workflow&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ack&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;switch_probability&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+            <span class="s2">&quot;switch_delay&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;ack&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ackremove&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;switch_probability&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+            <span class="s2">&quot;switch_delay&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;declare-ticket&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;switch_probability&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s2">&quot;switch_delay&quot;</span><span class="p">:</span> <span class="mi">10</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;assocticket&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;switch_probability&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+            <span class="s2">&quot;switch_delay&quot;</span><span class="p">:</span> <span class="mi">10</span>
+        <span class="p">}</span>
+        <span class="s2">&quot;cancel&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;switch_probability&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+            <span class="s2">&quot;switch_delay&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;cancel&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;uncancel&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;switch_probability&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+            <span class="s2">&quot;switch_delay&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;declare-ticket&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;switch_probability&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s2">&quot;switch_delay&quot;</span><span class="p">:</span> <span class="mi">10</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;assocticket&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;switch_probability&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+            <span class="s2">&quot;switch_delay&quot;</span><span class="p">:</span> <span class="mi">10</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Workflow anytime events sont les événements sur les alarmes applicables à
+n&#8217;importe quel moment du workflow.</p>
+<blockquote>
+<div><div class="code json highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;workflow_anytime_event&quot;</span><span class="p">:</span> <span class="p">{</span>
+     <span class="s2">&quot;changestate&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s2">&quot;probability&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+         <span class="s2">&quot;delay&quot;</span><span class="p">:</span> <span class="mi">1</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Et alarm anytime event concerne les actions applicables peut importe que l&#8217;état
+de l&#8217;alarme soit KO ou OK.</p>
+<blockquote>
+<div><div class="code json highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;alarm_anytime_event&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;downtime&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;probability&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+        <span class="s2">&quot;delay&quot;</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Il faut donc faire attention s&#8217;il y a un très grand nombre
+d&#8217;entités au total (disons 20 000) et un petit nombre envoyé à chaque
+période (500). Le taux de déclenchement du downtime sera calculé par
+rapport aux 20 000 et doit donc être faible.</p>
+</div>
+</div>
+<div class="section" id="evenements-deterministes">
+<h3>Événements déterministes :<a class="headerlink" href="#evenements-deterministes" title="Permalink to this headline">¶</a></h3>
+<p>Les événements déterministes sont indépendants de tout le reste. Ils peuvent
+juste être envoyés sans avoir besoin de les garder en mémoire pour le reste de
+la simulation. Pas encore implémentés.</p>
+<blockquote>
+<div><div class="code json highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;determinist_events&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;calendar&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="mi">5</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;log&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="custom-fields">
+<h3>Custom fields :<a class="headerlink" href="#custom-fields" title="Permalink to this headline">¶</a></h3>
+<p>Les custom fields peuvent être renseignés pour écrire des champs personnalisés
+dans les événements. Le feeder se charge de remplir tous les champs
+obligatoires pour chaque type d&#8217;event avec des valeurs par défaut.</p>
+<p>La clef global concerne tous les events. Ces valeurs seront surchargées si
+elles sont définies par type d&#8217;événement.</p>
+<blockquote>
+<div><div class="code json highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;custom_fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;global&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;connector&quot;</span><span class="p">:</span> <span class="s2">&quot;feeder&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;connector_name&quot;</span><span class="p">:</span> <span class="s2">&quot;feeder1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;feederdomain&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;perimeter&quot;</span><span class="p">:</span> <span class="s2">&quot;feederperimeter&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;check&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;eue&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;ack&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;ackremove&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;cancel&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;uncancel&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;declare-ticket&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;assocticket&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;changestate&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;downtime&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;log&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">},</span>
+    <span class="s2">&quot;calendar&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="utilisation">
+<h2>Utilisation<a class="headerlink" href="#utilisation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mise-en-place">
+<h3>Mise en place<a class="headerlink" href="#mise-en-place" title="Permalink to this headline">¶</a></h3>
+<p>Après avoir récupéré les sources,</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">capensis</span><span class="o">/</span><span class="n">canopsis</span><span class="o">-</span><span class="n">cat</span>
+</pre></div>
+</div>
+<p>le feeder peut être installé sur le système :</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">canopsis</span><span class="o">-</span><span class="n">cat</span><span class="o">/</span><span class="n">sources</span><span class="o">/</span><span class="n">install</span><span class="o">.</span><span class="n">d</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="o">-</span><span class="n">f</span> <span class="n">feeder</span><span class="o">.</span><span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>L&#8217;installation va copier des fichiers dans /usr/share/canopsis/scenario. Si
+ce chemin ne convient pas (installation dans l&#8217;environnement Canopsis par
+exemple) on peut faire un make en changeant la variable PREFIX :</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">make</span> <span class="o">-</span><span class="n">f</span> <span class="n">feeder</span><span class="o">.</span><span class="n">make</span> <span class="n">PREFIX</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">canopsis</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>Ensuite, on peut éditer la configuration dans etc/feeder_monolithic.json. Les
+scripts ne prendront pas en compte ce fichier, mais des petits fichiers générés
+dans etc avec le script canopsis-splitconf :</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">python</span><span class="o">/</span><span class="n">feeder</span>
+<span class="n">vim</span> <span class="n">etc</span><span class="o">/</span><span class="n">feeder_monolithic</span><span class="o">.</span><span class="n">json</span>
+<span class="n">canopsis</span><span class="o">-</span><span class="n">splitconf</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">j</span> <span class="n">etc</span><span class="o">/</span><span class="n">feeder_monolithic</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Lancement :</p>
+<p>(Dans les exemples suivants, si un répertoire etc est présent dans le dossier
+actuel, ce qui est le cas si les commandes sont lancées depuis
+sources/python/feeder, c&#8217;est celui-ci qui sera utilisé si l&#8217;option -c n&#8217;est pas
+fournie.)</p>
+</div>
+<div class="section" id="feed-py">
+<h3>feed.py<a class="headerlink" href="#feed-py" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">canopsis</span><span class="o">-</span><span class="n">feed</span> <span class="o">-</span><span class="n">d</span> <span class="o">&lt;</span><span class="n">seconds</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">c</span> <span class="n">etc</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scenario-py">
+<h3>scenario.py<a class="headerlink" href="#scenario-py" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">canopsis</span><span class="o">-</span><span class="n">scenario</span> <span class="n">run</span> <span class="n">etc</span><span class="o">/</span><span class="n">scenario</span><span class="o">/&lt;</span><span class="n">scenario</span><span class="o">&gt;.</span><span class="n">py</span> <span class="o">-</span><span class="n">c</span> <span class="n">etc</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>canopsis-scenario sera amené à utiliser les fichiers json dans etc qui ne sont
+pas contenus dans etc/feeder.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="supervision.html" class="btn btn-neutral float-right" title="Canopsis Supervision" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="calink.html" class="btn btn-neutral" title="CaLink" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configure amqp2engines &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Engines management" href="index.html"/>
+        <link rel="next" title="Data cleaner" href="datacleaner-configuration.html"/>
+        <link rel="prev" title="Engines management" href="index.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Administrator guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../archi/index.html">Canopsis Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../setup/index.html">Canopsis Setup</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Canopsis Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../best-practices/index.html">Best practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer-guide/index.html">Developer guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Administrator guide</a> &raquo;</li>
+      
+          <li><a href="../index.html">Canopsis Management</a> &raquo;</li>
+      
+          <li><a href="index.html">Engines management</a> &raquo;</li>
+      
+    <li>Configure amqp2engines</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/administrator-guide/management/engines/amqp2engines.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configure-amqp2engines">
+<span id="admin-manage-engines-amqp2engines"></span><h1>Configure amqp2engines<a class="headerlink" href="#configure-amqp2engines" title="Permalink to this headline">¶</a></h1>
+<p><em>amqp2engines</em> is a group of process, where each process is a single engine.</p>
+<p>The engines are launched by the script <code class="docutils literal"><span class="pre">engine-launcher</span></code>.</p>
+<div class="section" id="engine-description">
+<h2>Engine description<a class="headerlink" href="#engine-description" title="Permalink to this headline">¶</a></h2>
+<p>An engine has the following properties :</p>
+<blockquote>
+<div><ul class="simple">
+<li>a type (the python module to load)</li>
+<li>a name (must be unique)</li>
+<li>an instance identifier (0, 1, 2, 3, ..., must be unique)</li>
+<li>a logging level (debug, info, warning, or error)</li>
+</ul>
+</div></blockquote>
+<p>You can run an engine with the following command line :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ engine-launcher -e &lt;type&gt; -n &lt;name&gt; -w &lt;process id&gt; -l info
+</pre></div>
+</div>
+<p>Each engines is started automatically by <em>supervisord</em>, you can tweak the configuration
+in <code class="docutils literal"><span class="pre">etc/engines</span></code>.</p>
+</div>
+<div class="section" id="amqp2engines-conf">
+<h2>amqp2engines.conf<a class="headerlink" href="#amqp2engines-conf" title="Permalink to this headline">¶</a></h2>
+<p>Every engines have a dedicated section named <code class="docutils literal"><span class="pre">engine:&lt;engine's</span> <span class="pre">name&gt;</span></code> in the file
+<code class="docutils literal"><span class="pre">etc/amqp2engines.conf</span></code> with the following attributes :</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">next</span></code> : list of engines to pass the event after processing</li>
+<li><code class="docutils literal"><span class="pre">next_balanced</span></code> : if True, it will use round-robin algorithm on the <code class="docutils literal"><span class="pre">next</span></code> param, otherwise it will send the event to the whole list</li>
+<li><code class="docutils literal"><span class="pre">beat_interval</span></code> : interval in seconds between two beats</li>
+<li><code class="docutils literal"><span class="pre">exchange_name</span></code> : exchange on which the engine is listening (default: amq.direct)</li>
+<li><code class="docutils literal"><span class="pre">routing_keys</span></code> : list of routing key to listen for (default: #)</li>
+<li><code class="docutils literal"><span class="pre">dispatcher</span></code> : name of dispatcher queue (default: none)</li>
+</ul>
+</div></blockquote>
+<p>Every extra parameter will be passed as a string.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>I want two cleaner engine on the exchange <code class="docutils literal"><span class="pre">canopsis.events</span></code>.</p>
+<p>Create the file <code class="docutils literal"><span class="pre">etc/engines/cleaner-events.ini</span></code> :</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[program:engine-cleaner-events]</span>
+
+<span class="na">autostart</span><span class="o">=</span><span class="s">false</span>
+
+<span class="na">directory</span><span class="o">=</span><span class="s">%(ENV_HOME)s</span>
+<span class="na">numprocs</span><span class="o">=</span><span class="s">2</span>
+<span class="na">process_name</span><span class="o">=</span><span class="s">%(program_name)s-%(process_num)d</span>
+
+<span class="na">command</span><span class="o">=</span><span class="s">engine-launcher -e dynamic -n cleaner_events -w %(process_num)d -l info</span>
+
+<span class="na">stdout_logfile</span><span class="o">=</span><span class="s">%(ENV_HOME)s/var/log/engines/cleaner_events.log</span>
+<span class="na">stderr_logfile</span><span class="o">=</span><span class="s">%(ENV_HOME)s/var/log/engines/cleaner_events.log</span>
+</pre></div>
+</div>
+<p>Then, edit the file <code class="docutils literal"><span class="pre">etc/amqp2engines.conf</span></code> :</p>
+<div class="highlight-ini"><div class="highlight"><pre><span></span><span class="k">[engine:cleaner_events]</span>
+
+<span class="na">event_processing</span><span class="o">=</span><span class="s">canopsis.event.cleaner.event_processing</span>
+<span class="na">exchange</span><span class="o">=</span><span class="s">canospsis.events</span>
+<span class="na">routing_keys</span><span class="o">=</span><span class="s">#</span>
+<span class="na">next</span><span class="o">=</span><span class="s">event_filter</span>
+</pre></div>
+</div>
+<p>Now make sure the name <code class="docutils literal"><span class="pre">engine-cleaner-events</span></code> appears in the list <code class="docutils literal"><span class="pre">programs</span></code> in
+the file <code class="docutils literal"><span class="pre">etc/supervisord.d/amqp2engines.conf</span></code>, so the engine will be added to the
+group.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="datacleaner-configuration.html" class="btn btn-neutral float-right" title="Data cleaner" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Engines management" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

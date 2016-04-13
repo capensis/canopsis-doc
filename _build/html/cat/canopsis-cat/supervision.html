@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Canopsis Supervision &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Canopsis CAT" href="index.html"/>
+        <link rel="prev" title="Event Feeder" href="feeder.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis/index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cat</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Canopsis CAT</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="connectors/index.html">Connectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snmp/index.html">SNMP Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup.html">Canopsis Backup Utility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calink.html">CaLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feeder.html">Event Feeder</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Canopsis Supervision</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Cat</a> &raquo;</li>
+      
+          <li><a href="index.html">Canopsis CAT</a> &raquo;</li>
+      
+    <li>Canopsis Supervision</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/cat/canopsis-cat/supervision.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="canopsis-supervision">
+<h1>Canopsis Supervision<a class="headerlink" href="#canopsis-supervision" title="Permalink to this headline">¶</a></h1>
+<p>This document describes how we will supervise <em>Canopsis</em> services.
+It is intended for both <strong>Canopsis</strong> and <strong>Canopsis HA</strong>.</p>
+<div class="section" id="prerequisite">
+<h2>Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h2>
+<p>You will need to fulfill the following requirements :</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>Canopsis Sakura</em>, or newer, installed ;</li>
+<li><strong>Canopsis CAT</strong> installed ;</li>
+<li>SSH key of <em>Canopsis</em> user known by your supervisor ;</li>
+<li>the firewall is configured to allow traffic between your supervisor and <em>Canopsis</em>.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="functional-overview">
+<h2>Functional overview<a class="headerlink" href="#functional-overview" title="Permalink to this headline">¶</a></h2>
+<p>The supervision will be done on both <em>Canopsis</em> node and your supervisor.
+In order to apprehend correctly this document, we need to define some things :</p>
+<blockquote>
+<div><ul class="simple">
+<li>a <em>Canopsis</em> node is a machine running <em>Canopsis</em> ;</li>
+<li>the services launched on a <em>Canopsis</em> node defines its role.</li>
+</ul>
+</div></blockquote>
+<p>The key to an efficient supervision is to have well-defined roles for each of your
+nodes.</p>
+<p>It is recommended to consider these roles :</p>
+<blockquote>
+<div><ul class="simple">
+<li>standalone : all services are running ;</li>
+<li>backend : in HA, only databases are running ;</li>
+<li>middleware : in HA, only the AMQP bus and the engines are running ;</li>
+<li>frontend : in HA, only the web server is running.</li>
+</ul>
+</div></blockquote>
+<p>Many nodes can have the same role, when talking about availability, we will consider
+the whole cluster instead of a single node.</p>
+</div>
+<div class="section" id="technical-overview">
+<h2>Technical overview<a class="headerlink" href="#technical-overview" title="Permalink to this headline">¶</a></h2>
+<p>The supervision is split in 3 parts :</p>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt>the services supervision :</dt>
+<dd><ul class="first last simple">
+<li>check that each <em>Canopsis</em> service is started ;</li>
+<li>those checks will be executed directly on <em>Canopsis</em> node (via SSH) ;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>the availability supervision :</dt>
+<dd><ul class="first last simple">
+<li>check that <em>Canopsis</em> backend, middleware and frontend are available ;</li>
+<li>with <strong>Canopsis HA</strong>, check that load balancers and virtual IP addresses are available ;</li>
+<li>with standalone <em>Canopsis</em>, this is done by the services supervision ;</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>the hardware supervision :</dt>
+<dd><ul class="first last simple">
+<li>check that every (virtual) machine is healthy.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>In this document, we consider that your are using one of those supervisors :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Nagios 3.5.X ;</li>
+<li>Icinga 1.X ;</li>
+<li>Centreon ;</li>
+<li>Shinken.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="services-supervision">
+<h3>Services supervision<a class="headerlink" href="#services-supervision" title="Permalink to this headline">¶</a></h3>
+<p>In order to make sure <em>Canopsis</em> is at least running, we need to check that some
+processes are running.</p>
+<p>Here is the list of processes that needs to be checked :</p>
+<blockquote>
+<div><ul class="simple">
+<li>mongodb : provides database service ;</li>
+<li>rabbitmq-server : provides AMQP bus for the engines ;</li>
+<li>webserver : provides the user interface for <em>Canopsis</em> ;</li>
+<li>collectd : collect data about the system to feed <em>Canopsis</em> ;</li>
+<li>every processes from the <em>amqp2engines</em> group : provides the engines.</li>
+</ul>
+</div></blockquote>
+<p>And for <strong>Canopsis HA</strong>, you will need to check :</p>
+<blockquote>
+<div><ul class="simple">
+<li>haproxy : provides load balancing on the node ;</li>
+<li>keepalived : provides virtual IP address on the node.</li>
+</ul>
+</div></blockquote>
+<p>This is done by executing a special command, provided by a <em>supervisord</em> plugin,
+which outputs the process status in the format of a <em>Nagios</em> plugin.</p>
+</div>
+<div class="section" id="availability-supervision">
+<h3>Availability supervision<a class="headerlink" href="#availability-supervision" title="Permalink to this headline">¶</a></h3>
+<p>There is only 3 services that provides an interface to the user (or other <em>Canopsis</em>
+components) :</p>
+<blockquote>
+<div><ul class="simple">
+<li>MongoDB : will serve data for the rest of <em>Canopsis</em> ;</li>
+<li>RabbitMQ : will accept events from the user, and deliver them to the rest of <em>Canopsis</em> ;</li>
+<li>Webserver : will serve the user interface through HTTP.</li>
+</ul>
+</div></blockquote>
+<p>Those interfaces are provided through the virtual IP address (<em>keepalived</em>) when
+you are using <strong>Canopsis HA</strong>.</p>
+<p>The following checks will be executed :</p>
+<blockquote>
+<div><ul class="simple">
+<li>check the state of the MongoDB node ;</li>
+<li>in HA, check the existence of a primary MongoDB node ;</li>
+<li>check the state of the RabbitMQ node ;</li>
+<li>in HA, check the state through the virtual IP address ;</li>
+<li>check the web server node is reachable through HTTP ;</li>
+<li>in HA, check the web server through the virtual IP address.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="hardware-supervision">
+<h3>Hardware supervision<a class="headerlink" href="#hardware-supervision" title="Permalink to this headline">¶</a></h3>
+<p>It is recommended (but not mandatory) to check the following aspects of a machine
+used as a <em>Canopsis</em> node :</p>
+<blockquote>
+<div><ul class="simple">
+<li>PING : will check that the machine is reachable over the network ;</li>
+<li>Load ;</li>
+<li>Memory ;</li>
+<li>Disk usage ;</li>
+<li>Disk I/O ;</li>
+<li>Network.</li>
+</ul>
+</div></blockquote>
+<p>You are free to check more things.</p>
+</div>
+<div class="section" id="nagios-commands">
+<h3>Nagios commands<a class="headerlink" href="#nagios-commands" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="example-with-ha">
+<h3>Example with HA<a class="headerlink" href="#example-with-ha" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="feeder.html" class="btn btn-neutral" title="Event Feeder" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

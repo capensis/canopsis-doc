@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Use &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Connector neb2Canopsis" href="index.html"/>
+        <link rel="next" title="Canopsis Ui Bricks" href="../../canopsis-ui-bricks/index.html"/>
+        <link rel="prev" title="Setup" href="setup.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis/index.html">Canopsis</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Canopsis Connectors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Connector neb2Canopsis</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Use</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Canopsis Connectors</a> &raquo;</li>
+      
+          <li><a href="index.html">Connector neb2Canopsis</a> &raquo;</li>
+      
+    <li>Use</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/canopsis-connectors/connector-neb2canopsis/use.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="use">
+<span id="connectors-neb2amqp-use"></span><h1>Use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="start-stop">
+<h2>Start / Stop<a class="headerlink" href="#start-stop" title="Permalink to this headline">¶</a></h2>
+<p>As this connector is a nativ NEB, <strong>start</strong>&nbsp;and <strong>stop</strong> actions depend on monitoring master process (Nagios, Icinga, ...).</p>
+<p>So to start it</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>service nagios<span class="p">|</span>icinga start
+</pre></div>
+</div>
+<p>And to stop it</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>service nagios<span class="p">|</span>icinga stop
+</pre></div>
+</div>
+</div>
+<div class="section" id="troubleshooting-log">
+<h2>Troubleshooting / Log<a class="headerlink" href="#troubleshooting-log" title="Permalink to this headline">¶</a></h2>
+<p>When master process is started, you&#8217;ll get some log messages</p>
+<p>You have to wait for the <cite>initialized successfully.</cite> message.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>neb2amqp: Setting hostname to localhost
+neb2amqp: Setting userid to cpsrabbit
+neb2amqp: Setting password to canopsis
+neb2amqp: Setting hostgroups to <span class="s1">&#39;true&#39;</span>
+neb2amqp: Setting custom_variables to <span class="s1">&#39;true&#39;</span>
+neb2amqp: Setting servicegroups to <span class="s1">&#39;true&#39;</span>
+neb2amqp: Setting urls to <span class="s1">&#39;true&#39;</span>
+neb2amqp: NEB2amqp 0.6-fifo by Capensis. <span class="o">(</span>connector: nagios<span class="o">)</span>
+neb2amqp: Please visit us at http://www.canopsis.org/
+neb2amqp: Initialize FIFO: /tmp/neb2amqp.cache <span class="o">(</span>maximum size: 10000
+neb2amqp: FIFO: Load events from file
+neb2amqp: FIFO: Open fifo file <span class="s1">&#39;/tmp/neb2amqp.cache&#39;</span>
+neb2amqp: FIFO: File successfully opened
+neb2amqp: FIFO: Push <span class="o">(</span>0<span class="o">)</span>
+neb2amqp: FIFO: Close file
+neb2amqp: FIFO: <span class="m">1</span> events loaded
+neb2amqp: AMQP: Re-connect to amqp ...
+neb2amqp: AMQP: Init connection
+neb2amqp: AMQP: Creating socket
+neb2amqp: AMQP: Opening socket
+neb2amqp: AMQP: Login
+neb2amqp: AMQP: Open channel
+neb2amqp: AMQP: Successfully connected
+neb2amqp: Register callbacks
+neb2amqp: successfully finished initialization
+Event broker module <span class="s1">&#39;/usr/lib/icinga/neb2amqp.o&#39;</span> initialized successfully.
+</pre></div>
+</div>
+<p>If NEB cannot connect to amqp bus, It will buffer messages into a file and a log message will appear in the master process&#8217;s log</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>neb2amqp: AMQP: Re-connect to amqp ...
+neb2amqp: AMQP: Init connection
+neb2amqp: AMQP: Creating socket
+neb2amqp: AMQP: Opening socket
+neb2amqp: AMQP: Opening socket: <span class="o">(</span>unknown error<span class="o">)</span>
+neb2amqp: FIFO: Sync <span class="m">285</span> events to file
+neb2amqp: FIFO: Remove fifo file
+neb2amqp: FIFO: Open fifo file <span class="s1">&#39;/tmp/neb2amqp.cache&#39;</span>
+neb2amqp: FIFO: File successfully opened
+neb2amqp: FIFO: <span class="m">285</span> events written to file
+</pre></div>
+</div>
+<p>When connection recovers, you&#8217;ll see see the queue&#8217;s shift in master process&#8217;s log</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>neb2amqp: AMQP: Re-connect to amqp ...
+neb2amqp: AMQP: Init connection
+neb2amqp: AMQP: Creating socket
+neb2amqp: AMQP: Opening socket
+neb2amqp: AMQP: Login
+neb2amqp: AMQP: Open channel
+neb2amqp: AMQP: Successfully connected
+neb2amqp: AMQP: Shift queue, size: 734
+neb2amqp: AMQP: 734/734 events shifted from Queue, new size: 0
+neb2amqp: FIFO: Sync <span class="m">0</span> events to file
+neb2amqp: FIFO: Remove fifo file
+neb2amqp: FIFO: Open fifo file <span class="s1">&#39;/tmp/neb2amqp.cache&#39;</span>
+neb2amqp: FIFO: File successfully opened
+neb2amqp: FIFO: <span class="m">0</span> events written to file
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../canopsis-ui-bricks/index.html" class="btn btn-neutral float-right" title="Canopsis Ui Bricks" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup.html" class="btn btn-neutral" title="Setup" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

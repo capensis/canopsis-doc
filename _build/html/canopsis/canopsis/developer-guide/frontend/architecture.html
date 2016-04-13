@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Architecture &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Frontend" href="index.html"/>
+        <link rel="next" title="Writing a brick" href="writing-a-brick.html"/>
+        <link rel="prev" title="Frontend" href="index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../backend/index.html">Backend</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="index.html">Frontend</a> &raquo;</li>
+      
+    <li>Architecture</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/canopsis/canopsis/developer-guide/frontend/architecture.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="architecture">
+<span id="dev-frontend-architecture"></span><h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="presentation">
+<h2>1. Presentation<a class="headerlink" href="#presentation" title="Permalink to this headline">¶</a></h2>
+<p>Canopsis UI is built on top on the <a class="reference external" href="http://www.emberjs.com">Emberjs</a> framework. This framework is use in Canopsis as a skeletton that let developper plug functionnalities all around the Canopsis core. Canopsis UI also uses some other frameworks like <a class="reference external" href="http://requirejs.org">requirejs</a> or the famous css framework <a class="reference external" href="http://getbootstrap.com">bootstrap</a> In this documentation will be explained how canopsis core is designed and what are it&#8217;s mechanics. It is also explained how to integrate new features in order they best fit existing content.</p>
+<p>Canopsis UI once installed on a server is served by the <a class="reference external" href="http://gunicorn.org">Gunicorn</a> webserver with some static <strong>javascript, html, css</strong> files and some <strong>dynamic content</strong> computed and server throught the <a class="reference external" href="/developer-guide/API/index.html">Canopsis API</a></p>
+<p>Please note that the folder referential is based on the <strong>webcore</strong> folder which in Canopsis sources is located in the subfolder <code class="docutils literal"><span class="pre">canopsis/sources/webcore/var/www/canopsis</span></code> . This path once Canopsis built is by default <code class="docutils literal"><span class="pre">/opt/canopsis/var/www/canopsis</span></code>. Some resources may however only be avaiable from other location. This is the case for <em>locales</em> translation <em>.po</em> files that are located by default in <code class="docutils literal"><span class="pre">/opt/canopsis/locale</span></code> or schemas that are documented in the <a class="reference external" href="/developer-guide/uiv2/model_layer.html">model</a> part of the Canopsis documentation.</p>
+</div>
+<div class="section" id="the-entry-point">
+<h2>2. The Entry point<a class="headerlink" href="#the-entry-point" title="Permalink to this headline">¶</a></h2>
+<p>When the <em>index.html</em> file is queried by a client to the server, index.html loads a few files (mainly css ones) directly. However, it includes the <strong>canopsis.js</strong> file that is the entry point of the canopsis UI system. File loading is handled by requirejs and once loaded, the canopsis.js file instanciate the require.js framework recursively and this leads to the call of each canopsis requirement for the initial load.</p>
+</div>
+<div class="section" id="dependencies-overview">
+<h2>3. Dependencies overview<a class="headerlink" href="#dependencies-overview" title="Permalink to this headline">¶</a></h2>
+<p>Canopsis UI is made of many dependencies that together render the User Interface once loaded. These dependencies are made of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="components/editors.html">editors</a></li>
+<li><a class="reference external" href="#">factories</a></li>
+<li><a class="reference external" href="#">loaders</a></li>
+<li><a class="reference external" href="#">renderers</a></li>
+<li><a class="reference external" href="#">schemas</a></li>
+<li><a class="reference external" href="#">templates</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="canopsis-dependencies-loaders">
+<h2>4. Canopsis dependencies Loaders<a class="headerlink" href="#canopsis-dependencies-loaders" title="Permalink to this headline">¶</a></h2>
+<p>The initial application load though canopsis.js calls some Canopsis javascript files which role is to load Canopsis UI resources such as Ember js components, asynchonously. These loaders manage resources such as <strong>templates, ember components, Canopsis forms, some tools or widgets</strong>. All those resources are part of the canopsis UI and are various combination of HTML templates and/or javascript view/controllers. The dependencies for each of these loaders are hardcoded into each file but their design let further integration as easy as copying a line and fill it with a new value. Below, some loader example may light about how to integrate some features from low application level.</p>
+<p>Loaders are based on a list of javascript objects that descibes how ember will require components from server. An object description with all information looks like:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;components/component-actionbutton&#39;</span><span class="p">,</span>
+   <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;canopsis/uibase/components/actionbutton/component&#39;</span><span class="p">,</span>
+   <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;canopsis/uibase/components/actionbutton/template.html&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This requirement object will tell the Canopsis template loader to fetch the action button html template fil file then it&#8217;s content will be compiled and stored in the <code class="docutils literal"><span class="pre">Ember.TEMPLATE</span></code> object.
+The url information is used to load the dependency controller/view.</p>
+<p>Loaders are mostly based on the same model and adding a new entry is as simple as adding a well formatted object in a list depending on the type of loaded resource.</p>
+<p>Loaders are used to load components such as editors, helpers, renderers and such...</p>
+</div>
+<div class="section" id="canopsis-editors">
+<h2>5. Canopsis editors<a class="headerlink" href="#canopsis-editors" title="Permalink to this headline">¶</a></h2>
+<p>Editors in canopsis UI application are graphical components that are called when a user need to input information into the system. They can have many forms depending on the user action context datatype. For instance, editors can be either a simple textbox to input text or a more complext date time picker component that enables the user to provide a date information to the context.</p>
+<p>Often the data input context is a canopsis form that is parametrized by a Canopsis Schema. Such schema determines what data are related to the form and how the user will be prompted to input then (what editor will be displayed)</p>
+<p>When an editor is created, the editor context expects that the input value generated is set as the <strong>content</strong> field of the component. This way, the editor context (a form in canopsis UI) knows that the user input is always and only the <strong>content</strong> field of the editor.</p>
+<p>An editor is a template that most of time calls a component object (see <a class="reference external" href="#components">components</a> ) that allow more complex operation / GUI rendering to manage user inputs. It looks like the following:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>{{component-eventselector content=attr.value title=attr.field}}
+</pre></div>
+</div>
+<p>Here, the template of our editor contains the call of the eventselector component where it&#8217;s content value is binded to the attr.value variable of the context. In Canopsis forms contexts, this is the location where the form will get the user input in order to generate a coherent form record. The title field is also set with <cite>attr.field</cite> value. This means that the title field within the component will be equal to the <cite>attr.field</cite> value witch is in this case the field value contained in the schema. It is for eventselector the value <cite>event selection</cite>.</p>
+<p>Finally, in the canopsis UI forms, when the schema of any model uses for an attribute the <strong>&#8220;role&#8221;</strong> key, the value <strong>&#8220;eventselector&#8221;</strong>, in the form our editor with the call of a component will looks like the picture below.</p>
+<img alt="../../../../_images/eventselectoreditor.png" src="../../../../_images/eventselectoreditor.png" />
+</div>
+<div class="section" id="canopsis-renderers">
+<h2>6. Canopsis renderers<a class="headerlink" href="#canopsis-renderers" title="Permalink to this headline">¶</a></h2>
+<p>A render in Canopsis is a web component that aims to display a given data in a specific form.</p>
+<p>Renderers are simple GUI components made a html template for information displaying.</p>
+<p>In Schemas, an attribute <strong>role</strong> defines witch renderer will be used to display the data in the Canopsis interface.</p>
+<p>For exemple, the state information contained in events, when displayed into a table, are rendered thanks to the call of a helper in the renderer&#8217;s template. Here is the code of the state renderer:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>{{stateview value this}}
+</pre></div>
+</div>
+<p>This code will just call the stateview helper with two parameters: the state value known in the render context as <strong>&#8220;value&#8221;</strong> field that is for the example equal to <cite>0</cite> and the <strong>this</strong> instance that is contextually the record that represents the event.</p>
+<img alt="../../../../_images/staterenderer.png" src="../../../../_images/staterenderer.png" />
+</div>
+<div class="section" id="canopsis-ui-model">
+<h2>7. Canopsis UI Model<a class="headerlink" href="#canopsis-ui-model" title="Permalink to this headline">¶</a></h2>
+<p>The Canopsis UI Model system is based upon json schemas that describes datatypes for each document type managed into canopsis. Those schemas are used in both front office and back office in order to keep redundancy in the project.</p>
+</div>
+<div class="section" id="widgets">
+<h2>8. Widgets<a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h2>
+<p>Widgets are components used in Canopsis UI. They are made of a controller and a template and they can be parametrized in order to best fit users need. see more <a class="reference external" href="widgets/creating-a-simple-widget.html">widgets</a></p>
+</div>
+<div class="section" id="packaging">
+<h2>9. Packaging<a class="headerlink" href="#packaging" title="Permalink to this headline">¶</a></h2>
+<p>You can create your own UI parts in two steps, independently the UI file tree.</p>
+<div class="section" id="a-file-creation">
+<h3>A. file creation<a class="headerlink" href="#a-file-creation" title="Permalink to this headline">¶</a></h3>
+<p>Create a directory, named <code class="docutils literal"><span class="pre">testmodule</span></code> in this example, which contains at least an <code class="docutils literal"><span class="pre">init.js</span></code> file which describes imports of sub-components (mixin, templates, images, etc.) related to the ember/requirejs project installation format.</p>
+</div>
+<div class="section" id="b-register-module">
+<h3>B. register module<a class="headerlink" href="#b-register-module" title="Permalink to this headline">¶</a></h3>
+<p>Once you wrote your installation file, you just have to run the Canopsis script <code class="docutils literal"><span class="pre">webmodulemanager</span></code> such as...</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">#Available in the canopsis environment.</span>
+webmodulemanager add testmodule
+</pre></div>
+</div>
+<p>This will add a string in the module string list in the database object collection where the record crecord_type is enabledmodules. Record which is loaded thanks to the <a class="reference external" href="../../administrator-guide/setup/filldb.html">json loader system</a> .</p>
+<p>Enjoy</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="writing-a-brick.html" class="btn btn-neutral float-right" title="Writing a brick" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Frontend" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Topology: library for managing topologies &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Data Manager" href="index.html"/>
+        <link rel="next" title="Link list system" href="linklist.html"/>
+        <link rel="prev" title="GRAPH: library for managing graph structure" href="graph.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../frontend/index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="../index.html">Backend</a> &raquo;</li>
+      
+          <li><a href="index.html">Data Manager</a> &raquo;</li>
+      
+    <li>Topology: library for managing topologies</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/developer-guide/backend/data-manager/topology.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-canopsis.topology">
+<span id="topology-library-for-managing-topologies"></span><span id="dev-backend-mgr-topology"></span><h1>Topology: library for managing topologies<a class="headerlink" href="#module-canopsis.topology" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="description">
+<h1>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="functional">
+<h2>Functional<a class="headerlink" href="#functional" title="Permalink to this headline">¶</a></h2>
+<p>A topology is a graph dedicated to enriches status model of entities with state
+dependency between entities.</p>
+<p>Topological tasks consist to update status vertice information and to propagate
+the change of state in sending check events.</p>
+<dl class="docutils">
+<dt>vertices could be finally connected to the topology in order to propagate all</dt>
+<dd>change of state to the topology itelf.</dd>
+</dl>
+<p>An example of application is root cause analysis where a topology may react
+when an entity change of state and can propagate over topology nodes the change
+of state in some propagation conditions such as operations like <code class="docutils literal"><span class="pre">worst</span> <span class="pre">state</span></code></p>
+<p>Topology tasks are commonly rules of (condition, actions). A condition takes in
+parameter the execution context of an event, the engine and the vertice which
+embeds the rule.</p>
+</div>
+<div class="section" id="technical">
+<h2>Technical<a class="headerlink" href="#technical" title="Permalink to this headline">¶</a></h2>
+<p>Three types of vertices exist in topology:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">cluster</span><span class="p">:</span> <span class="n">operation</span> <span class="n">between</span> <span class="n">vertice</span> <span class="n">states</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">node</span><span class="p">:</span> <span class="n">vertice</span> <span class="n">bound</span> <span class="n">to</span> <span class="n">an</span> <span class="n">entity</span><span class="p">,</span> <span class="n">like</span> <span class="n">components</span><span class="p">,</span> <span class="n">resources</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>A topology vertice contains:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">state</span><span class="p">:</span> <span class="n">vertice</span> <span class="n">state</span> <span class="n">which</span> <span class="n">change</span> <span class="n">at</span> <span class="n">runtime</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">bound</span> <span class="n">entity</span> <span class="n">state</span> <span class="ow">and</span> <span class="n">event</span> <span class="n">propagation</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>A topology edge contains:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">weight</span><span class="p">:</span> <span class="n">vertice</span> <span class="n">weight</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">graph</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="module-canopsis.topology.rule">
+<span id="rule"></span><h1>Rule<a class="headerlink" href="#module-canopsis.topology.rule" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-canopsis.topology.rule.condition">
+<span id="condition"></span><h2>Condition<a class="headerlink" href="#module-canopsis.topology.rule.condition" title="Permalink to this headline">¶</a></h2>
+<p>Module in charge of defining main topological rule conditions.</p>
+<p>A topological node doesn&#8217;t require a condition.</p>
+<p>In addition to this condition, it is possible to test another condition which
+refers to source nodes if they exist.</p>
+<dl class="docutils">
+<dt>Such conditions are::</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">new_state</span></code>: test if state (or event state) is not equal to node state</li>
+<li><code class="docutils literal"><span class="pre">at_least</span></code>: test if source node states match with an input state.</li>
+<li><code class="docutils literal"><span class="pre">_all</span></code>: test if all source node states match with an input state.</li>
+<li><code class="docutils literal"><span class="pre">nok</span></code>: test if source node states are not OK.</li>
+</ul>
+</dd>
+</dl>
+<p>The <code class="docutils literal"><span class="pre">new_state</span></code> condition may be used by nodes bound to entities in order to
+update such nodes when the entity change of state.</p>
+<p>Related rule actions are defined in <code class="docutils literal"><span class="pre">canopsis.topology.rule.action</span></code> module.</p>
+</div>
+<div class="section" id="new-state">
+<h2>new_state<a class="headerlink" href="#new-state" title="Permalink to this headline">¶</a></h2>
+<p>Condition triggered when state is different than node state.</p>
+<blockquote>
+<div><ul class="simple">
+<li>dict event: event from where get state if input state is None.</li>
+<li>Node node: node from where check if node state != input state.</li>
+<li>int state: state to compare with input node state.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="at-least">
+<h2>at_least<a class="headerlink" href="#at-least" title="Permalink to this headline">¶</a></h2>
+<p>Generic condition applied on sources of node which check if at least source nodes check a condition.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">dict event: processed event.</p>
+</li>
+<li><p class="first">dict ctx: rule context which must contain rule node.</p>
+</li>
+<li><p class="first">Node node: node to check.</p>
+</li>
+<li><p class="first">int state: state to check among sources nodes.</p>
+</li>
+<li><dl class="first docutils">
+<dt>float min_weight: minimal weight (default 1) to reach in order to</dt>
+<dd><dl class="first last docutils">
+<dt>validate this condition. If None, condition results in checking all</dt>
+<dd><p class="first last">sources.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><p class="first">rrule rrule: rrule to consider in order to check condition in time.</p>
+</li>
+<li><dl class="first docutils">
+<dt>f: function to apply on source node state. If None, use equality</dt>
+<dd><p class="first last">between input state and source node state.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">return True if condition is checked among source nodes.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="all">
+<h2>_all<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h2>
+<p>Check if all source nodes match with input check_state.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">dict event: processed event.</p>
+</li>
+<li><p class="first">dict ctx: rule context which must contain rule node.</p>
+</li>
+<li><p class="first">Node node: node to check.</p>
+</li>
+<li><p class="first">int min_weight: minimal node weight to check.</p>
+</li>
+<li><p class="first">int state: state to check among sources nodes.</p>
+</li>
+<li><p class="first">rrule rrule: rrule to consider in order to check condition in time.</p>
+</li>
+<li><dl class="first docutils">
+<dt>f: function to apply on source node state. If None, use equality</dt>
+<dd><p class="first last">between input state and source node state.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">True if condition is checked among source nodes.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="nok">
+<h2>nok<a class="headerlink" href="#nok" title="Permalink to this headline">¶</a></h2>
+<p>Condition which check if source nodes are not ok.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">dict event: processed event.</p>
+</li>
+<li><p class="first">dict ctx: rule context which must contain rule node.</p>
+</li>
+<li><p class="first">Node node: node to check.</p>
+</li>
+<li><p class="first">int min_weight: minimal node weight to check.</p>
+</li>
+<li><p class="first">int state: state to check among sources nodes.</p>
+</li>
+<li><p class="first">rrule rrule: rrule to consider in order to check condition in time.</p>
+</li>
+<li><dl class="first docutils">
+<dt>f: function to apply on source node state. If None, use equality</dt>
+<dd><p class="first last">between input state and source node state.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">True if condition is checked among source nodes.</p>
+</li>
+</ul>
+</div></blockquote>
+<div class="section" id="module-canopsis.topology.rule.action">
+<span id="action"></span><h3>Action<a class="headerlink" href="#module-canopsis.topology.rule.action" title="Permalink to this headline">¶</a></h3>
+<p>A topological node has at least one of four actions in charge of changing
+of state:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>- ``change_state``: change of state related to an input or event state.
+- ``state_from_sources``: change of state related to source nodes.
+- ``best_state``: change of state related to the best source node state.
+- ``worst_state``: change of state related to the worst source node state
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="change-state">
+<h2>change_state<a class="headerlink" href="#change-state" title="Permalink to this headline">¶</a></h2>
+<p>Change of state on node and propagate the change of state on bound entity if necessary.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">event: event to process in order to change of state.</p>
+</li>
+<li><p class="first">node: node to change of state.</p>
+</li>
+<li><dl class="first docutils">
+<dt>state: new state to apply on input node. If None, get state from</dt>
+<dd><p class="first last">input event.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>bool update_entity: update entity state if True (False by default).</dt>
+<dd><p class="first last">The topology graph may have this flag to True.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">int criticity: criticity level. Default HARD.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="state-from-sources">
+<h2>state_from_sources<a class="headerlink" href="#state-from-sources" title="Permalink to this headline">¶</a></h2>
+<p>Change ctx node state which equals to f result on source nodes.</p>
+</div>
+<div class="section" id="worst-state">
+<h2>worst_state<a class="headerlink" href="#worst-state" title="Permalink to this headline">¶</a></h2>
+<p>Check the worst state among source nodes.</p>
+</div>
+<div class="section" id="best-state">
+<h2>best_state<a class="headerlink" href="#best-state" title="Permalink to this headline">¶</a></h2>
+<p>Get the best state among source nodes.</p>
+</div>
+</div>
+<div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-a-node-with-the-change-state-task-and-save-it-in-db">
+<h2>Create a node with the change_state task and save it in DB<a class="headerlink" href="#create-a-node-with-the-change-state-task-and-save-it-in-db" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">canopsis.topology.elements</span> <span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span> <span class="nn">canopsis.topology.manager</span> <span class="kn">import</span> <span class="n">TopologyManager</span>
+<span class="kn">from</span> <span class="nn">canopsis.check</span> <span class="kn">import</span> <span class="n">Check</span>
+
+<span class="n">topologyManager</span> <span class="o">=</span> <span class="n">TopologyManager</span><span class="p">()</span>
+
+<span class="c1"># create a parameterized task</span>
+<span class="n">task</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;canopsis.topology.rule.action.change_state&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;update_entity&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">entity_id</span> <span class="o">=</span> <span class="s1">&#39;/component/connector_name/connector/component&#39;</span>
+<span class="c1"># create a node with previous task, default state to (WARNING) and bound to an entity</span>
+<span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="n">Check</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="n">entity</span><span class="o">=</span><span class="n">entity_id</span><span class="p">)</span>
+<span class="n">node</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">topologyManager</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="linklist.html" class="btn btn-neutral float-right" title="Link list system" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="graph.html" class="btn btn-neutral" title="GRAPH: library for managing graph structure" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

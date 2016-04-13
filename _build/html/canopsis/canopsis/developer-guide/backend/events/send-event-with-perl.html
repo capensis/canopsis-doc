@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Send Event With Perl &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Send Events" href="index.html"/>
+        <link rel="next" title="Send Event with PHP" href="send-event-with-php.html"/>
+        <link rel="prev" title="Send event command" href="send-event.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../frontend/index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../cat/index.html">Cat</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="../index.html">Backend</a> &raquo;</li>
+      
+          <li><a href="index.html">Send Events</a> &raquo;</li>
+      
+    <li>Send Event With Perl</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/developer-guide/backend/events/send-event-with-perl.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="send-event-with-perl">
+<span id="dev-backend-event-perl"></span><h1>Send Event With Perl<a class="headerlink" href="#send-event-with-perl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># cpan -i Net::RabbitFoot</span>
+<span class="c1"># cpan -i JSON::XS</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-perl"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/perl -w</span>
+
+<span class="k">use</span> <span class="n">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="n">warnings</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">Net::</span><span class="n">RabbitFoot</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">JSON::</span><span class="n">XS</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$connector_name</span> <span class="o">=</span> <span class="s">&quot;rrd&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$component</span> <span class="o">=</span> <span class="s">&quot;MACHINE_TEST35&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$resource</span> <span class="o">=</span> <span class="s">&quot;RESOURCE_TEST&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$output</span> <span class="o">=</span> <span class="s">&quot;Refreshing Resource Perf Data&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$timestamp</span> <span class="o">=</span> <span class="nb">time</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$perf_data_metric</span> <span class="o">=</span> <span class="s">&quot;used&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$perf_data_unit</span> <span class="o">=</span> <span class="s">&quot;Hz&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$perf_data_value</span> <span class="o">=</span> <span class="mf">10.8</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">$perf_data_type</span> <span class="o">=</span> <span class="s">&quot;GAUGE&quot;</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">$hash</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s">&quot;connector_name&quot;</span> <span class="o">=&gt;</span> <span class="nv">$connector_name</span><span class="p">,</span>
+   <span class="s">&quot;event_type&quot;</span> <span class="o">=&gt;</span> <span class="s">&quot;log&quot;</span><span class="p">,</span>
+   <span class="s">&quot;source_type&quot;</span> <span class="o">=&gt;</span> <span class="nv">$resource</span><span class="p">,</span>
+   <span class="s">&quot;component&quot;</span> <span class="o">=&gt;</span> <span class="nv">$component</span><span class="p">,</span>
+   <span class="s">&quot;resource&quot;</span> <span class="o">=&gt;</span> <span class="nv">$resource</span><span class="p">,</span>
+   <span class="s">&quot;state&quot;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="s">&quot;state_type&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="s">&quot;output&quot;</span> <span class="o">=&gt;</span> <span class="nv">$output</span><span class="p">,</span>
+   <span class="s">&quot;timestamp&quot;</span> <span class="o">=&gt;</span> <span class="nv">$timestamp</span><span class="p">,</span>
+   <span class="s">&quot;perf_data_array&quot;</span> <span class="o">=&gt;</span> <span class="p">[{</span>
+      <span class="s">&quot;metric&quot;</span> <span class="o">=&gt;</span> <span class="nv">$perf_data_metric</span><span class="p">,</span>
+      <span class="s">&quot;unit&quot;</span> <span class="o">=&gt;</span> <span class="nv">$perf_data_unit</span><span class="p">,</span>
+      <span class="s">&quot;value&quot;</span> <span class="o">=&gt;</span> <span class="nv">$perf_data_value</span><span class="p">,</span>
+      <span class="s">&quot;type&quot;</span> <span class="o">=&gt;</span> <span class="nv">$perf_data_type</span>
+   <span class="p">}]</span>
+<span class="p">};</span>
+
+<span class="k">my</span> <span class="nv">$json</span> <span class="o">=</span> <span class="nn">JSON::</span><span class="n">XS</span><span class="o">-&gt;</span><span class="k">new</span><span class="o">-&gt;</span><span class="n">utf8</span><span class="o">-&gt;</span><span class="n">space_after</span><span class="o">-&gt;</span><span class="n">encode</span> <span class="p">(</span><span class="nv">$hash</span><span class="p">);</span>
+
+<span class="k">my</span> <span class="nv">$connect</span> <span class="o">=</span> <span class="nn">Net::</span><span class="n">RabbitFoot</span><span class="o">-&gt;</span><span class="k">new</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">load_xml_spec</span><span class="p">()</span><span class="o">-&gt;</span><span class="nb">connect</span><span class="p">(</span>
+   <span class="n">host</span> <span class="o">=&gt;</span> <span class="s">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+   <span class="n">port</span> <span class="o">=&gt;</span> <span class="mi">5672</span><span class="p">,</span>
+   <span class="n">user</span> <span class="o">=&gt;</span> <span class="s">&#39;guest&#39;</span><span class="p">,</span>
+   <span class="n">pass</span> <span class="o">=&gt;</span> <span class="s">&#39;guest&#39;</span><span class="p">,</span>
+   <span class="n">vhost</span> <span class="o">=&gt;</span> <span class="s">&#39;canopsis&#39;</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="k">my</span> <span class="nv">$channel</span> <span class="o">=</span> <span class="nv">$connect</span><span class="o">-&gt;</span><span class="n">open_channel</span><span class="p">();</span>
+
+<span class="c1"># To send many events, put your loops here ...</span>
+<span class="nv">$channel</span><span class="o">-&gt;</span><span class="n">publish</span><span class="p">(</span>
+   <span class="n">exchange</span> <span class="o">=&gt;</span> <span class="s">&#39;canopsis.events&#39;</span><span class="p">,</span>
+   <span class="n">routing_key</span> <span class="o">=&gt;</span> <span class="s">&quot;cli.&quot;</span><span class="o">.</span><span class="nv">$connector_name</span><span class="o">.</span><span class="s">&quot;.log.&quot;</span><span class="o">.</span><span class="nv">$resource</span><span class="o">.</span><span class="s">&quot;.&quot;</span><span class="o">.</span><span class="nv">$component</span><span class="o">.</span><span class="s">&quot;.&quot;</span><span class="o">.</span><span class="nv">$resource</span><span class="p">,</span>
+   <span class="n">body</span> <span class="o">=&gt;</span> <span class="nv">$json</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="c1"># End of loop ! (rebuild your json in this loop if you want to use it)</span>
+<span class="nv">$connect</span><span class="o">-&gt;</span><span class="nb">close</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="send-event-with-php.html" class="btn btn-neutral float-right" title="Send Event with PHP" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="send-event.html" class="btn btn-neutral" title="Send event command" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
