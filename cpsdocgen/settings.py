@@ -34,6 +34,7 @@ class Settings(object):
 
         repositories = 'repositories'
         repo = 'repo'
+        init_command = 'init_command'
         branch = 'branch'
         docdir = 'docdir'
 
@@ -48,6 +49,7 @@ class Settings(object):
 
         branch = 'master'
         docdir = 'doc'
+        init_command = None
 
     def __init__(self, confpath, *args, **kwargs):
         super(Settings, self).__init__(*args, **kwargs)

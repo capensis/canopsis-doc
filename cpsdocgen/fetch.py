@@ -126,4 +126,9 @@ class Fetch(object):
         # git checkout HEAD
         repo.checkout_head()
 
+        if 'init_command' in self.repo:
+            command = 'cd public/git/{}/{} && {} && cd -'.format(self.namespace, self.repo[Settings.fields.repo], self.repo['init_command'])
+            print('command:' + command)
+            os.system(command)
+
         return repo.workdir
