@@ -3,10 +3,10 @@ Canopsis Ui Bricks
 
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
    :titlesonly:
 
 
    brick-simpletile/index
 
-   brick-piechart/index
+   brick-querybuilder/index
