@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GRAPH: library for managing graph structure &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Data Manager" href="index.html"/>
+        <link rel="next" title="Topology: library for managing topologies" href="topology.html"/>
+        <link rel="prev" title="Rights" href="rights.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../frontend/index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="../index.html">Backend</a> &raquo;</li>
+      
+          <li><a href="index.html">Data Manager</a> &raquo;</li>
+      
+    <li>GRAPH: library for managing graph structure</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/developer-guide/backend/data-manager/graph.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="graph-library-for-managing-graph-structure">
+<span id="dev-backend-mgr-graph"></span><h1>GRAPH: library for managing graph structure<a class="headerlink" href="#graph-library-for-managing-graph-structure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="graph-elements">
+<h2>Graph elements<a class="headerlink" href="#graph-elements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functional">
+<h3>Functional<a class="headerlink" href="#functional" title="Permalink to this headline">¶</a></h3>
+<p>A graph is a mean to construct information based on logical understanding of
+information.</p>
+<p>A graph is composed of vertices such as elementary information and edges which
+are logical relationships between information.</p>
+<p>With the previous definition, a graph is a complex vertice which results in
+providing information.</p>
+<p>In such way, an information can be elementary or composed of graph information
+such as hypergraphs.</p>
+<p>An hypergraph permits to add a context dimension over graph elements. In such
+structure, vertices, edges and graphs exist in multiple graphs, and their
+surround depends on the graph they are associated at a &#8220;time&#8221;.</p>
+</div>
+<div class="section" id="technical">
+<h3>Technical<a class="headerlink" href="#technical" title="Permalink to this headline">¶</a></h3>
+<p>For simplification reasons, a graph is technically solved by such concepts.</p>
+<div class="section" id="graph-element">
+<h4>Graph Element<a class="headerlink" href="#graph-element" title="Permalink to this headline">¶</a></h4>
+<p>The graph element is the base concept of elements decribed here. It has a
+unique identifier among all graph elements and a type for graph specialisation
+reasons.</p>
+<p>A graph element contains:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="n">unique</span> <span class="n">identifier</span> <span class="n">among</span> <span class="nb">all</span> <span class="n">graph</span> <span class="n">elements</span><span class="o">.</span>
+<span class="o">-</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">graph</span> <span class="n">element</span><span class="o">.</span> <span class="n">A</span> <span class="n">graph</span> <span class="n">could</span> <span class="n">be</span> <span class="n">a</span> <span class="n">topology</span> <span class="ow">or</span> <span class="n">something</span>
+    <span class="k">else</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">_cls</span><span class="p">:</span> <span class="n">python</span> <span class="k">class</span> <span class="nc">path</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">_type</span><span class="p">:</span> <span class="n">base</span> <span class="nb">type</span> <span class="n">which</span> <span class="n">permits</span> <span class="n">to</span> <span class="n">recognize</span> <span class="n">the</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">element</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="graph-vertice">
+<h4>Graph vertice<a class="headerlink" href="#graph-vertice" title="Permalink to this headline">¶</a></h4>
+<p>A graph vertice inherits from the graph element and can contain data
+information.</p>
+<p>From a graph vertice, it is possible to resolve neighbour vertices thanks to
+edges.</p>
+<p>A graph vertice contains:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">data</span><span class="p">:</span> <span class="n">vertice</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">_type</span><span class="p">:</span> <span class="n">equals</span> <span class="n">vertice</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="graph-edge">
+<h4>Graph edge<a class="headerlink" href="#graph-edge" title="Permalink to this headline">¶</a></h4>
+<p>Technically, a graph edge is more rich than its representation in the
+functional definition in order to ease its manipulation in a richer context
+instead of keeping only a logical use of edges. It becomes possible to describe
+logical information between two edges.</p>
+<p>A graph edge inherits from the graph vertice in order to transport information
+and can bind several source with several targets, directly or not.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">sources: source vertices.</p>
+</li>
+<li><p class="first">targets: target vertices.</p>
+</li>
+<li><dl class="first docutils">
+<dt>directed: directed orientation. If False, source and target vertices are</dt>
+<dd><p class="first last">directly connected, otherwise, only sources are directly connected to
+targets.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">weight: edge weight. Default 1.</p>
+</li>
+<li><p class="first">_type: equals edge.</p>
+</li>
+</ul>
+</div></blockquote>
+<p>A graph inherits from vertice and contains:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">elts</span><span class="p">:</span> <span class="n">elements</span> <span class="n">existing</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">graph</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">_type</span><span class="p">:</span> <span class="n">graph</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="module-canopsis.graph.manager">
+<span id="graph-manager"></span><h2>Graph Manager<a class="headerlink" href="#module-canopsis.graph.manager" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the GraphManager which interacts between graph elements and
+the DB.</p>
+<div class="section" id="id1">
+<h3>Functional<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The role of the GraphManager is to ease graph element CRUD operations and
+to retrieve graphs, vertices and edges thanks to methods with all element
+parameters useful to find them.</p>
+</div>
+<div class="section" id="id2">
+<h3>Technical<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The graph manager permits to get graph elements with any context information.</p>
+<p>One, generic methods permit to get/put/delete elements in understanding such
+elements such as dictionaries or GraphElement depending on serialize parameter
+value.</p>
+<p>Two, it is possible to find graphs, vertices and edges thanks to parameters
+which correspond to their properties.</p>
+</div>
+</div>
+<div class="section" id="tutorial">
+<h2>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-vertice-an-edge-and-a-graph-and-save-them">
+<h3>Create a Vertice, an edge and a graph and save them<a class="headerlink" href="#create-a-vertice-an-edge-and-a-graph-and-save-them" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">canopsis.graph.elements</span> <span class="kn">import</span> <span class="n">Vertice</span><span class="p">,</span> <span class="n">Edge</span><span class="p">,</span> <span class="n">Graph</span>
+<span class="kn">from</span> <span class="nn">canopsis.graph.manager</span> <span class="kn">import</span> <span class="n">GraphManager</span>
+
+<span class="n">graphManager</span> <span class="o">~</span> <span class="n">GraphManager</span><span class="p">()</span>
+<span class="c1"># create a vertice task</span>
+<span class="n">task</span> <span class="o">~</span> <span class="p">{</span><span class="s1">&#39;task&#39;</span><span class="p">:</span> <span class="s1">&#39;canopsis.task.task&#39;</span><span class="p">}</span>
+<span class="c1"># create a vertice</span>
+<span class="n">vertice</span> <span class="o">~</span> <span class="n">Vertice</span><span class="p">(</span><span class="n">data</span><span class="o">~</span><span class="n">task</span><span class="p">)</span>
+<span class="c1"># save it in DB</span>
+<span class="n">vertice</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">graphManager</span><span class="p">)</span>
+<span class="c1"># create an edge which bind the vertice to itself</span>
+<span class="n">edge</span> <span class="o">~</span> <span class="n">Edge</span><span class="p">(</span><span class="n">sources</span><span class="o">~</span><span class="n">vertice</span><span class="p">,</span> <span class="n">targets</span><span class="o">~</span><span class="n">vertice</span><span class="p">)</span>
+<span class="c1"># save it in DB</span>
+<span class="n">edge</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">graphManager</span><span class="p">)</span>
+<span class="c1"># create a graph wich contains vertice and edge</span>
+<span class="n">graph</span> <span class="o">~</span> <span class="n">Graph</span><span class="p">(</span><span class="n">elts</span><span class="o">~</span><span class="p">[</span><span class="n">vertice</span><span class="p">,</span> <span class="n">edge</span><span class="p">])</span>
+<span class="c1"># save it in DB</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">graphManager</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="find-graph-elements-such-as-dictionaries">
+<h3>Find graph elements such as dictionaries<a class="headerlink" href="#find-graph-elements-such-as-dictionaries" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">canopsis.graph.manager</span> <span class="kn">import</span> <span class="n">GraphManager</span>
+
+<span class="c1"># graph id</span>
+<span class="n">graph_ids</span> <span class="o">~</span> <span class="p">[</span><span class="s1">&#39;graph_id0&#39;</span><span class="p">,</span> <span class="s1">&#39;graph_id1&#39;</span><span class="p">]</span>
+
+<span class="n">graphManager</span> <span class="o">~</span> <span class="n">GraphManager</span><span class="p">()</span>
+
+<span class="c1"># find elements from graph ids where types are dictionaries</span>
+<span class="n">elts</span> <span class="o">~</span> <span class="n">graphManager</span><span class="o">.</span><span class="n">get_edges</span><span class="p">(</span><span class="n">graph_ids</span><span class="o">~</span><span class="n">graph_ids</span><span class="p">,</span> <span class="n">serialize</span><span class="o">~</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-graph-elements">
+<h3>Delete graph elements<a class="headerlink" href="#delete-graph-elements" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">canopsis.graph.manager</span> <span class="kn">import</span> <span class="n">GraphManager</span>
+
+<span class="c1"># graph id</span>
+<span class="n">graph_ids</span> <span class="o">~</span> <span class="p">[</span><span class="s1">&#39;graph_id0&#39;</span><span class="p">,</span> <span class="s1">&#39;graph_id1&#39;</span><span class="p">]</span>
+
+<span class="n">graphManager</span> <span class="o">~</span> <span class="n">GraphManager</span><span class="p">()</span>
+
+<span class="n">elts</span> <span class="o">~</span> <span class="p">[]</span>
+
+<span class="c1"># find elements from graph ids where types are dictionaries</span>
+<span class="n">elts</span> <span class="o">+~</span> <span class="n">graphManager</span><span class="o">.</span><span class="n">get_edges</span><span class="p">(</span><span class="n">graph_ids</span><span class="o">~</span><span class="n">graph_ids</span><span class="p">,</span> <span class="n">serialize</span><span class="o">~</span><span class="bp">False</span><span class="p">)</span>
+<span class="c1"># and get graphs</span>
+<span class="n">elts</span> <span class="o">+~</span> <span class="n">graphManager</span><span class="o">.</span><span class="n">get_graphs</span><span class="p">(</span><span class="n">ids</span><span class="o">~</span><span class="n">graph_ids</span><span class="p">)</span>
+<span class="c1"># delete them from DB</span>
+<span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">elts</span><span class="p">:</span>
+   <span class="n">elt</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">graphManager</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="topology.html" class="btn btn-neutral float-right" title="Topology: library for managing topologies" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rights.html" class="btn btn-neutral" title="Rights" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

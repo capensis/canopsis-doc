@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Topology &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Canopsis Technical Requirements" href="index.html"/>
+        <link rel="next" title="Topology frontend" href="tr__topology-frontend.html"/>
+        <link rel="prev" title="Graph" href="tr__graph-backend.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html">Sakura</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#canopsis-specification">Canopsis Specification</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../FR/index.html">Canopsis Functionnal Requirements</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Canopsis Technical Requirements</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="tr__architecture.html">Canopsis Technical Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__context.html">Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__metric.html">Metrology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__mail_output.html">Mail Output Media</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__graph-backend.html">Graph</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Topology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__topology-frontend.html">Topology frontend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__monitoring.html">Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__alarm.html">Alarm management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__serie.html">Serie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__statistics.html">Canopsis Statistics Generator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ED/index.html">Canopsis Exploitation Documents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="index.html">Canopsis Technical Requirements</a> &raquo;</li>
+      
+    <li>Topology</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/canopsis/canopsis/TR/tr__topology-backend.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="topology">
+<span id="tr-topology-backend"></span><h1><a class="toc-backref" href="#id11">Topology</a><a class="headerlink" href="#topology" title="Permalink to this headline">¶</a></h1>
+<p>Project <code class="docutils literal"><span class="pre">canopsis.topology</span></code> description.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#topology" id="id11">Topology</a><ul>
+<li><a class="reference internal" href="#references" id="id12">References</a></li>
+<li><a class="reference internal" href="#updates" id="id13">Updates</a></li>
+<li><a class="reference internal" href="#id1" id="id14">Contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id12">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="../FR/fr__topology.html#fr-topology"><span class="std std-ref">FR__Topology</span></a></li>
+<li><a class="reference internal" href="tr__graph-backend.html#tr-graph-backend"><span class="std std-ref">TR__graph</span></a></li>
+</ul>
+</div>
+<div class="section" id="updates">
+<h2><a class="toc-backref" href="#id13">Updates</a><a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Author(s)</th>
+<th class="head">Date</th>
+<th class="head">Version</th>
+<th class="head">Summary</th>
+<th class="head">Accepted by</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>David Delassus</td>
+<td>01/09/2015</td>
+<td>0.3</td>
+<td>Update references</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>David Delassus</td>
+<td>01/09/2015</td>
+<td>0.2</td>
+<td>Rename document</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Jonathan Labéjof</td>
+<td>2015/08/27</td>
+<td>0.1</td>
+<td>Creation</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id14">Contents</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="canopsis-topology-elements">
+<h3>canopsis.topology.elements<a class="headerlink" href="#canopsis-topology-elements" title="Permalink to this headline">¶</a></h3>
+<p>Module which contains all topology elements</p>
+<div class="section" id="topovertice">
+<span id="tr-topology-backend-topovertice"></span><h4>TopoVertice<a class="headerlink" href="#topovertice" title="Permalink to this headline">¶</a></h4>
+<p>Base object for all other topology objects.</p>
+<p>info contains:</p>
+<ul class="simple">
+<li>state: int.</li>
+<li>operation: str.</li>
+<li>entity: str.</li>
+</ul>
+</div>
+<div class="section" id="toponode">
+<span id="tr-topology-backend-toponode"></span><h4>TopoNode<a class="headerlink" href="#toponode" title="Permalink to this headline">¶</a></h4>
+<p>Inherits from the <a class="reference internal" href="#tr-topology-backend-topovertice"><span class="std std-ref">TopoVertice</span></a>.</p>
+</div>
+<div class="section" id="topoedge">
+<span id="tr-topology-backend-topoedge"></span><h4>TopoEdge<a class="headerlink" href="#topoedge" title="Permalink to this headline">¶</a></h4>
+<p>Inherits from the <a class="reference internal" href="#tr-topology-backend-toponode"><span class="std std-ref">TopoNode</span></a> and the
+<a class="reference internal" href="tr__graph-backend.html#tr-graph-backend-edge"><span class="std std-ref">Edge</span></a>.</p>
+</div>
+<div class="section" id="graph">
+<span id="tr-topology-backend-graph"></span><h4>Graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h4>
+<p>Inherits from the <a class="reference internal" href="#tr-topology-backend-toponode"><span class="std std-ref">TopoNode</span></a> and the
+:ref:<a href="#id2"><span class="problematic" id="id3">`</span></a>Graph &lt;TR__Graph_backend__Graph&gt;.</p>
+</div>
+</div>
+<div class="section" id="canopsis-topology-manager">
+<h3>canopsis.topology.manager<a class="headerlink" href="#canopsis-topology-manager" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="topologymanager">
+<span id="tr-topology-backend-manager"></span><h4>TopologyManager<a class="headerlink" href="#topologymanager" title="Permalink to this headline">¶</a></h4>
+<p>Inherits from the <a class="reference internal" href="tr__graph-backend.html#tr-graph-backend-manager"><span class="std std-ref">GraphManager</span></a>.</p>
+<p>Manages topology storing and analyzing fonctions.</p>
+<div class="section" id="get-causals">
+<h5>get_causals<a class="headerlink" href="#get-causals" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="uts">
+<h6>UTs<a class="headerlink" href="#uts" title="Permalink to this headline">¶</a></h6>
+</div>
+</div>
+<div class="section" id="get-consequences">
+<h5>get_consequences<a class="headerlink" href="#get-consequences" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="id4">
+<h6>UTs<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h6>
+</div>
+</div>
+<div class="section" id="get-causalsandconsequencespertopo">
+<h5>get_causalsandconsequencespertopo<a class="headerlink" href="#get-causalsandconsequencespertopo" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="id5">
+<h6>UTs<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h6>
+</div>
+</div>
+<div class="section" id="get-consequencesandcausalspertopo">
+<h5>get_consequencesandcausalspertopo<a class="headerlink" href="#get-consequencesandcausalspertopo" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="id6">
+<h6>UTs<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h6>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="canopsis-topology-webservices">
+<h3>canopsis.topology.webservices<a class="headerlink" href="#canopsis-topology-webservices" title="Permalink to this headline">¶</a></h3>
+<p>The webservice provides all <a class="reference internal" href="tr__graph-backend.html#tr-graph-backend-manager"><span class="std std-ref">GraphManager</span></a>
+methods through the route &#8216;topology/&#8217; plus
+<a class="reference internal" href="#tr-topology-backend-manager"><span class="std std-ref">GraphManager</span></a> methods below:</p>
+<div class="section" id="id7">
+<h4>get_causals<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>&#8216;topology/causals&#8217;</p>
+</div>
+<div class="section" id="id8">
+<h4>get_consequences<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>&#8216;topology/consequences&#8217;</p>
+</div>
+<div class="section" id="id9">
+<h4>get_causalsandconsequencespertopo<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>&#8216;topology/causalsandconsequences&#8217;</p>
+</div>
+<div class="section" id="id10">
+<h4>get_consequencesandcausalspertopo<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<p>&#8216;topology/consequencesandcausals&#8217;</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tr__topology-frontend.html" class="btn btn-neutral float-right" title="Topology frontend" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tr__graph-backend.html" class="btn btn-neutral" title="Graph" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

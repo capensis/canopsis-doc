@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Managing externals dependencies and JS libs &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Frontend" href="index.html"/>
+        <link rel="next" title="Translation" href="translation.html"/>
+        <link rel="prev" title="Writing a brick" href="writing-a-brick.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../backend/index.html">Backend</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="index.html">Frontend</a> &raquo;</li>
+      
+    <li>Managing externals dependencies and JS libs</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/canopsis/canopsis/developer-guide/frontend/managing-dependencies.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="managing-externals-dependencies-and-js-libs">
+<span id="dev-frontend-deps"></span><h1>Managing externals dependencies and JS libs<a class="headerlink" href="#managing-externals-dependencies-and-js-libs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p>This guide describes the new workflow for managing frontend external dependencies.</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>External frontend dependencies are the more often JS and css frameworks and tools. They can be used all across the frontend when they are loaded.</p>
+<p>Before Sakura, libs where managed directly by adding and committing files into externals repo (under &#8220;webcore-libs&#8221; folder). The new workflow uses Bower, a package manager for frontend js applications and websites. It helps by providing a way to install packages the way they were designed to, to describes those packages, and to manage dependencies and versions of provided libraries.</p>
+<p>It also helps by allowing to refetch automatically every listed frontend dependency needed by the Canopsis frontend.</p>
+</div>
+<div class="section" id="webcore-libs-as-a-package">
+<h2>Webcore-libs as a package<a class="headerlink" href="#webcore-libs-as-a-package" title="Permalink to this headline">¶</a></h2>
+<p>The webcore-libs folder is now registered as a private Bower package.</p>
+<p>It contains a <code class="docutils literal"><span class="pre">bower.json</span></code> file that lists metadata and dependencies of the package.</p>
+</div>
+<div class="section" id="how-to-install-libraries">
+<h2>How to install libraries<a class="headerlink" href="#how-to-install-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s assume we want to add a packages that contains a XYZ package into Canopsis.</p>
+<p>Please be sure that a <code class="docutils literal"><span class="pre">.bowerrc</span></code> file is present into the root of the <code class="docutils literal"><span class="pre">canopsis-externals</span></code> repo of the Canopsis sources.</p>
+<p>Then go into the <code class="docutils literal"><span class="pre">webcore-libs</span></code> folder, and add the bower package :</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>bower install XYZ --save
+</pre></div>
+</div>
+<p>the <code class="docutils literal"><span class="pre">--save</span></code> option registers the library into the webcore-libs&#8217; <code class="docutils literal"><span class="pre">bower.json</span></code>.</p>
+<p>Now you can publish the changes to the <code class="docutils literal"><span class="pre">bower.json</span></code> file and add the library folder to the <code class="docutils literal"><span class="pre">canopsis-externals</span></code> repository.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">TODO: library wrappers</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="translation.html" class="btn btn-neutral float-right" title="Translation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="writing-a-brick.html" class="btn btn-neutral" title="Writing a brick" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

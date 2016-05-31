@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating a simple widget &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Widgets" href="index.html"/>
+        <link rel="next" title="Managing plug-ins in mixins" href="managing-plug-ins-in-mixins.html"/>
+        <link rel="prev" title="API" href="api.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../backend/index.html">Backend</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="../index.html">Frontend</a> &raquo;</li>
+      
+          <li><a href="index.html">Widgets</a> &raquo;</li>
+      
+    <li>Creating a simple widget</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/developer-guide/frontend/widgets/creating-a-simple-widget.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-a-simple-widget">
+<span id="dev-frontend-widgets-howto"></span><h1>Creating a simple widget<a class="headerlink" href="#creating-a-simple-widget" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This guide will help you to master the key concepts of creating widgets for Canopsis.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>This chapter requires some basic Javascript and Object Oriented Programming (OOP) knowledge.</p>
+</div>
+<div class="section" id="id1">
+<h2>Creating a simple widget<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>First of all, a widget needs at least 3 elements :</p>
+<blockquote>
+<div><ul class="simple">
+<li>A <strong>schema</strong>, to provide a data model to the widget and to make it editable and storable</li>
+<li>A <strong>controller</strong>, that is a javascript file that contains an canopsis factory witch role is to instanciate a widget on demand. This factory is parametrized with the widget controller.</li>
+<li>A <strong>template</strong>, that contains the layout of the widget (it is basically html with a template language)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="creating-boilerplate-files">
+<h2>Creating boilerplate files<a class="headerlink" href="#creating-boilerplate-files" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s start with a simple case, and create a widget that displays only a label which can be configured in the widget edit form.</p>
+<p>First, define a <strong>schema</strong> that contains one editable attribute, the text to display :</p>
+<p><code class="docutils literal"><span class="pre">etc/schema.d/widget.label.json</span></code></p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;categories&quot;</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;General&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;keys&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;texttodisplay&quot;</span><span class="p">]</span>
+   <span class="p">}],</span>
+   <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;texttodisplay&quot;</span><span class="o">:</span> <span class="p">{</span>
+         <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;string&quot;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, define a <strong>controller</strong> that is required but will not contain any particular method or property:</p>
+<p><code class="docutils literal"><span class="pre">core/widgets/label/controller.js</span></code></p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">define</span><span class="p">([</span>
+   <span class="s1">&#39;app/lib/factories/widget&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;app/lib/loaders/schemas&#39;</span>
+<span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">WidgetFactory</span><span class="p">)</span> <span class="p">{</span>
+
+   <span class="c1">//below the instanciation of the controller that only contains an empty object</span>
+   <span class="kd">var</span> <span class="nx">widget</span> <span class="o">=</span> <span class="nx">WidgetFactory</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="p">{});</span>
+
+   <span class="k">return</span> <span class="nx">widget</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>And finally, define a <strong>template</strong> that show the field setted by the view manager:</p>
+<p><code class="docutils literal"><span class="pre">core/widgets/label/template.html</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+   {{controller.model.texttodisplay}}
+<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="test-the-widget">
+<h2>Test the widget<a class="headerlink" href="#test-the-widget" title="Permalink to this headline">¶</a></h2>
+<p>Now you have a working widget, but it is not registered nor loaded by the web application.</p>
+<p>To register the schema, make sure the file is in the schema directory, and execute the <code class="docutils literal"><span class="pre">schema2db</span></code>. The new schema will be sent to the database.</p>
+<p>To register the widget JS and HTML, open the widget loader file, (usually in <code class="docutils literal"><span class="pre">&lt;js</span> <span class="pre">plugin</span> <span class="pre">file&gt;/lib/loaders/widgets</span></code>), and add ensure the widget is referenced in the widget list.</p>
+<p>You should now be able to display a view, enter the edit mode, place a widget, display it and reconfigure it !</p>
+</div>
+<div class="section" id="deeper-in-the-widget-creation">
+<h2>Deeper in the widget creation<a class="headerlink" href="#deeper-in-the-widget-creation" title="Permalink to this headline">¶</a></h2>
+<p>As the widget factory makes your widget inherit from Canopsis Widget class, some behaviors are available from this super class. This inheritance layer brings for exemple the layout placement management in the GUI, the parametrable refreshing system for your widget depending on the <strong>refreshableWidget</strong> boolean property in the schema and the <strong>refreshInterval</strong> value in seconds.</p>
+<p>Imagine you want to make your widget reresh a new label each 30 seconds, what you have to do is to add the following property to your widget schema</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;refreshableWidget&quot;</span><span class="o">:</span>  <span class="p">{</span>
+         <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;boolean&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;default&quot;</span><span class="o">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, by inheritance, the <strong>refreshInterval</strong> property will give your widget the resfreshInterval property set to 60 seconds by default. We will change it in a first time in a hardcoded way for demonstration purposes.</p>
+<p>Now let update our controller definition with the hardcoded param from:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//header code ...</span>
+
+<span class="kd">var</span> <span class="nx">widget</span> <span class="o">=</span> <span class="nx">WidgetFactory</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="p">{});</span>
+
+<span class="c1">//end widget code ...</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">//header code ...</span>
+
+<span class="c1">//good practice in canopsis is to define and use shortcuts to Ember.get and Ember.set</span>
+<span class="kd">var</span> <span class="nx">get</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">get</span><span class="p">,</span>
+    <span class="nx">set</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">set</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">widget</span> <span class="o">=</span> <span class="nx">WidgetFactory</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="p">{</span>
+
+   <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="c1">//The hardcoded value set</span>
+      <span class="nx">set</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;refreshInterval&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+
+      <span class="c1">//Calling the super call is required when overriding the constructor</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">_super</span><span class="p">();</span>
+
+   <span class="p">}</span>
+
+<span class="p">});</span>
+
+<span class="c1">//end widget code ...</span>
+</pre></div>
+</div>
+<p>Using Ember js set and get methods will trigger databinding recomputation and this way, all the widget remains up to date with the lastest information.
+Now we have updated our widget with a custom value the widget should refresh sooner than by default.</p>
+</div>
+<div class="section" id="beyond-the-simple-widget">
+<h2>Beyond the simple widget<a class="headerlink" href="#beyond-the-simple-widget" title="Permalink to this headline">¶</a></h2>
+<p>A widget will now become whatever you want as the given widget basis upper let you create what you need. Thus, in widgets it is possible to use components (see <a class="reference external" href="#components">canopsis components</a>) in a way as simple as the following code</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>{{component-mycustomcomponent content=dataBindingVariable}}
+</pre></div>
+</div>
+<p>where the dataBindingVariable will be updated by the sub component and be reachable in your widget with the following code in the controller:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// controller header...</span>
+
+<span class="nx">methodUsingComponentValue</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">componentValue</span> <span class="o">=</span> <span class="nx">get</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;dataBindingVariable&#39;</span><span class="p">);</span>
+   <span class="c1">//process value from component</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Manipulating remote data can be done preferably with records and adapters or can be acheived with jquery ajax queries.</li>
+<li>It is possible to display custom template information mixed with components, loop controls, loginc controls, helpers and any other facilities canopsis environement provides within the widget template (see <a class="reference external" href="/developer-guide/frontend/architecture.html">architecture</a>).</li>
+<li>Don&#8217;t forget what Ember framework brings to you, it is possible to run code on dom element ready in a widget because <strong>didInsertElement</strong> is called in the widget view when dom element is rendered (don&#8217;t forget to use this._super()).</li>
+<li>The current dom element can be reached with <strong>this.$()</strong> in the widget view.</li>
+<li>Uderstanding how Ember js works will help you writting your own widget <a class="reference external" href="http://emberjs.com/api/">Ember js</a>.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="managing-plug-ins-in-mixins.html" class="btn btn-neutral float-right" title="Managing plug-ins in mixins" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="API" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

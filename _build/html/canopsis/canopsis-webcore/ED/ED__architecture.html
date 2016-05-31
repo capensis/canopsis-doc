@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Frontend Architecture &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Frontend Architecture</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/canopsis/canopsis-webcore/ED/ED__architecture.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="frontend-architecture">
+<h1><a class="toc-backref" href="#id3">Frontend Architecture</a><a class="headerlink" href="#frontend-architecture" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#frontend-architecture" id="id3">Frontend Architecture</a><ul>
+<li><a class="reference internal" href="#references" id="id4">References</a></li>
+<li><a class="reference internal" href="#updates" id="id5">Updates</a></li>
+<li><a class="reference internal" href="#id1" id="id6">Contents</a><ul>
+<li><a class="reference internal" href="#presentation" id="id7">Presentation</a></li>
+<li><a class="reference internal" href="#the-entry-point" id="id8">The Entry point</a></li>
+<li><a class="reference internal" href="#canopsis-editors" id="id9">Canopsis editors</a></li>
+<li><a class="reference internal" href="#canopsis-renderers" id="id10">Canopsis renderers</a></li>
+<li><a class="reference internal" href="#canopsis-ui-model" id="id11">Canopsis UI Model</a></li>
+<li><a class="reference internal" href="#widgets" id="id12">Widgets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2><a class="toc-backref" href="#id4">References</a><a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="updates">
+<h2><a class="toc-backref" href="#id5">Updates</a><a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Author(s)</th>
+<th class="head">Date</th>
+<th class="head">Version</th>
+<th class="head">Summary</th>
+<th class="head">Accepted by</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Gwenael Pluchon</td>
+<td>2016/04/26</td>
+<td>0.1</td>
+<td>Document creation</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h2><a class="toc-backref" href="#id6">Contents</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="presentation">
+<h3><a class="toc-backref" href="#id7">Presentation</a><a class="headerlink" href="#presentation" title="Permalink to this headline">¶</a></h3>
+<p>Canopsis UI is built on top on the <a class="reference external" href="http://www.emberjs.com">Emberjs</a> framework. This framework is used in Canopsis as a skeletton that let developper plug functionnalities all around the Canopsis core. Canopsis UI also uses some other frameworks like <a class="reference external" href="http://requirejs.org">requirejs</a> or the famous css framework <a class="reference external" href="http://getbootstrap.com">bootstrap</a> In this documentation will be explained how canopsis core is designed and what are its mechanics. It also covers how to integrate new features in order they best fit existing content.</p>
+<p>Canopsis UI once installed on a server is served by the <a class="reference external" href="http://gunicorn.org">Gunicorn</a> webserver with some static <strong>javascript, html, css</strong> files and some <strong>dynamic content</strong> computed and server throught the <a class="reference external" href="/developer-guide/API/index.html">Canopsis API</a></p>
+<p>Please note that the folder referential is based on the <strong>webcore</strong> folder which, in Canopsis sources, is located in the subfolder <code class="docutils literal"><span class="pre">canopsis/sources/webcore/var/www/canopsis</span></code> . This path once Canopsis built is by default <code class="docutils literal"><span class="pre">/opt/canopsis/var/www/canopsis</span></code>. Some resources may however only be avaiable from other location. This is the case for <em>locales</em> translation <em>.po</em> files that are located by default in <code class="docutils literal"><span class="pre">/opt/canopsis/locale</span></code> or schemas that are documented in the <a class="reference external" href="/developer-guide/uiv2/model_layer.html">model</a> part of the Canopsis documentation.</p>
+</div>
+<div class="section" id="the-entry-point">
+<h3><a class="toc-backref" href="#id8">The Entry point</a><a class="headerlink" href="#the-entry-point" title="Permalink to this headline">¶</a></h3>
+<p>When the <em>index.html</em> file is queried by a client to the server, index.html loads a few files (mainly css ones) directly. However, it includes the <strong>canopsis.js</strong> file that is the entry point of the canopsis UI system. File loading is handled by requirejs and once loaded, the canopsis.js file instanciate the require.js framework recursively and this leads to the call of each canopsis requirement for the initial load.</p>
+</div>
+<div class="section" id="canopsis-editors">
+<h3><a class="toc-backref" href="#id9">Canopsis editors</a><a class="headerlink" href="#canopsis-editors" title="Permalink to this headline">¶</a></h3>
+<p>Editors in canopsis UI application are graphical components that are called when a user need to input information into the system. They can have many forms depending on the user action context datatype. For instance, editors can be either a simple textbox to input text or a more complext date time picker component that enables the user to provide a date information to the context.</p>
+<p>Often the data input context is a canopsis form that is configured by a Canopsis Schema, which determines what data are related to the form and how the user will be prompted to enter values for the fields (what editor will be displayed)</p>
+<p>When an editor is created, the editor context expects that the input value generated is set as the <strong>content</strong> field of the component. This way, the editor context (a form in canopsis UI) knows that the user input is always and only the <strong>content</strong> field of the editor.</p>
+<p>An editor is a template that most of time calls a component object (see <a class="reference external" href="#components">components</a> ) that allow more complex operation / GUI rendering to manage user inputs. It looks like the following:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>{{component-eventselector content=attr.value title=attr.field}}
+</pre></div>
+</div>
+<p>Here, the template of our editor contains the call of the eventselector component where it&#8217;s content value is binded to the attr.value variable of the context. In Canopsis forms contexts, this is the location where the form will get the user input in order to generate a coherent form record. The title field is also set with <cite>attr.field</cite> value. This means that the title field within the component will be equal to the <cite>attr.field</cite> value witch is in this case the field value contained in the schema. It is for eventselector the value <cite>event selection</cite>.</p>
+<p>Finally, in the canopsis UI forms, when the schema of the edited model have an attribute that has for role <strong>&#8220;eventselector&#8221;</strong>, in the form our editor with the call of a component will looks like the picture below.</p>
+<img alt="canopsis/canopsis-webcore/ED/../../_static/images/frontend/eventselectoreditor.png" src="canopsis/canopsis-webcore/ED/../../_static/images/frontend/eventselectoreditor.png" />
+</div>
+<div class="section" id="canopsis-renderers">
+<h3><a class="toc-backref" href="#id10">Canopsis renderers</a><a class="headerlink" href="#canopsis-renderers" title="Permalink to this headline">¶</a></h3>
+<p>A render in Canopsis is a web component that aims to display a given data in a specific form.</p>
+<p>Renderers are simple GUI components made a html template for information displaying.</p>
+<p>In Schemas, an attribute <strong>role</strong> defines witch renderer will be used to display the data in the Canopsis interface.</p>
+<p>For exemple, the state information contained in events, when displayed into a table, are rendered thanks to the call of a helper in the renderer&#8217;s template. Here is the code of the state renderer:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>{{stateview value this}}
+</pre></div>
+</div>
+<p>This code will just call the stateview helper with two parameters: the state value known in the render context as <strong>&#8220;value&#8221;</strong> field that is for the example equal to <cite>0</cite> and the <strong>this</strong> instance that is contextually the record that represents the event.</p>
+<img alt="canopsis/canopsis-webcore/ED/../../_static/images/frontend/staterenderer.png" src="canopsis/canopsis-webcore/ED/../../_static/images/frontend/staterenderer.png" />
+</div>
+<div class="section" id="canopsis-ui-model">
+<h3><a class="toc-backref" href="#id11">Canopsis UI Model</a><a class="headerlink" href="#canopsis-ui-model" title="Permalink to this headline">¶</a></h3>
+<p>The Canopsis UI Model system is based upon json schemas that describes datatypes for each document type managed into canopsis. Those schemas are used in both front office and back office in order to keep redundancy in the project.</p>
+</div>
+<div class="section" id="widgets">
+<h3><a class="toc-backref" href="#id12">Widgets</a><a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h3>
+<p>Widgets are elements used in Canopsis UI to build userviews. They are made of a controller and a template and they can be configured in order to best fit users need. see more <a class="reference external" href="widgets/creating-a-simple-widget.html">widgets</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

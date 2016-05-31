@@ -1,0 +1,18 @@
+Canopsis Ui Bricks
+==========================================
+
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+
+   brick-simpletile/index
+
+   brick-calendar/index
+
+   brick-legacy/index
+
+   brick-querybuilder/index
+
+   compact_themes/index

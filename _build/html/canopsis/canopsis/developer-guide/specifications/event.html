@@ -1,0 +1,592 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Event specification &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Specifications" href="index.html"/>
+        <link rel="next" title="Event Status specification" href="status.html"/>
+        <link rel="prev" title="Build System Specification" href="packaging.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../backend/index.html">Backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../frontend/index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="index.html">Specifications</a> &raquo;</li>
+      
+    <li>Event specification</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/canopsis/canopsis/developer-guide/specifications/event.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="event-specification">
+<h1>Event specification<a class="headerlink" href="#event-specification" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="amqp-informations">
+<h2>AMQP Informations<a class="headerlink" href="#amqp-informations" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Vhost:              canopsis</li>
+<li>Routing key:        &lt;connector&gt;.&lt;connector_name&gt;.&lt;event_type&gt;.&lt;source_type&gt;.&lt;component&gt;[.&lt;resource&gt;]</li>
+<li>Exchange:           canopsis.events</li>
+<li>Exchange Options:   type: &#8220;topic&#8221;, durable: true, auto_delete: false</li>
+<li>Content Type:       &#8220;application/json&#8221;</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="basic-event-structure">
+<h2>Basic Event Structure<a class="headerlink" href="#basic-event-structure" title="Permalink to this headline">¶</a></h2>
+<p>Here is the basic event structure, common to all event-types :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;connector&#39;</span><span class="o">:</span>        <span class="c1">// Connector Type (gelf, nagios, snmp, ...)</span>
+    <span class="s1">&#39;connector_name&#39;</span><span class="o">:</span>   <span class="c1">// Connector Identifier (nagios1, nagios2, ...)</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span>       <span class="c1">// Event type (see below)</span>
+    <span class="s1">&#39;source_type&#39;</span><span class="o">:</span>      <span class="c1">// Source of event (&#39;component&#39;, or &#39;resource&#39;)</span>
+    <span class="s1">&#39;component&#39;</span><span class="o">:</span>        <span class="c1">// Component&#39;s name</span>
+    <span class="s1">&#39;resource&#39;</span><span class="o">:</span>         <span class="c1">// Resource&#39;s name (only if source_type is &#39;resource&#39;)</span>
+
+    <span class="c1">// The following is optional</span>
+    <span class="s1">&#39;hostgroups&#39;</span><span class="o">:</span>       <span class="c1">// Nagios hostgroups for component, default []</span>
+    <span class="s1">&#39;servicegroups&#39;</span><span class="o">:</span>    <span class="c1">// Nagios servicegroups for resource, default []</span>
+    <span class="s1">&#39;timestamp&#39;</span><span class="o">:</span>        <span class="c1">// UNIX timestamp for when the event  was emitted (optional: set by the server to now)</span>
+
+    <span class="s1">&#39;output&#39;</span><span class="o">:</span>           <span class="c1">// Message</span>
+    <span class="s1">&#39;long_output&#39;</span><span class="o">:</span>      <span class="c1">// Description</span>
+    <span class="s1">&#39;display_name&#39;</span><span class="o">:</span>     <span class="c1">// Name to display in Canopsis</span>
+    <span class="s1">&#39;tags&#39;</span><span class="o">:</span>             <span class="c1">// Tags for the event (optional, the server adds connector, connector_name, event_type, source_type, component and resource if present)</span>
+
+    <span class="s1">&#39;perf_data&#39;</span><span class="o">:</span>        <span class="c1">// Nagios formatted perfdata string</span>
+    <span class="s1">&#39;perf_data_array&#39;</span><span class="o">:</span>  <span class="c1">// array of metrics (see below)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-check-structure">
+<h2>Event Check Structure<a class="headerlink" href="#event-check-structure" title="Permalink to this headline">¶</a></h2>
+<p>After defining the basic event structure, add the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;check&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;state&#39;</span><span class="o">:</span>                <span class="c1">// Check state (0 - OK, 1 - WARNING, 2 - CRITICAL, 3 - UNKNOWN), default is 0</span>
+    <span class="s1">&#39;state_type&#39;</span><span class="o">:</span>           <span class="c1">// Check state type (0 - SOFT, 1 - HARD), default is 1</span>
+    <span class="s1">&#39;status&#39;</span><span class="o">:</span>               <span class="c1">// 0 == Ok | 1 == En cours | 2 == Furtif | 3 == Bagot | 4 == Annule</span>
+    <span class="c1">// The following is optional</span>
+    <span class="s1">&#39;scheduled&#39;</span><span class="o">:</span>            <span class="c1">// True if the check was scheduled, False otherwise</span>
+
+    <span class="s1">&#39;check_type&#39;</span><span class="o">:</span>           <span class="c1">// Nagios Check Type (host or service)</span>
+    <span class="s1">&#39;current_attempt&#39;</span><span class="o">:</span>      <span class="c1">// Attempt ID for the check</span>
+    <span class="s1">&#39;max_attempts&#39;</span><span class="o">:</span>         <span class="c1">// Max attempts before sending HARD state</span>
+    <span class="s1">&#39;execution_time&#39;</span><span class="o">:</span>       <span class="c1">// Check duration</span>
+    <span class="s1">&#39;latency&#39;</span><span class="o">:</span>              <span class="c1">// Check latency (time between schedule and execution)</span>
+    <span class="s1">&#39;command_name&#39;</span><span class="o">:</span>         <span class="c1">// Check command</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-log-structure">
+<h2>Event Log Structure<a class="headerlink" href="#event-log-structure" title="Permalink to this headline">¶</a></h2>
+<p>After defining the basic event structure, add the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;output&#39;</span><span class="o">:</span>           <span class="c1">// Becomes mandatory</span>
+    <span class="s1">&#39;long_output&#39;</span><span class="o">:</span>      <span class="c1">// Remains optional</span>
+    <span class="s1">&#39;display_name&#39;</span><span class="o">:</span>     <span class="c1">// Remains optional</span>
+
+    <span class="s1">&#39;level&#39;</span><span class="o">:</span>            <span class="c1">// Optional log level</span>
+    <span class="s1">&#39;facility&#39;</span><span class="o">:</span>         <span class="c1">// Optional log facility</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-acknowledgment-structure">
+<h2>Event Acknowledgment Structure<a class="headerlink" href="#event-acknowledgment-structure" title="Permalink to this headline">¶</a></h2>
+<p>After defining the basic event structure, add the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;ack&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;ref_rk&#39;</span><span class="o">:</span>               <span class="c1">// Routing Key of acknowledged event</span>
+    <span class="s1">&#39;author&#39;</span><span class="o">:</span>               <span class="c1">// Acknowledgment author</span>
+    <span class="s1">&#39;output&#39;</span><span class="o">:</span>               <span class="c1">// Acknowledgment comment</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-cancel-structure">
+<h2>Event Cancel Structure<a class="headerlink" href="#event-cancel-structure" title="Permalink to this headline">¶</a></h2>
+<p>After defining the basic event structure, add the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;cancel&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;ref_rk&#39;</span><span class="o">:</span>               <span class="c1">// Routing Key of event</span>
+    <span class="s1">&#39;author&#39;</span><span class="o">:</span>               <span class="c1">// author</span>
+    <span class="s1">&#39;output&#39;</span><span class="o">:</span>               <span class="c1">// comment</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-undo-cancel-structure">
+<h2>Event Undo Cancel Structure<a class="headerlink" href="#event-undo-cancel-structure" title="Permalink to this headline">¶</a></h2>
+<p>After defining the basic event structure, add the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;uncancel&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;ref_rk&#39;</span><span class="o">:</span>               <span class="c1">// Routing Key of event</span>
+    <span class="s1">&#39;author&#39;</span><span class="o">:</span>               <span class="c1">// author</span>
+    <span class="s1">&#39;output&#39;</span><span class="o">:</span>               <span class="c1">// comment</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-ackremove-structure">
+<h2>Event Ackremove Structure<a class="headerlink" href="#event-ackremove-structure" title="Permalink to this headline">¶</a></h2>
+<p>After defining the basic event structure, add the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;ackremove&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;ref_rk&#39;</span><span class="o">:</span>               <span class="c1">// Routing Key of event</span>
+    <span class="s1">&#39;author&#39;</span><span class="o">:</span>               <span class="c1">// author</span>
+    <span class="s1">&#39;output&#39;</span><span class="o">:</span>               <span class="c1">// comment</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-downtime-structure">
+<h2>Event Downtime Structure<a class="headerlink" href="#event-downtime-structure" title="Permalink to this headline">¶</a></h2>
+<p>After defining the basic event structure, add the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;downtime&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;author&#39;</span><span class="o">:</span>               <span class="c1">// Downtime author</span>
+    <span class="s1">&#39;output&#39;</span><span class="o">:</span>               <span class="c1">// Downtime comment</span>
+    <span class="s1">&#39;start&#39;</span><span class="o">:</span>                <span class="c1">// UNIX timestamp for downtime&#39;s start</span>
+    <span class="s1">&#39;end&#39;</span><span class="o">:</span>                  <span class="c1">// UNIX timestamp for downtime&#39;s end</span>
+    <span class="s1">&#39;duration&#39;</span><span class="o">:</span>             <span class="c1">// Downtime&#39;s duration</span>
+    <span class="s1">&#39;entry&#39;</span><span class="o">:</span>                <span class="c1">// Downtime&#39;s schedule date/time (as a UNIX timestamp)</span>
+    <span class="s1">&#39;fixed&#39;</span><span class="o">:</span>                <span class="c1">// Does the downtime starts at &#39;start&#39; or at next check after &#39;start&#39; ?</span>
+    <span class="s1">&#39;downtime_id&#39;</span><span class="o">:</span>          <span class="c1">// Downtime&#39;s identifier</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-snmp-structure">
+<h2>Event SNMP Structure<a class="headerlink" href="#event-snmp-structure" title="Permalink to this headline">¶</a></h2>
+<p>After defining the basic event structure, add the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;trap&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;snmp_severity&#39;</span><span class="o">:</span>        <span class="c1">// SNMP severity</span>
+    <span class="s1">&#39;snmp_state&#39;</span><span class="o">:</span>           <span class="c1">// SNMP state</span>
+    <span class="s1">&#39;snmp_oid&#39;</span><span class="o">:</span>             <span class="c1">// SNMP oid</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-calendar-structure">
+<h2>Event Calendar Structure<a class="headerlink" href="#event-calendar-structure" title="Permalink to this headline">¶</a></h2>
+<p>After defining the basic event structure, add the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;calendar&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;resource&#39;</span><span class="o">:</span>                 <span class="c1">// iCal event UID</span>
+    <span class="s1">&#39;start&#39;</span><span class="o">:</span>                    <span class="c1">// iCal event start UNIX timestamp</span>
+    <span class="s1">&#39;end&#39;</span><span class="o">:</span>                      <span class="c1">// iCal event end UNIX timestamp</span>
+    <span class="s1">&#39;all_day&#39;</span><span class="o">:</span>                  <span class="c1">// True or False</span>
+    <span class="s1">&#39;output&#39;</span><span class="o">:</span>                   <span class="c1">// iCal event title</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-perf-structure">
+<h2>Event Perf Structure<a class="headerlink" href="#event-perf-structure" title="Permalink to this headline">¶</a></h2>
+<p>An event of type &#8216;perf&#8217; will never be saved in database, it is used to send only
+perfdata :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;perf&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;perf_data&#39;</span><span class="o">:</span>
+    <span class="s1">&#39;perf_data_array&#39;</span><span class="o">:</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See bellow for more informations about those fields.</p>
+<div class="section" id="metrology">
+<h3>Metrology<a class="headerlink" href="#metrology" title="Permalink to this headline">¶</a></h3>
+<p>To send perfdata to Canopsis, you just need to specify one of the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;perf_data&#39;</span><span class="o">:</span>        <span class="c1">// Performance data (&quot;Nagios format&quot;:http://nagiosplug.sourceforge.net/developer-guidelines.html#AEN201)</span>
+    <span class="s1">&#39;perf_data_array&#39;</span><span class="o">:</span>  <span class="c1">// Array of performance data with metric&#39;s type (&#39;GAUGE&#39;, &#39;DERIVE&#39;, &#39;COUNTER&#39;, &#39;ABSOLUTE&#39;), Ex:</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s1">&#39;metric&#39;</span><span class="o">:</span> <span class="s1">&#39;shortterm&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s1">&#39;unit&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;warn&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;crit&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="o">:</span> <span class="s1">&#39;GAUGE&#39;</span> <span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;metric&#39;</span><span class="o">:</span> <span class="s1">&#39;midterm&#39;</span><span class="p">,</span>   <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="mf">0.16</span><span class="p">,</span> <span class="s1">&#39;unit&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;warn&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;crit&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="o">:</span> <span class="s1">&#39;GAUGE&#39;</span> <span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;metric&#39;</span><span class="o">:</span> <span class="s1">&#39;longterm&#39;</span><span class="p">,</span>  <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="mf">0.12</span><span class="p">,</span> <span class="s1">&#39;unit&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;warn&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;crit&#39;</span><span class="o">:</span> <span class="nx">None</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="o">:</span> <span class="s1">&#39;GAUGE&#39;</span> <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-alert-structure">
+<h2>Basic Alert Structure<a class="headerlink" href="#basic-alert-structure" title="Permalink to this headline">¶</a></h2>
+<p>An alert is a notification of a state change after the event were saved in MongoDB,
+it contains the following fields :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;_id&#39;</span><span class="o">:</span>          <span class="c1">// MongoDB document ID</span>
+    <span class="s1">&#39;event_id&#39;</span><span class="o">:</span>     <span class="c1">// Event identifier (the routing key)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integration-with-nagios-icinga-or-shinken">
+<h2>Integration with Nagios/Icinga or Shinken<a class="headerlink" href="#integration-with-nagios-icinga-or-shinken" title="Permalink to this headline">¶</a></h2>
+<p>The Nagios Event Broker module will send, to Canopsis, events with the following informations :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;connector&#39;</span><span class="o">:</span> <span class="s1">&#39;nagios&#39;</span> <span class="nx">or</span> <span class="s1">&#39;shinken&#39;</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;check&#39;</span> <span class="nx">or</span> <span class="s1">&#39;ack&#39;</span> <span class="nx">or</span> <span class="s1">&#39;downtime&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integration-with-graylog">
+<h2>Integration with Graylog<a class="headerlink" href="#integration-with-graylog" title="Permalink to this headline">¶</a></h2>
+<p>The GELF connector will send, to Canopsis, events with the following informations :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;connector&#39;</span><span class="o">:</span> <span class="s1">&#39;gelf&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;log&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integration-with-cucumber-eue">
+<h2>Integration with Cucumber (EUE)<a class="headerlink" href="#integration-with-cucumber-eue" title="Permalink to this headline">¶</a></h2>
+<p>After defining the basic event structure, set the following fields as described :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;event_type&#39;</span><span class="o">:</span> <span class="s1">&#39;eue&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;connector&#39;</span><span class="o">:</span> <span class="s1">&#39;cucumber&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;source_type&#39;</span><span class="o">:</span> <span class="s1">&#39;resource&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;connector_name&#39;</span><span class="o">:</span>           <span class="c1">// Name of the bot</span>
+    <span class="s1">&#39;component&#39;</span><span class="o">:</span>                <span class="c1">// Name of the application</span>
+
+    <span class="s1">&#39;media_bin&#39;</span><span class="o">:</span>                <span class="c1">// Base64 encoded binary content of associated media</span>
+    <span class="s1">&#39;media_type&#39;</span><span class="o">:</span>               <span class="c1">// Media mime-type</span>
+    <span class="s1">&#39;media_name&#39;</span><span class="o">:</span>               <span class="c1">// Media name</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For the EUE stack, three types of messages will be published:</p>
+<ul class="simple">
+<li>Concerning the feature</li>
+<li>Concerning the scenario</li>
+<li>Concerning the step</li>
+</ul>
+<p>According to the message&#8217;s type, the resource&#8217;s name will be :</p>
+<ul class="simple">
+<li>For the feature : <code class="docutils literal"><span class="pre">`'resource':</span> <span class="pre">feature_name`</span></code></li>
+<li>For the scenario: <code class="docutils literal"><span class="pre">`'resource':</span> <span class="pre">feature_name.scenario_name.localization.OS.browser`</span></code></li>
+<li>For the step :    <code class="docutils literal"><span class="pre">`'resource':</span> <span class="pre">feature_name.scenario_name.step_name.localization.OS.browser`</span></code></li>
+</ul>
+<div class="section" id="message-feature-structure">
+<h3>Message Feature structure<a class="headerlink" href="#message-feature-structure" title="Permalink to this headline">¶</a></h3>
+<p>Add the following fields to your event :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;type_message&#39;</span><span class="o">:</span> <span class="s1">&#39;feature&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="o">:</span>              <span class="c1">// Feature&#39;s description</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="message-scenario-structure">
+<h3>Message Scenario structure<a class="headerlink" href="#message-scenario-structure" title="Permalink to this headline">¶</a></h3>
+<p>Add the following fields to your event :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;type_message&#39;</span><span class="o">:</span> <span class="s1">&#39;scenario&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;child&#39;</span><span class="o">:</span>                    <span class="c1">// Routing Key of feature event</span>
+    <span class="s1">&#39;cntxt_env&#39;</span><span class="o">:</span>                <span class="c1">// Environment identifier (prod, test, ...)</span>
+    <span class="s1">&#39;cntxt_os&#39;</span><span class="o">:</span>                 <span class="c1">// Environment OS</span>
+    <span class="s1">&#39;cntxt_browser&#39;</span><span class="o">:</span>            <span class="c1">// Browser type</span>
+    <span class="s1">&#39;cntxt_localization&#39;</span><span class="o">:</span>       <span class="c1">// Bot&#39;s localization</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="message-step-structure">
+<h3>Message Step structure<a class="headerlink" href="#message-step-structure" title="Permalink to this headline">¶</a></h3>
+<p>Add the following fields to your event :</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;type_message&#39;</span><span class="o">:</span> <span class="s1">&#39;step&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;child&#39;</span><span class="o">:</span>                    <span class="c1">// Routing Key of scenario event</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="list-of-event-types">
+<h2>List of event types<a class="headerlink" href="#list-of-event-types" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>calendar</td>
+<td>Used to send ICS events to Canopsis</td>
+</tr>
+<tr class="row-even"><td>check</td>
+<td>Used to send the result of a check (from Nagios, Icinga, Shinken, ...)</td>
+</tr>
+<tr class="row-odd"><td>comment</td>
+<td>Used to send a comment</td>
+</tr>
+<tr class="row-even"><td>consolidation</td>
+<td>Sent by the consolidation engine</td>
+</tr>
+<tr class="row-odd"><td>eue</td>
+<td>Used to send Cucumber informations</td>
+</tr>
+<tr class="row-even"><td>log</td>
+<td>Used to log informations</td>
+</tr>
+<tr class="row-odd"><td>perf</td>
+<td>Used to send perfdata only</td>
+</tr>
+<tr class="row-even"><td>selector</td>
+<td>Sent by the selector engine</td>
+</tr>
+<tr class="row-odd"><td>sla</td>
+<td>Sent by the sla engine</td>
+</tr>
+<tr class="row-even"><td>topology</td>
+<td>Sent by the topology engine</td>
+</tr>
+<tr class="row-odd"><td>trap</td>
+<td>Used to send SNMP traps</td>
+</tr>
+<tr class="row-even"><td>user</td>
+<td>Used by user to send informations</td>
+</tr>
+<tr class="row-odd"><td>ack</td>
+<td>Used to acknowledge an alert</td>
+</tr>
+<tr class="row-even"><td>downtime</td>
+<td>Used to schedule a downtime</td>
+</tr>
+<tr class="row-odd"><td>cancel</td>
+<td>Used to cancel an event and put it&#8217;s status in cancel state.
+removes also referer event&#8217;s ack if any.</td>
+</tr>
+<tr class="row-even"><td>uncancel</td>
+<td>Used to uncancel an event. previous status is restored and ack too if any.</td>
+</tr>
+<tr class="row-odd"><td>ackremove</td>
+<td>Used to remove an ack from an event.
+(ack field removed and ack collection updated)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="status.html" class="btn btn-neutral float-right" title="Event Status specification" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="packaging.html" class="btn btn-neutral" title="Build System Specification" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

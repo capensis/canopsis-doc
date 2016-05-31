@@ -9,4 +9,6 @@ Canopsis Ui Bricks
 
    brick-simpletile/index
 
+   brick-calendar/index
+
    brick-querybuilder/index

@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Event workflows &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Canopsis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+    <li>Event workflows</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/canopsis/canopsis/user-guide/events/workflow.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="event-workflows">
+<span id="user-events-workflow"></span><h1>Event workflows<a class="headerlink" href="#event-workflows" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This section is made to understand event interaction in Canopsis.
+Interaction with events can be done in the user interface in a list that
+references events and that uses rights mixins to enable user actions on
+alerts.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">TODO: reference mixins at user guide level</p>
+</div>
+</div>
+<div class="section" id="events-statuses-information">
+<h2>Events statuses information<a class="headerlink" href="#events-statuses-information" title="Permalink to this headline">¶</a></h2>
+<p>Following documentation references event statuses that are documented
+<a class="reference external" href="../../developer-guide/backend/engines/state-spec.html">here</a> .</p>
+</div>
+<div class="section" id="the-global-workflow-explained">
+<h2>The global workflow explained<a class="headerlink" href="#the-global-workflow-explained" title="Permalink to this headline">¶</a></h2>
+<p>When an alerts comes to Canopsis - an alert is an event that is not in off
+status -, Allowed users can enter the acknowlegement workflow.</p>
+<p>Each action contains <strong>date, author and the reason</strong> information that is
+shown within the event list to each other users that have access to the list.</p>
+<p>The image below display all possible actions states on events. Information
+about available action is shown on mouseover of each button. here is an
+explaination about each line of this table:</p>
+<blockquote>
+<div>1- Event in alert, possible action : acknowledge
+2- Event cancelled, possibles actions : declare ticket, associate ticket and uncancel
+3- Alert acknowleged: possibles actions : remove ack, cancel ack, declare ticket, change criticity and associate ticket</div></blockquote>
+<img alt="../../../../_images/event_workflow_1.png" src="../../../../_images/event_workflow_1.png" />
+<p>The first step is to acknowlege the alert to tell canopsis the event is
+handled. Cancel information is then available in the acknowlegement column.</p>
+<p>Then, is is possible to perform the following actions on the acknowleged
+event:</p>
+<ul>
+<li><p class="first">remove acknowlegement : remove the state acknowleged from the event, and the event remains the same as before it was acknowleged. All information is removed from the event on acknowlegement remove.</p>
+</li>
+<li><p class="first">cancel acknowlegement: The user is prompted to input a <strong>comment</strong> that is the reason why he cancelled the event. The event status then pass to <code class="docutils literal"><span class="pre">Cancelled</span></code> and the acknowlegemnt is paused until  or an <code class="docutils literal"><span class="pre">off</span></code> incoming event that would put the event in normal state back.</p>
+<blockquote>
+<div><ul class="simple">
+<li>uncancel acknowlegement: can be done only on cancelled event states. When uncancelled, event is put back in the previous status by canopsis and it&#8217;s acknowlegement status is restored. The cancel information is available on the status column where an <strong>eye icon</strong> appears an displays a tooltip with uncanel information on mouseover.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">change criticity: When an alert is acknowleged, the user can manually set the event&#8217;s criticity (state) with this action the user reason is asked to fill history actions.</p>
+</li>
+<li><p class="first">declare incident: this action willsend an email to the configured declare incident recipient in the ticket setting parameters.</p>
+</li>
+</ul>
+<p>..TODO documentation reference <a class="reference external" href="../../">see here</a></p>
+<ul class="simple">
+<li>associate ticket: Allow user to give the event a ticket number that helps associating ticketing software reference to event alerts.</li>
+</ul>
+<p>When a new event comes in Canopsis in off status after an alert, the whole acknowlegement information for this event is reset and actions history remains reachable from the history view.</p>
+<p>Below the user action workflow that users can trigger for acknowlegement management.</p>
+</div>
+<div class="section" id="ticketing-and-incident">
+<h2>Ticketing and incident<a class="headerlink" href="#ticketing-and-incident" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../../_images/ticket_incident_workflow.png" src="../../../../_images/ticket_incident_workflow.png" />
+</div>
+<div class="section" id="acknowledgement-and-cancellations">
+<h2>Acknowledgement and cancellations<a class="headerlink" href="#acknowledgement-and-cancellations" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../../_images/ack_cancel_workflow.png" src="../../../../_images/ack_cancel_workflow.png" />
+<ul class="simple">
+<li>All actions <strong>from UI</strong> are triggered by action buttons witch sends the appropriate event to canopsis. <strong>Sent events</strong> are treaten by engines and enables acknowledgement and cancellation management.</li>
+<li>When an event changes to an alert, it is possible <strong>to acknowlege</strong> it. The acknowledgement engine is in charge to set the right acknowledgement information to the referenced event in the <strong>ack field</strong> such as <cite>who</cite>, <cite>why</cite> and <cite>when</cite> the acknowledgement was produced.</li>
+<li>Once acknowledged, the acknowledgement can be <strong>removed</strong> from the alert. This will put the event in the same <strong>previous state</strong> as before it was acknowledged.</li>
+<li>An acknowledged event can also be <strong>canceled</strong>. This action is managed by the cancel engine. The cancel action will store information about the <cite>who</cite>, <cite>why</cite> and <cite>when</cite> in the <strong>cancel field</strong> of the event. A canceled alert put the event in <cite>cancel</cite> status.</li>
+<li>The <cite>canceled</cite> event can be <cite>uncanceled</cite>. This action leads to the previous acknowleged <strong>status restoration</strong> and <cite>cancel</cite> field deleted in the reference event.</li>
+<li>All information about acknowledgement and cancelation are <strong>kept</strong> in logged event and <strong>remains readable</strong> from the history board.</li>
+<li>If an event in <cite>off</cite> status comes to canopsis, the acknowledgement is <strong>reseted</strong> as it is considered as a solved alert. However, if the event was not in <cite>on going</cite> status at this moment, information about <cite>acknowledgement</cite> or <cite>cancel</cite> is kept into the event as the alert is <strong>remains logicaly unsolved</strong>.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Glossary &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Sakura" href="index.html"/>
+        <link rel="next" title="Canopsis Functionnal Requirements" href="FR/index.html"/>
+        <link rel="prev" title="Frontend API documentation" href="api/frontend/index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-guide/index.html">Developer guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/index.html">API</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Glossary</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="index.html">Sakura</a> &raquo;</li>
+      
+    <li>Glossary</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/canopsis/canopsis/glossary.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="glossary">
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+<p>In this glossary, you will find a short definition of all concepts in <em>Canopsis</em>
+with a link to the complete documentation.</p>
+<div class="section" id="backend">
+<h2>Backend<a class="headerlink" href="#backend" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connector">
+<h3>Connector<a class="headerlink" href="#connector" title="Permalink to this headline">¶</a></h3>
+<p>Daemon fetching data from a source (local system performance data, service, ...)
+and publishing it to <em>Canopsis</em> via the <em>AMQP Bus</em> or the <em>WSGI API</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">TODO: Add link</p>
+</div>
+</div>
+<div class="section" id="amqp-bus">
+<h3>AMQP Bus<a class="headerlink" href="#amqp-bus" title="Permalink to this headline">¶</a></h3>
+<p>Messaging system based on exchanges and queues, used by <em>Canopsis</em> to process
+events asynchronously.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">TODO: Add link</p>
+</div>
+</div>
+<div class="section" id="engine">
+<h3>Engine<a class="headerlink" href="#engine" title="Permalink to this headline">¶</a></h3>
+<p>Daemon with an associated AMQP queue. This daemon can consume the queue and/or
+publish messages to another queue.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/backend/engines/index.html#dev-backend-engines"><span class="std std-ref">Engines development</span></a></li>
+<li><a class="reference internal" href="administrator-guide/management/engines/index.html#admin-manage-engines"><span class="std std-ref">Engines management</span></a></li>
+<li><a class="reference internal" href="user-guide/engines/index.html#user-engines"><span class="std std-ref">Engines usage</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="middleware">
+<h3>Middleware<a class="headerlink" href="#middleware" title="Permalink to this headline">¶</a></h3>
+<p><em>Canopsis</em> object which allows two parts of <em>Canopsis</em> to communicate (via AMQP,
+HTTP, ...).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">TODO: Add link</p>
+</div>
+</div>
+<div class="section" id="storage">
+<h3>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h3>
+<p><em>Canopsis</em> object used to interact with a database (<em>MongoDB</em>, <em>PostgreSQL</em>,
+<em>ElasticSearch</em>, ...)</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/backend/data-storage/index.html#dev-backend-storage"><span class="std std-ref">Data Storage</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="manager">
+<h3>Manager<a class="headerlink" href="#manager" title="Permalink to this headline">¶</a></h3>
+<p>Using a storage, allows parts of <em>Canopsis</em> to interact with any kind of database
+transparently.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/backend/data-manager/index.html#dev-backend-mgr"><span class="std std-ref">Data Manager</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="web-service">
+<h3>Web Service<a class="headerlink" href="#web-service" title="Permalink to this headline">¶</a></h3>
+<p>Set of WSGI routes, using one or more manager to provide data to the client.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/backend/webserver.html#dev-backend-webserver"><span class="std std-ref">Canopsis Web Server</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="frontend">
+<h2>Frontend<a class="headerlink" href="#frontend" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ui-brick">
+<h3>UI Brick<a class="headerlink" href="#ui-brick" title="Permalink to this headline">¶</a></h3>
+<p>Set of UI Adapters/Components/Editors/Widgets.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/frontend/architecture.html#dev-frontend-architecture"><span class="std std-ref">Architecture</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ui-adapter">
+<h3>UI Adapter<a class="headerlink" href="#ui-adapter" title="Permalink to this headline">¶</a></h3>
+<p>Used to interact with the <em>WSGI API</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">TODO: Add link</p>
+</div>
+</div>
+<div class="section" id="ui-component">
+<h3>UI Component<a class="headerlink" href="#ui-component" title="Permalink to this headline">¶</a></h3>
+<p>Used to display interactive data to the user.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/frontend/components/index.html#dev-frontend-cmp"><span class="std std-ref">Components</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ui-editor">
+<h3>UI Editor<a class="headerlink" href="#ui-editor" title="Permalink to this headline">¶</a></h3>
+<p>Using a component, provides a way to edit a model, before persisting it to the
+<em>WSGI API</em>.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/frontend/components/editors.html#dev-frontend-cmp-editors"><span class="std std-ref">Editors</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ui-widget">
+<h3>UI Widget<a class="headerlink" href="#ui-widget" title="Permalink to this headline">¶</a></h3>
+<p>Improved component, based on a <strong>MVC</strong> design (unlike the UI components).
+They can be directly added to a view, and can have mixins.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/frontend/widgets/index.html#dev-frontend-widgets"><span class="std std-ref">Widgets</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ui-mixin">
+<h3>UI Mixin<a class="headerlink" href="#ui-mixin" title="Permalink to this headline">¶</a></h3>
+<p>Set of business code that can be applied to any widget.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/frontend/widgets/managing-plug-ins-in-mixins.html#dev-frontend-widgets-mixins"><span class="std std-ref">Managing plug-ins in mixins</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ui-container">
+<h3>UI Container<a class="headerlink" href="#ui-container" title="Permalink to this headline">¶</a></h3>
+<p>Component containing widgets, used to dispose them in a specific layout.
+There is only one widget container, which can have different layout mixins.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="user-guide/UI/widgets/containers.html#user-ui-widgets-containers"><span class="std std-ref">How to use Containers</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ui-view">
+<h3>UI View<a class="headerlink" href="#ui-view" title="Permalink to this headline">¶</a></h3>
+<p>Editable view which contains by default a single widget container.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><span class="xref std std-ref">user-ui-view</span></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="event">
+<h3>Event<a class="headerlink" href="#event" title="Permalink to this headline">¶</a></h3>
+<p>JSON object containing specific informations for <em>Canopsis</em>, must be emitted on
+the <em>AMQP Bus</em>.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/specifications/status.html#dev-spec-event"><span class="std std-ref">Event Status specification</span></a></li>
+<li><a class="reference internal" href="developer-guide/backend/events/index.html#dev-backend-event"><span class="std std-ref">Send Events</span></a></li>
+<li><a class="reference internal" href="user-guide/events/index.html#user-events"><span class="std std-ref">Visualizing Events</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="metric">
+<h3>Metric<a class="headerlink" href="#metric" title="Permalink to this headline">¶</a></h3>
+<p>Measurable information, associated to a component, or a resource. Can be used to
+render in a widget graph, progress-bar, and/or text.
+It is a contextual information referenced by each new inserted value.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/frontend/widgets/perfdata.html#dev-frontend-widgets-perfdata"><span class="std std-ref">Using Performance Data</span></a></li>
+<li><a class="reference internal" href="user-guide/UI/views/perfdata.html#user-ui-view-perfdata"><span class="std std-ref">Series and Curves</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="context">
+<h3>Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h3>
+<p>Contextual informations about an event, organized in graph. All other stored data
+are referencing the associated context, for example:</p>
+<blockquote>
+<div><ul class="simple">
+<li>a perfdata document reference the metric context</li>
+<li>a periodic behavior reference the component or resource context</li>
+<li>...</li>
+</ul>
+</div></blockquote>
+<p>A view is available in order to manipulate the context.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="user-guide/UI/views/context.html#user-ui-view-context"><span class="std std-ref">Using the view Context</span></a></li>
+<li><a class="reference internal" href="developer-guide/backend/data-manager/vevent.html#dev-backend-mgr-vevent"><span class="std std-ref">vEvent management</span></a></li>
+<li><a class="reference internal" href="developer-guide/backend/data-manager/pbehavior.html#dev-backend-mgr-pbehavior"><span class="std std-ref">Periodic Behavior management</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="selector">
+<h3>Selector<a class="headerlink" href="#selector" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">TODO: add short description</p>
+</div>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="user-guide/engines/selector.html#user-engines-selector"><span class="std std-ref">Selector</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="sla">
+<h3>SLA<a class="headerlink" href="#sla" title="Permalink to this headline">¶</a></h3>
+<p>Feature providing availability informations.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/specifications/sla.html#dev-spec-sla"><span class="std std-ref">Service-Level Agreement</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="periodic-behavior">
+<h3>Periodic Behavior<a class="headerlink" href="#periodic-behavior" title="Permalink to this headline">¶</a></h3>
+<p>An entity of the context can be configured to have a specific behavior during a
+specified period of time.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/backend/data-manager/pbehavior.html#dev-backend-mgr-pbehavior"><span class="std std-ref">Periodic Behavior management</span></a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="downtime">
+<h4>Downtime<a class="headerlink" href="#downtime" title="Permalink to this headline">¶</a></h4>
+<p>A downtime is configured when we must ignore eventual alerts on an entity.</p>
+<p>For more informations, see:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="developer-guide/backend/data-manager/pbehavior.html#dev-backend-mgr-pbehavior"><span class="std std-ref">Periodic Behavior management</span></a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FR/index.html" class="btn btn-neutral float-right" title="Canopsis Functionnal Requirements" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api/frontend/index.html" class="btn btn-neutral" title="Frontend API documentation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

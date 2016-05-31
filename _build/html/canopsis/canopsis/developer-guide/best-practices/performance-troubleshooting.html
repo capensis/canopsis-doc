@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Performance troubleshooting &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Best Practices" href="index.html"/>
+        <link rel="next" title="Ember.JS resources" href="js-resources.html"/>
+        <link rel="prev" title="Coding style" href="coding-style.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../backend/index.html">Backend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../frontend/index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="index.html">Best Practices</a> &raquo;</li>
+      
+    <li>Performance troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/canopsis/canopsis/developer-guide/best-practices/performance-troubleshooting.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="performance-troubleshooting">
+<span id="dev-practices-perf"></span><h1>Performance troubleshooting<a class="headerlink" href="#performance-troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p>This guide aims to help developpers to troubleshot memory leaks in their implementations of widgets and algorithms against canopsis core.</p>
+<p>As the core is still not really mature (as of february 2015), and there is no automatable or exact process to do it, it is more a style guide and a preview of few methods used to gather information.</p>
+<div class="section" id="use-chrome-s-timeline-tool-to-find-the-location-of-the-problem">
+<h2>Use Chrome&#8217;s Timeline tool to find the location of the problem<a class="headerlink" href="#use-chrome-s-timeline-tool-to-find-the-location-of-the-problem" title="Permalink to this headline">¶</a></h2>
+<p>Chrome&#8217;s Timeline tool can be used to graph the page&#8217;s memory consumption over time, and more handy informations, such as :</p>
+<ul class="simple">
+<li>the number of listeners currently registered (listeners as in &#8220;mouse click listener on a button&#8221;)</li>
+<li>the number of DOM nodes instanciated (not only nodes that are attached to the page DOM)</li>
+</ul>
+<p>The hardest part of the job when hunting memory leaks is the more often to detect them and to find their location. Thus, it is usually a good practice to start with a wide scope and to narrow the test scope progressively.</p>
+<p>First of all, go to a view that you want to test. It can be a view with lots of widgets (with lots of mixins, managing lots of data), and start the timeline recording by hitting the recording button.</p>
+<p>Then you&#8217;ll have to provoke view or data refresh, to check if memory is correctly released.</p>
+<p>As a first glance, the more refresh you cause, the better it is. It is also adviced to make these refresh be triggered with a regular interval (the &#8220;periodicrefresh&#8221; mixin is handy for that).</p>
+</div>
+<div class="section" id="checking-if-data-is-correctly-released">
+<h2>Checking if data is correctly released<a class="headerlink" href="#checking-if-data-is-correctly-released" title="Permalink to this headline">¶</a></h2>
+<p>Now you can see how the RAM usage and some other indicators evolved as you made the frontend content refresh.</p>
+<p>First important tracked metric to check if everything is ok, the number of registrated listeners. This number should not evolve dramatically (and it should stay constant between refreshs is you used the &#8220;periodicrefresh&#8221; mixin).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Don&#8217;t worry if the number of registrated DOM nodes or your ram consumption is soaring on your recording, there are garbage collection processes which runs regularly (one every few minutes and one every tens of minutes). Being aware of that, you should consider benchmarking regularly on periods that lasts more than 10 minutes.</p>
+</div>
+<p>If you don&#8217;t have a constant number at the beggining and at the end of your recording, and you can&#8217;t explain it logically (i.e you have the same amount of data managed on the view), then it might be the sign of a memory leak problem.</p>
+</div>
+<div class="section" id="narrow-the-inspected-scope">
+<h2>Narrow the inspected scope<a class="headerlink" href="#narrow-the-inspected-scope" title="Permalink to this headline">¶</a></h2>
+<p>The second step to take when a memory leak is found on a broad scope is to narrow it to find the more precisely possible where the leak is.</p>
+<p>To succeed easily on this part of the process, you&#8217;ll have to remove possible causes of the problem and do a benchmark again to check if the leak is still here.</p>
+<p>Here is some ways to find more precisely where the problem is :</p>
+<ul class="simple">
+<li>Remove some widgets on the view</li>
+<li>Remove some widget&#8217;s mixins</li>
+<li>Reconfigure widgets and their mixins to manage less data (or no data at all)</li>
+</ul>
+<p>Thereby, you&#8217;ll might be able to logically locate the source of the problem within few tries.</p>
+</div>
+<div class="section" id="fix-the-leak">
+<h2>Fix the leak<a class="headerlink" href="#fix-the-leak" title="Permalink to this headline">¶</a></h2>
+<p>Here are recurrent causes of memory leaks :</p>
+<ul class="simple">
+<li>Listeners that are set on didInsertElement but not cleared on willDestroyElement</li>
+<li>Objects not released from the memory</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="js-resources.html" class="btn btn-neutral float-right" title="Ember.JS resources" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="coding-style.html" class="btn btn-neutral" title="Coding style" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

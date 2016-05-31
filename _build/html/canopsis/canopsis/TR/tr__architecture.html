@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Canopsis Technical Architecture &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Canopsis Technical Requirements" href="index.html"/>
+        <link rel="next" title="Context" href="tr__context.html"/>
+        <link rel="prev" title="Canopsis Technical Requirements" href="index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html">Sakura</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#canopsis-specification">Canopsis Specification</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../FR/index.html">Canopsis Functionnal Requirements</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Canopsis Technical Requirements</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Canopsis Technical Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__context.html">Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__metric.html">Metrology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__mail_output.html">Mail Output Media</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__graph-backend.html">Graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__topology-backend.html">Topology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__topology-frontend.html">Topology frontend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__monitoring.html">Monitoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__alarm.html">Alarm management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__serie.html">Serie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tr__statistics.html">Canopsis Statistics Generator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ED/index.html">Canopsis Exploitation Documents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="index.html">Canopsis Technical Requirements</a> &raquo;</li>
+      
+    <li>Canopsis Technical Architecture</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/canopsis/canopsis/TR/tr__architecture.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="canopsis-technical-architecture">
+<span id="tr-architecture"></span><h1>Canopsis Technical Architecture<a class="headerlink" href="#canopsis-technical-architecture" title="Permalink to this headline">¶</a></h1>
+<p>This document specifies the Canopsis Architecture, describing the toolchain and
+deployment.</p>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="../FR/fr__architecture.html#fr-architecture"><span class="std std-ref">FR::Architecture</span></a></li>
+<li><a class="reference internal" href="../FR/fr__engine.html#fr-engine"><span class="std std-ref">FR::Engine</span></a></li>
+<li><span class="xref std std-ref">TR::Package</span></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="updates">
+<h2>Updates<a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Author(s)</th>
+<th class="head">Date</th>
+<th class="head">Version</th>
+<th class="head">Summary</th>
+<th class="head">Accepted by</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>David Delassus</td>
+<td>2015/09/01</td>
+<td>0.3</td>
+<td>Update references</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>David Delassus</td>
+<td>2015/09/01</td>
+<td>0.2</td>
+<td>Rename document</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>David Delassus</td>
+<td>2015/08/02</td>
+<td>0.1</td>
+<td>Document creation</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="choosing-the-toolchain">
+<h3>Choosing the toolchain<a class="headerlink" href="#choosing-the-toolchain" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="data-source">
+<h4>Data source<a class="headerlink" href="#data-source" title="Permalink to this headline">¶</a></h4>
+<p>Data sources will be developed on our own, see the <span class="xref std std-ref">connector</span>
+reference for more informations.</p>
+<p>Canopsis have two data sources deployed by default :</p>
+<blockquote>
+<div><ul class="simple">
+<li>CollectD : gather informations about the host (CPU/MEM usage)</li>
+<li><a class="reference internal" href="../FR/fr__engine.html#fr-engine"><span class="std std-ref">engines</span></a> : gather informations about their performance</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="messaging-queue-system">
+<h4>Messaging Queue System<a class="headerlink" href="#messaging-queue-system" title="Permalink to this headline">¶</a></h4>
+<p>RabbitMQ is a software implementing the <a href="#id1"><span class="problematic" id="id2">**</span></a>A**dvanced <a href="#id3"><span class="problematic" id="id4">**</span></a>M**essaging <a href="#id5"><span class="problematic" id="id6">**</span></a>Q**ueue <a href="#id7"><span class="problematic" id="id8">**</span></a>P**rotocol.
+Thus, it is providing the following features :</p>
+<blockquote>
+<div><ul class="simple">
+<li>exchange and types of exchange (answering the needs for consumers subscriptions)</li>
+<li>queues and message acknowledgment</li>
+<li>authentication via credentials or SSL</li>
+<li>support for high availability and load-balancing</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="data-storage">
+<h4>Data Storage<a class="headerlink" href="#data-storage" title="Permalink to this headline">¶</a></h4>
+<p>One of the only database system that was supporting JSON data format was MongoDB
+back then.</p>
+<p>It also provides hierarchical indexing and in-memory cache for your working dataset.</p>
+<p>Scaling the storage is made easy by the MongoDB command-line and provide some useful
+ways to tweak and enlarge the working dataset.</p>
+</div>
+<div class="section" id="data-exposure">
+<h4>Data Exposure<a class="headerlink" href="#data-exposure" title="Permalink to this headline">¶</a></h4>
+<p>Data will be exposed to the user via a REST API. Since Canopsis is written in
+Python, it is common sense to use the WSGI standard.</p>
+<p>gunicorn is a simple webserver transmitting HTTP requests to the WSGI application.</p>
+<p>The support for authentication and external authentication MUST be handled by the
+WSGI application, since gunicorn just transmit requests without touching them.</p>
+</div>
+</div>
+<div class="section" id="building-and-installing">
+<h3>Building and Installing<a class="headerlink" href="#building-and-installing" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="build-system">
+<h4>Build System<a class="headerlink" href="#build-system" title="Permalink to this headline">¶</a></h4>
+<p>_ package:</p>
+<p>The build-system is actually a bunch of scripts-shell describing :</p>
+<blockquote>
+<div><ul class="simple">
+<li>how to build a Canopsis package</li>
+<li>how to install/update/remove a Canopsis package</li>
+</ul>
+</div></blockquote>
+<p>The entry point of the whole process is the <code class="docutils literal"><span class="pre">build-install.sh</span></code> script :</p>
+<div class="figure">
+<img alt="../../../_images/buildinstall.png" src="../../../_images/buildinstall.png" />
+</div>
+</div>
+<div class="section" id="running-services">
+<h4>Running services<a class="headerlink" href="#running-services" title="Permalink to this headline">¶</a></h4>
+<p id="service">In Canopsis, the software stack we rely on is distributed as a set of services :</p>
+<blockquote>
+<div><ul class="simple">
+<li>mongodb</li>
+<li>rabbitmq-server</li>
+<li>collectd</li>
+<li>amqp2engines</li>
+<li>webserver</li>
+</ul>
+</div></blockquote>
+<p>All of those services are managed by supervisord, who&#8217;s in charge of loading them,
+logging their output, restarting them if they suddenly stop, ...</p>
+<p>supervisord configuration is located at <code class="docutils literal"><span class="pre">~canopsis/supervisord.conf</span></code> ans launchers
+configuration are stored in <code class="docutils literal"><span class="pre">~canopsis/etc/supervisord.d</span></code>.</p>
+<p>There is a special case for engines, which have their configuration in <code class="docutils literal"><span class="pre">~canopsis/etc/engines</span></code>.</p>
+<div class="figure">
+<img alt="../../../_images/supervisord.png" src="../../../_images/supervisord.png" />
+</div>
+<p><strong>NB:</strong> A command <code class="docutils literal"><span class="pre">service</span></code> is provided which is used to start/stop/... services.
+It ensures that supervisord is started.</p>
+<p><strong>NB2:</strong> A command <code class="docutils literal"><span class="pre">hypcontrol</span></code> is also provided which is used to start/stop the
+whole Canopsis system. The services which are run are read from <code class="docutils literal"><span class="pre">~canopsis/etc/hypcontrol.conf</span></code>, they are categorized in 3 sections and launched in parallel.</p>
+</div>
+<div class="section" id="deploying-data-sources">
+<h4>Deploying data sources<a class="headerlink" href="#deploying-data-sources" title="Permalink to this headline">¶</a></h4>
+<p>CollectD is built inside the Canopsis environment with the AMQP plugin enabled.
+Its configuration is located at <code class="docutils literal"><span class="pre">~canopsis/etc/collectd.conf</span></code>.</p>
+<p>The Canopsis package in charge of this is <code class="docutils literal"><span class="pre">collectd</span></code> and <code class="docutils literal"><span class="pre">collectd-libs</span></code>.</p>
+<p>Engines as data sources are not configurable, there is no more requirements for
+deployment.</p>
+<p>All other data sources MUST be distributed with their own deployment process.</p>
+</div>
+<div class="section" id="deploying-messaging-queue-system">
+<h4>Deploying messaging queue system<a class="headerlink" href="#deploying-messaging-queue-system" title="Permalink to this headline">¶</a></h4>
+<p>RabbitMQ, depending on Erlang, is also built inside the Canopsis environment.
+Its configuration is located in the folder <code class="docutils literal"><span class="pre">~canopsis/etc/rabbitmq</span></code> and its
+logs are written in <code class="docutils literal"><span class="pre">~canopsis/var/log/rabbitmq/</span></code>.</p>
+<p>The file <code class="docutils literal"><span class="pre">~canopsis/var/log/rabbitmq-server.log</span></code> is the logfile for our custom
+launcher <code class="docutils literal"><span class="pre">rabbitmq-server-wrapper</span></code>, which writes nothing interesting for debug.</p>
+<p>For the client part, the file <code class="docutils literal"><span class="pre">etc/amqp.conf</span></code> is used to configure the old messaging
+implementation.</p>
+</div>
+<div class="section" id="deploying-database">
+<h4>Deploying database<a class="headerlink" href="#deploying-database" title="Permalink to this headline">¶</a></h4>
+<p>MongoDB binaries are distributed with the Canopsis environment.
+The configuration is found at <code class="docutils literal"><span class="pre">~canopsis/etc/mongodb.conf</span></code> and logs are written
+to <code class="docutils literal"><span class="pre">~canopsis/var/log/mongodb.log</span></code>.</p>
+<p>It needs at least 20GB of free disk space to preallocate database files, otherwise
+it won&#8217;t start.</p>
+<p>MongoDB tries to fit the working set into RAM. If the whole data occupies 10GB and
+only 1GB of data is accessed regularly and its index is also sized at 1GB, then
+the working set is 2GB and will be the RAM requirement for MongoDB.</p>
+</div>
+<div class="section" id="deploying-data-exposure">
+<h4>Deploying data exposure<a class="headerlink" href="#deploying-data-exposure" title="Permalink to this headline">¶</a></h4>
+<p>The webserver is configured in two files :</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">~canopsis/etc/webserver.conf</span></code> : configures the WSGI application ran with gunicorn</li>
+<li><code class="docutils literal"><span class="pre">~canopsis/etc/supervisord.d/webserver.conf</span></code> : contains the gunicorn command ran by supervisord</li>
+</ul>
+</div></blockquote>
+<p>In order to change the listened port, you&#8217;ll have to modify the call to gunicorn.
+In order to change available webservices, you&#8217;ll have to modify the general configuration.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tr__context.html" class="btn btn-neutral float-right" title="Context" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Canopsis Technical Requirements" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Managing plug-ins in mixins &mdash; Canopsis 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Canopsis 1.0 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="Widgets" href="index.html"/>
+        <link rel="next" title="Advanced concepts" href="advanced-concepts.html"/>
+        <link rel="prev" title="Creating a simple widget" href="creating-a-simple-widget.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Canopsis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Canopsis</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Sakura</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../user-guide/index.html">User guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../administrator-guide/index.html">Administrator guide</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Developer guide</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../best-practices/index.html">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../specifications/index.html">Specifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../backend/index.html">Backend</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/index.html">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#canopsis-specification">Canopsis Specification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-connectors/index.html">Canopsis Connectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../canopsis-ui-bricks/index.html">Canopsis Ui Bricks</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../index.html">Canopsis</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../index.html">Canopsis</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Sakura</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Developer guide</a> &raquo;</li>
+      
+          <li><a href="../index.html">Frontend</a> &raquo;</li>
+      
+          <li><a href="index.html">Widgets</a> &raquo;</li>
+      
+    <li>Managing plug-ins in mixins</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/canopsis/canopsis/developer-guide/frontend/widgets/managing-plug-ins-in-mixins.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="managing-plug-ins-in-mixins">
+<span id="dev-frontend-widgets-mixins"></span><h1>Managing plug-ins in mixins<a class="headerlink" href="#managing-plug-ins-in-mixins" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Canopsis frontend allow to display widget with <strong>add-in features</strong>. These features can include additionnal html elements that is put directly inside widgets, and additionnal Javascript actions.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>This chapter describes a more advanced topic than the previous ones. It will require a solid knowledge in <em>Javascript</em>, <em>OOP</em>, and concepts such as <em>Software Architecture</em> and <em>Modularity</em>.</p>
+</div>
+<div class="section" id="key-concepts">
+<h2>Key concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>widget</strong> add-in is mainly composed of a javascript file that registers an EmberJS Mixin. This mixin can be added or removed to a widget at the view loading, or when a widget is modified.</p>
+<p>A <strong>partial</strong> is an Ember template that is included directly in a MVC context, without changing this context (ie. as if the template&#8217;s code was manually pasted in the template where the partial is called).</p>
+<p>A <strong>slot</strong> is a place where elements can be put dynamically without writing down statically what to display in the code.</p>
+</div>
+<div class="section" id="partial-slots">
+<h2>Partial slots<a class="headerlink" href="#partial-slots" title="Permalink to this headline">¶</a></h2>
+<p>It is sometimes useful to make widgets add-ins add bits of html in the widget layout, such as additional buttons, labels, and so on.</p>
+<p>To make this possible, <strong>partial slots</strong> have to be put in the base widget templates. They will be used as anchors to make mixin append html bits into the widget.</p>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s take back our label widget that was defined in the first example of this guide.</p>
+<p>This widget basically insert a &#8220;&lt;h1&gt;&#8221; html tag (a title), with a text inside.</p>
+<p>If we assume that we want to add a slot for action buttons that are providided by add-ins, the base template of the widget should be modified :</p>
+<p><code class="docutils literal"><span class="pre">core/widgets/label/template.html</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>{{partialslot slot=controller._partials.actionbuttons}}
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+   {{texttodisplay}}
+<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Now that a slot is added to the widget, open the mixin javascript file. It should look like this :</p>
+<p><code class="docutils literal"><span class="pre">core/mixins/infobutton.js</span></code></p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">define</span><span class="p">([</span>
+    <span class="s1">&#39;ember&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;app/application&#39;</span>
+<span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Ember</span><span class="p">,</span> <span class="nx">Application</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">mixin</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Mixin</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+      <span class="p">[</span><span class="nx">some</span> <span class="nx">code</span> <span class="nx">here</span><span class="p">]</span>
+    <span class="p">});</span>
+
+    <span class="nx">Application</span><span class="p">.</span><span class="nx">ActionbuttonMixin</span> <span class="o">=</span> <span class="nx">mixin</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="nx">mixin</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>The template of the button we want to add could be like this :</p>
+<p><code class="docutils literal"><span class="pre">core/templates/actionbutton-showinfo.html</span></code></p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>&lt;button class=&quot;btn btn-default btn-sm&quot; {{action &#39;showInfo&#39;}} &gt;
+    {{glyphicon &quot;eye&quot;}}
+&lt;/button&gt;
+</pre></div>
+</div>
+<p>The mixin code now need to be modified to manage the button template and the corresponding action :</p>
+<p><code class="docutils literal"><span class="pre">core/mixins/infobutton.js</span></code></p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">define</span><span class="p">([</span>
+    <span class="s1">&#39;ember&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;app/application&#39;</span>
+<span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Ember</span><span class="p">,</span> <span class="nx">Application</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nx">mixin</span> <span class="o">=</span> <span class="nx">Ember</span><span class="p">.</span><span class="nx">Mixin</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+       <span class="nx">partials</span><span class="o">:</span> <span class="p">{</span>
+           <span class="nx">actionbuttons</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;actionbutton-showinfo&#39;</span><span class="p">]</span>
+       <span class="p">},</span>
+
+       <span class="nx">actions</span><span class="o">:</span> <span class="p">{</span>
+           <span class="nx">showInfo</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+               <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;clicked on button&#39;</span><span class="p">);</span>
+           <span class="p">}</span>
+       <span class="p">},</span>
+
+       <span class="p">[</span><span class="nx">some</span> <span class="nx">code</span> <span class="nx">here</span><span class="p">]</span>
+    <span class="p">});</span>
+
+    <span class="nx">Application</span><span class="p">.</span><span class="nx">ActionbuttonMixin</span> <span class="o">=</span> <span class="nx">mixin</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="nx">mixin</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>When mixins are applied to widgets, <code class="docutils literal"><span class="pre">partials</span></code> dictionnaries are all merged in <code class="docutils literal"><span class="pre">_partials</span></code> (with the same logic as actions are merged in every Ember controller) and slots can provide all the templates that are designed to be displayed.</p>
+<p>When this mixin is applied to any widget, if the widget implements the correct partial slot, a button will be available to the user.</p>
+</div>
+</div>
+<div class="section" id="advantages">
+<h2>Advantages<a class="headerlink" href="#advantages" title="Permalink to this headline">¶</a></h2>
+<p>This is an encouraged practice because it keeps algorithms and templates modular and make them appliable to any kind of widgets.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced-concepts.html" class="btn btn-neutral float-right" title="Advanced concepts" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="creating-a-simple-widget.html" class="btn btn-neutral" title="Creating a simple widget" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Capensis.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
