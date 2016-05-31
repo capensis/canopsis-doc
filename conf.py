@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Canopsis documentation build configuration file, created by
-# sphinx-quickstart on Mon May 30 10:54:27 2016.
+# sphinx-quickstart on Tue May 31 11:59:41 2016.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -153,7 +153,7 @@ html_theme = "sphinx_rtd_theme"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static', 'canopsis/canopsis/_static', 'canopsis/canopsis-webcore/_static', 'canopsis-ui-bricks/brick-calendar/_static', 'canopsis-ui-bricks/brick-simpletile/_static']
+html_static_path = ['_static', 'canopsis/canopsis/_static', 'canopsis-ui-bricks/brick-simpletile/_static', 'canopsis-ui-bricks/brick-calendar/_static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -330,4 +330,4 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #
 # texinfo_no_detailmenu = False
-html_theme_path = ['canopsis/canopsis/_themes', 'canopsis/canopsis-webcore/_themes', ]
+html_theme_path = ['canopsis/canopsis/_themes']
